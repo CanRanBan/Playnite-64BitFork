@@ -78,7 +78,6 @@ namespace Playnite
             DataCachePath = Path.Combine(ConfigRootPath, "Cache");
 
             DesktopExecutablePath = Path.Combine(ProgramPath, "Playnite.DesktopApp.exe");
-            FullscreenExecutablePath = Path.Combine(ProgramPath, "Playnite.FullscreenApp.exe");
             PlayniteAssemblyPath = Path.Combine(ProgramPath, "Playnite.dll");
             PlayniteSDKAssemblyPath = Path.Combine(ProgramPath, "Playnite.SDK.dll");
             ExtensionsUserDataPath = Path.Combine(ConfigRootPath, ExtensionsDirName);
@@ -94,7 +93,6 @@ namespace Playnite
             TempPath = Path.Combine(Path.GetTempPath(), "Playnite");
             LogPath = Path.Combine(ConfigRootPath, "playnite.log");
             ConfigFilePath = Path.Combine(ConfigRootPath, ConfigFileName);
-            FullscreenConfigFilePath = Path.Combine(ConfigRootPath, FullscreenConfigFileName);
             WindowPositionsPath = Path.Combine(ConfigRootPath, WindowPositionsFileName);
             BackupConfigFilePath = Path.Combine(ConfigRootPath, "Backup", ConfigFileName);
             BackupFullscreenConfigFilePath = Path.Combine(ConfigRootPath, "Backup", FullscreenConfigFileName);
