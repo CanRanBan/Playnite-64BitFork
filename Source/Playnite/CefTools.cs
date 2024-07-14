@@ -34,7 +34,12 @@ namespace Playnite
             settings.CefCommandLineArgs.Add("disable-gpu", "1");
             settings.CefCommandLineArgs.Add("disable-gpu-compositing", "1");
 
+            // Use CefSharp from subfolder
+            settings.BrowserSubprocessPath = Path.Combine(PlaynitePaths.ProgramPath, "Include", "CefSharp", "CefSharp.BrowserSubprocess.exe");
             settings.CachePath = PlaynitePaths.BrowserCachePath;
+            settings.LocalesDirPath = Path.Combine(PlaynitePaths.ProgramPath, "Include", "CefSharp", "Locales");
+            // Using resources directory would require additional robocopy commands.
+            // settings.ResourcesDirPath = Path.Combine(PlaynitePaths.ProgramPath, "Include", "CefSharp", "Resources");
             settings.PersistSessionCookies = true;
             settings.LogFile = Path.Combine(PlaynitePaths.ConfigRootPath, "CefSharp.log");
             settings.LogSeverity = enableLogs ? LogSeverity.Error : LogSeverity.Disable;
