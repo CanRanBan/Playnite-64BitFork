@@ -103,7 +103,7 @@ namespace Playnite.Common
                 {
                     if (procNames.Contains(Path.GetFileName(procPath)))
                     {
-                        return process.Id; ;
+                        return process.Id;
                     }
                 }
                 else if (procNamesNoExt.Contains(process.ProcessName))
