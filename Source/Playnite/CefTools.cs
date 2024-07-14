@@ -40,6 +40,8 @@ namespace Playnite
             settings.LocalesDirPath = Path.Combine(PlaynitePaths.ProgramPath, "Include", "CefSharp", "Locales");
             // Using resources directory would require additional robocopy commands.
             // settings.ResourcesDirPath = Path.Combine(PlaynitePaths.ProgramPath, "Include", "CefSharp", "Resources");
+            settings.RootCachePath = PlaynitePaths.BrowserCachePath;
+
             settings.PersistSessionCookies = true;
             settings.LogFile = Path.Combine(PlaynitePaths.ConfigRootPath, "CefSharp.log");
             settings.LogSeverity = enableLogs ? LogSeverity.Error : LogSeverity.Disable;
