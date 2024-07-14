@@ -91,7 +91,7 @@ namespace Playnite
 
             BrowserCachePath = Path.Combine(ConfigRootPath, "BrowserCache");
             TempPath = Path.Combine(Path.GetTempPath(), "Playnite");
-            LogPath = Path.Combine(ConfigRootPath, "playnite.log");
+            LogPath = Path.Combine(ConfigRootPath, "Playnite.log");
             ConfigFilePath = Path.Combine(ConfigRootPath, ConfigFileName);
             WindowPositionsPath = Path.Combine(ConfigRootPath, WindowPositionsFileName);
             BackupConfigFilePath = Path.Combine(ConfigRootPath, "Backup", ConfigFileName);

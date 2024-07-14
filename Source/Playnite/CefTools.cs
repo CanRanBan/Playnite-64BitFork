@@ -36,7 +36,7 @@ namespace Playnite
 
             settings.CachePath = PlaynitePaths.BrowserCachePath;
             settings.PersistSessionCookies = true;
-            settings.LogFile = Path.Combine(PlaynitePaths.ConfigRootPath, "cef.log");
+            settings.LogFile = Path.Combine(PlaynitePaths.ConfigRootPath, "CefSharp.log");
             settings.LogSeverity = enableLogs ? LogSeverity.Error : LogSeverity.Disable;
             // Firefox user agent gives the best compatibility because some websites complain
             // about unsecure browser if we try to pretend to be Chrome (which is CefSharp's default).
