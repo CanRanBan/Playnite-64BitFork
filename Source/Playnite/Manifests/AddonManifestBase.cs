@@ -13,7 +13,6 @@ namespace Playnite
         MetadataProvider,
         Generic,
         ThemeDesktop,
-        ThemeFullscreen
     }
 
     public class AddonManifestBase : ObservableObject
