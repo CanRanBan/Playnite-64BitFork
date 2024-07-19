@@ -731,10 +731,6 @@ namespace Playnite
                     {
                         SyncContext.Post(_ => SwitchAppMode(ApplicationMode.Desktop), null);
                     }
-                    else if (args.Args == "fullscreen")
-                    {
-                        SyncContext.Post(_ => SwitchAppMode(ApplicationMode.Fullscreen), null);
-                    }
                     else
                     {
                         logger.Error($"Can't switch to uknwon application mode: {args.Args}");
@@ -856,10 +852,6 @@ namespace Playnite
                                 if (existingProcess.ProcessName == curProcess.ProcessName)
                                 {
                                     client.InvokeCommand(CmdlineCommand.Focus, string.Empty);
-                                }
-                                else
-                                {
-                                    client.InvokeCommand(CmdlineCommand.SwitchMode, Mode == ApplicationMode.Desktop ? "desktop" : "fullscreen");
                                 }
                             }
                         });
