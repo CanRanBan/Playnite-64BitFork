@@ -733,7 +733,7 @@ namespace Playnite
                     }
                     else
                     {
-                        logger.Error($"Can't switch to uknwon application mode: {args.Args}");
+                        logger.Error($"Can't switch to unknown application mode: {args.Args}");
                     }
                     break;
 
