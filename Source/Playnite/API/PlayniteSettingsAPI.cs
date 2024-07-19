@@ -10,10 +10,10 @@ using System.Windows.Controls;
 
 namespace Playnite.API
 {
-    public class CompletionStatusSettignsApi : ICompletionStatusSettignsApi
+    public class CompletionStatusSettingsApi : ICompletionStatusSettingsApi
     {
         private readonly GameDatabase db;
-        public CompletionStatusSettignsApi(GameDatabase database)
+        public CompletionStatusSettingsApi(GameDatabase database)
         {
             db = database;
         }
@@ -49,7 +49,7 @@ namespace Playnite.API
         public AgeRatingOrg AgeRatingOrgPriority => settings.AgeRatingOrgPriority;
         public bool SidebarVisible => settings.ShowSidebar;
         public Dock SidebarPosition => settings.SidebarPosition;
-        public ICompletionStatusSettignsApi CompletionStatus { get; }
+        public ICompletionStatusSettingsApi CompletionStatus { get; }
         public bool ForcePlayTimeSync => false;
         public PlaytimeImportMode PlaytimeImportMode => settings.PlaytimeImportMode;
 
@@ -57,7 +57,7 @@ namespace Playnite.API
         {
             this.settings = settings;
             this.db = db;
-            CompletionStatus = new CompletionStatusSettignsApi(db);
+            CompletionStatus = new CompletionStatusSettingsApi(db);
         }
 
         public bool GetGameExcludedFromImport(string gameId, Guid libraryId)
