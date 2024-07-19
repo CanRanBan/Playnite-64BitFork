@@ -21,9 +21,6 @@ namespace Playnite
         [Option("startdesktop")]
         public bool StartInDesktop { get; set; }
 
-        [Option("startfullscreen")]
-        public bool StartInFullscreen { get; set; }
-
         [Option("forcesoftrender")]
         public bool ForceSoftwareRender { get; set; }
 
