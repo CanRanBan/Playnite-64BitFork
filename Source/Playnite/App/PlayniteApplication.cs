@@ -192,7 +192,7 @@ namespace Playnite
                     DirectoryName = ThemeManager.DefaultThemeDirName,
                     DirectoryPath = Path.Combine(PlaynitePaths.ThemesProgramPath, ThemeManager.GetThemeRootDir(Mode), ThemeManager.DefaultThemeDirName),
                     Name = ThemeManager.DefaultThemeDirName,
-                    Id = mode == ApplicationMode.Desktop ? ThemeManager.DefaultDesktopThemeId : ThemeManager.DefaultFullscreenThemeId
+                    Id = ThemeManager.DefaultDesktopThemeId
                 };
 
                 ThemeManager.SetDefaultTheme(defaultTheme);
