@@ -169,11 +169,10 @@ namespace Playnite
         public void InstallUpdate(ApplicationMode mode)
         {
             var portable = PlayniteSettings.IsPortable ? "/PORTABLE" : "";
-            var fullscreen = mode == ApplicationMode.Fullscreen ? "/FULLSCREEN" : "";
             logger.Info("Installing new update to {0}, in {1} mode".Format(PlaynitePaths.ProgramPath, portable));
             playniteApp.QuitAndStart(
                 updaterPath,
-                @"/SILENT /NOCANCEL /DIR=""{0}"" /UPDATE {1} {2}".Format(PlaynitePaths.ProgramPath, portable, fullscreen),
+                @"/SILENT /NOCANCEL /DIR=""{0}"" /UPDATE {1}".Format(PlaynitePaths.ProgramPath, portable),
                 !FileSystem.CanWriteToFolder(PlaynitePaths.ProgramPath));
         }
 
