@@ -219,18 +219,10 @@ namespace Playnite
                 }
 
                 var relaunchPath = string.Empty;
-                if (AppSettings.StartInFullscreen && mode == ApplicationMode.Desktop && !CmdLine.StartInDesktop)
-                {
-                    relaunchPath = PlaynitePaths.FullscreenExecutablePath;
-                }
 
                 if (CmdLine.StartInDesktop && mode != ApplicationMode.Desktop)
                 {
                     relaunchPath = PlaynitePaths.DesktopExecutablePath;
-                }
-                else if (CmdLine.StartInFullscreen && mode != ApplicationMode.Fullscreen)
-                {
-                    relaunchPath = PlaynitePaths.FullscreenExecutablePath;
                 }
 
                 if (!relaunchPath.IsNullOrEmpty())
@@ -846,10 +838,6 @@ namespace Playnite
                             {
                                 client.InvokeCommand(CmdlineCommand.SwitchMode, "desktop");
                             }
-                            else if (CmdLine.StartInFullscreen)
-                            {
-                                client.InvokeCommand(CmdlineCommand.SwitchMode, "fullscreen");
-                            }
                             else if (CmdLine.Shutdown)
                             {
                                 client.InvokeCommand(CmdlineCommand.Shutdown, null);
@@ -994,10 +982,6 @@ namespace Playnite
             else if (CmdLine.StartInDesktop)
             {
                 PipeService_CommandExecuted(this, new CommandExecutedEventArgs(CmdlineCommand.SwitchMode, "desktop"));
-            }
-            else if (CmdLine.StartInFullscreen)
-            {
-                PipeService_CommandExecuted(this, new CommandExecutedEventArgs(CmdlineCommand.SwitchMode, "fullscreen"));
             }
             else if (CmdLine.Shutdown)
             {
