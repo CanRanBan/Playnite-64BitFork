@@ -131,16 +131,6 @@ namespace Playnite.ViewModels
             }
         }
 
-        public List<FilterPreset> SortedFilterFullscreenPresets
-        {
-            get
-            {
-                return Database.GetSortedFilterPresets()
-                    .Where(a => a.ShowInFullscreeQuickSelection)
-                    .ToList();
-            }
-        }
-
         public bool IsDisposing { get; set; } = false;
         public RelayCommand<object> AddFilterPresetCommand { get; private set; }
         public RelayCommand<FilterPreset> RenameFilterPresetCommand { get; private set; }
@@ -239,7 +229,6 @@ namespace Playnite.ViewModels
             App.SyncContext.Send((_) =>
             {
                 OnPropertyChanged(nameof(SortedFilterPresets));
-                OnPropertyChanged(nameof(SortedFilterFullscreenPresets));
             }, null);
         }
 
@@ -248,7 +237,6 @@ namespace Playnite.ViewModels
             App.SyncContext.Send((_) =>
             {
                 OnPropertyChanged(nameof(SortedFilterPresets));
-                OnPropertyChanged(nameof(SortedFilterFullscreenPresets));
             }, null);
         }
 
@@ -365,7 +353,6 @@ namespace Playnite.ViewModels
             }
 
             OnPropertyChanged(nameof(SortedFilterPresets));
-            OnPropertyChanged(nameof(SortedFilterFullscreenPresets));
         }
 
         private void RemoveFilterPreset(FilterPreset preset)
