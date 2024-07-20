@@ -16,12 +16,6 @@ namespace Playnite.SDK
         /// Desktop application mode.
         /// </summary>
         [Description("Desktop")]
-        Desktop,
-
-        /// <summary>
-        /// Fullscreen application mode.
-        /// </summary>
-        [Description("Fullscreen")]
-        Fullscreen
+        Desktop
     }
 }
