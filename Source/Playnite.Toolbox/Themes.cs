@@ -185,7 +185,7 @@ namespace Playnite.Toolbox
 
             extInfo.VerifyManifest();
 
-            var apiVer = extInfo.Mode == ApplicationMode.Desktop ? ThemeManager.DesktopApiVersion : ThemeManager.FullscreenApiVersion;
+            var apiVer = ThemeManager.DesktopApiVersion;
             var themeApiVer = Version.Parse(extInfo.ThemeApiVersion);
             if (themeApiVer > apiVer)
             {
