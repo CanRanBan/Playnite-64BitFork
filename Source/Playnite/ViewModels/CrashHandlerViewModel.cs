@@ -184,14 +184,7 @@ namespace Playnite.ViewModels
                 settings.SaveSettings();
             }
 
-            if (mode == ApplicationMode.Desktop)
-            {
-                Process.Start(PlaynitePaths.DesktopExecutablePath);
-            }
-            else
-            {
-                Process.Start(PlaynitePaths.FullscreenExecutablePath);
-            }
+            Process.Start(PlaynitePaths.DesktopExecutablePath);
 
             CloseView();
         }
@@ -199,14 +192,8 @@ namespace Playnite.ViewModels
         public void RestartAppSafe()
         {
             var options = new CmdLineOptions { SafeStartup = true };
-            if (mode == ApplicationMode.Desktop)
-            {
-                Process.Start(PlaynitePaths.DesktopExecutablePath, options.ToString());
-            }
-            else
-            {
-                Process.Start(PlaynitePaths.FullscreenExecutablePath, options.ToString());
-            }
+
+            Process.Start(PlaynitePaths.DesktopExecutablePath, options.ToString());
 
             CloseView();
         }
