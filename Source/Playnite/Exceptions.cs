@@ -14,16 +14,6 @@ using System.Threading.Tasks;
 
 namespace Playnite
 {
-    public class NotSupportedInFullscreenException : Exception
-    {
-        public NotSupportedInFullscreenException() : base("Not supported in Fullscreen mode.")
-        {
-        }
-        public NotSupportedInFullscreenException(string message) : base(message)
-        {
-        }
-    }
-
     public class ExceptionInfo
     {
         public bool IsLiteDbCorruptionCrash;
