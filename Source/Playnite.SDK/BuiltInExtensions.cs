@@ -75,7 +75,6 @@ namespace Playnite.SDK
         /// </summary>
         public static string[] BuiltinThemeIds { get; } = new string[]
         {
-            "Playnite_builtin_DefaultFullscreen",
             "Playnite_builtin_DefaultDesktop",
         };
 
