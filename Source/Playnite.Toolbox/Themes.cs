@@ -305,7 +305,7 @@ namespace Playnite.Toolbox
             {
                 foreach (var changedFile in themeChanges)
                 {
-                    var subpath = Common.Paths.FixSeparators(Regex.Replace(changedFile.Path, ".+Themes/(Desktop|Fullscreen)/Default/", ""));
+                    var subpath = Common.Paths.FixSeparators(Regex.Replace(changedFile.Path, ".+Themes/Desktop/Default/", ""));
                     var curThemePath = Path.Combine(themeDirectory, subpath);
                     var defaultPath = Path.Combine(defaultThemeDir, subpath);
                     if (changedFile.ChangeType == "D")
