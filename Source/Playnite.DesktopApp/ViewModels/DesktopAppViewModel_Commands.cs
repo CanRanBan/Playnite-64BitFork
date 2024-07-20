@@ -38,8 +38,6 @@ namespace Playnite.DesktopApp.ViewModels
         public RelayCommand<object> AddInstalledGamesCommand { get; private set; }
         public RelayCommand<object> AddEmulatedGamesCommand { get; private set; }
         public RelayCommand<object> AddWindowsStoreGamesCommand { get; private set; }
-        public RelayCommand<object> OpenFullScreenCommand { get; private set; }
-        public RelayCommand<object> OpenFullScreenFromControllerCommand { get; private set; }
         public RelayCommand<object> ClearMessagesCommand { get; private set; }
         public RelayCommand<object> DownloadMetadataCommand { get; private set; }
         public RelayCommand<object> OpenSoftwareToolsCommand { get; private set; }
@@ -243,19 +241,6 @@ namespace Playnite.DesktopApp.ViewModels
                     Dialogs,
                     Database));
             }, (a) => Database?.IsOpen == true);
-
-            OpenFullScreenCommand = new RelayCommand<object>((a) =>
-            {
-                SwitchToFullscreenMode();
-            }, new KeyGesture(Key.F11));
-
-            OpenFullScreenFromControllerCommand = new RelayCommand<object>((a) =>
-            {
-                if (AppSettings.GuideButtonOpensFullscreen)
-                {
-                    SwitchToFullscreenMode();
-                }
-            }, new KeyGesture(Key.F11));
 
             ClearMessagesCommand = new RelayCommand<object>((a) =>
             {
