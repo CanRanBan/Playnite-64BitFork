@@ -850,21 +850,6 @@ namespace Playnite
             }
         }
 
-        private bool startInFullscreen = false;
-        public bool StartInFullscreen
-        {
-            get
-            {
-                return startInFullscreen;
-            }
-
-            set
-            {
-                startInFullscreen = value;
-                OnPropertyChanged();
-            }
-        }
-
         private string databasePath;
         [RequiresRestart]
         public string DatabasePath
@@ -1207,21 +1192,6 @@ namespace Playnite
             set
             {
                 enableControolerInDesktop = value;
-                OnPropertyChanged();
-            }
-        }
-
-        private bool guideButtonOpensFullscreen = false;
-        public bool GuideButtonOpensFullscreen
-        {
-            get
-            {
-                return guideButtonOpensFullscreen;
-            }
-
-            set
-            {
-                guideButtonOpensFullscreen = value;
                 OnPropertyChanged();
             }
         }
