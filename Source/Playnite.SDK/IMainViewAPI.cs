@@ -40,11 +40,6 @@ namespace Playnite.SDK
         DesktopView ActiveDesktopView { get; set; }
 
         /// <summary>
-        /// Gets currently active Fullscreen mode view.
-        /// </summary>
-        FullscreenView ActiveFullscreenView { get; }
-
-        /// <summary>
         /// Gets currently active sorting order.
         /// </summary>
         SortOrder SortOrder { get; }
