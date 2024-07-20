@@ -11,7 +11,6 @@ namespace Playnite.Toolbox
     {
         Unknown,
         DesktopTheme,
-        FullscreenTheme,
         PowerShellScript,
         GenericPlugin,
         MetadataPlugin,
