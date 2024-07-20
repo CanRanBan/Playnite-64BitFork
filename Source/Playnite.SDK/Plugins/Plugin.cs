@@ -377,16 +377,11 @@ namespace Playnite.SDK.Plugins
         }
 
         /// <summary>
-        /// Opens plugin's settings view. Only works in Desktop application mode!
+        /// Opens plugin's settings view.
         /// </summary>
         /// <returns>True if user saved any changes, False if dialog was canceled.</returns>
         public bool OpenSettingsView()
         {
-            if (PlayniteApi.ApplicationInfo.Mode == ApplicationMode.Fullscreen)
-            {
-                return false;
-            }
-
             return PlayniteApi.MainView.OpenPluginSettings(Id);
         }
 
