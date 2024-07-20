@@ -112,10 +112,5 @@ namespace Playnite.DesktopApp.ViewModels
         {
             get; private set;
         }
-
-        public List<ThemeManifest> FullscreenThemeList
-        {
-            get; private set;
-        }
     }
 }
