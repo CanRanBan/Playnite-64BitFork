@@ -466,7 +466,6 @@ namespace Playnite.DesktopApp.ViewModels
 
             LoadSoftwareToolsSidebarItems();
             OnPropertyChanged(nameof(SortedFilterPresets));
-            OnPropertyChanged(nameof(SortedFilterFullscreenPresets));
             if (AppSettings.SelectedFilterPreset != Guid.Empty)
             {
                 ActiveFilterPreset = Database.FilterPresets.FirstOrDefault(a => a.Id == AppSettings.SelectedFilterPreset);
