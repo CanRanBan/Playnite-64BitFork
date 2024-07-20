@@ -53,8 +53,6 @@ namespace Playnite
                     return SdkVersions.SDKVersion;
                 case AddonType.ThemeDesktop:
                     return ThemeManager.DesktopApiVersion;
-                case AddonType.ThemeFullscreen:
-                    return ThemeManager.FullscreenApiVersion;
             }
 
             return new Version(999, 0);
@@ -134,7 +132,7 @@ namespace Playnite
 
         [YamlIgnore]
         [JsonIgnore]
-        public bool IsTheme => Type == AddonType.ThemeDesktop || Type == AddonType.ThemeFullscreen;
+        public bool IsTheme => Type == AddonType.ThemeDesktop;
 
         [YamlIgnore]
         [JsonIgnore]
@@ -154,7 +152,6 @@ namespace Playnite
                 case AddonType.Generic:
                     return PlaynitePaths.PackedExtensionFileExtention;
                 case AddonType.ThemeDesktop:
-                case AddonType.ThemeFullscreen:
                     return PlaynitePaths.PackedThemeFileExtention;
                 default:
                     throw new Exception($"Unknown addon type {type}");
