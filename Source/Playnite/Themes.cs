@@ -36,7 +36,7 @@ namespace Playnite
 
         public static string GetThemeRootDir(ApplicationMode mode)
         {
-            return mode == ApplicationMode.Desktop ? "Desktop" : "Fullscreen";
+            return "Desktop";
         }
 
         public static void SetCurrentTheme(ThemeManifest theme)
@@ -182,11 +182,6 @@ namespace Playnite
         public static IEnumerable<ThemeManifest> GetAvailableThemes()
         {
             foreach (var theme in GetAvailableThemes(ApplicationMode.Desktop))
-            {
-                yield return theme;
-            }
-
-            foreach (var theme in GetAvailableThemes(ApplicationMode.Fullscreen))
             {
                 yield return theme;
             }
