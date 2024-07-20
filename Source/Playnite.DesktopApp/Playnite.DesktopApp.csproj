@@ -215,9 +215,6 @@
     <Compile Include="Controls\SettingsSections\GeneralAdvanced.xaml.cs">
       <DependentUpon>GeneralAdvanced.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\SettingsSections\Input.xaml.cs">
-      <DependentUpon>Input.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Controls\SettingsSections\Metadata.xaml.cs">
       <DependentUpon>Metadata.xaml</DependentUpon>
     </Compile>
@@ -652,10 +649,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\SettingsSections\GeneralAdvanced.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\SettingsSections\Input.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
