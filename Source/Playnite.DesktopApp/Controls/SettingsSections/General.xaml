@@ -92,10 +92,6 @@
                 Content="{DynamicResource LOCSettingsDownloadMetadataOnImport}" 
                 IsChecked="{Binding Settings.DownloadMetadataOnImport}"/>
 
-        <CheckBox Name="CheckStartFullscreen" Margin="5,15,5,5"
-                Content="{DynamicResource LOCSettingsStartInFullscreen}"
-                IsChecked="{Binding Settings.StartInFullscreen}"/>
-
         <CheckBox Name="CheckStartOnBoot" Margin="5,15,5,5"
                 Content="{DynamicResource LOCSettingsStartOnBoot}"
                 IsChecked="{Binding Settings.StartOnBoot}"/>
