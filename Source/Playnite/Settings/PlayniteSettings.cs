@@ -617,31 +617,8 @@ namespace Playnite
             }
         }
 
-        private int fullscreenItemSpacing = 20;
-        public int FullscreenItemSpacing
-        {
-            get
-            {
-                return fullscreenItemSpacing;
-            }
-
-            set
-            {
-                fullscreenItemSpacing = value;
-                OnPropertyChanged();
-                FullscreenItemSpacingMargin = GetFullscreenItemSpacingMargin();
-                OnPropertyChanged(nameof(FullscreenItemSpacingMargin));
-            }
-        }
-
         [JsonIgnore]
         public Thickness ItemSpacingMargin
-        {
-            get; private set;
-        }
-
-        [JsonIgnore]
-        public Thickness FullscreenItemSpacingMargin
         {
             get; private set;
         }
@@ -2270,7 +2247,6 @@ namespace Playnite
 
             InstallInstanceId = Guid.NewGuid().ToString();
             ItemSpacingMargin = GetItemSpacingMargin();
-            FullscreenItemSpacingMargin = GetFullscreenItemSpacingMargin();
             UpdateGridItemHeight();
         }
 
@@ -2589,13 +2565,6 @@ namespace Playnite
         private Thickness GetItemSpacingMargin()
         {
             return new Thickness(GridItemSpacing / 2, GridItemSpacing / 2, GridItemSpacing / 2, GridItemSpacing / 2);
-        }
-
-        private Thickness GetFullscreenItemSpacingMargin()
-        {
-            double marginX = FullscreenItemSpacing / 2;
-            double marginY = CoverAspectRatio.GetWidth(FullscreenItemSpacing) / 2;
-            return new Thickness(marginY / 2, marginX / 2, marginY / 2, marginX / 2);
         }
 
         private void UpdateGridItemHeight()
