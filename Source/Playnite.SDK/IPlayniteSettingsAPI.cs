@@ -45,7 +45,7 @@ namespace Playnite.SDK
     /// <summary>
     /// Describes interface for completion status related settings.
     /// </summary>
-    public interface ICompletionStatusSettignsApi
+    public interface ICompletionStatusSettingsApi
     {
         /// <summary>
         /// Gets ID of status to be assigned to newly added games.
@@ -178,7 +178,7 @@ namespace Playnite.SDK
         /// <summary>
         /// Gets completion status related settings.
         /// </summary>
-        ICompletionStatusSettignsApi CompletionStatus { get; }
+        ICompletionStatusSettingsApi CompletionStatus { get; }
 
         /// <summary>
         /// Checks if game is added on import exclusion list.
