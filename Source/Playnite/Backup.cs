@@ -63,7 +63,7 @@ namespace Playnite
         private const string extensionsDataEntryRoot = "extensiondata";
         private const string extensionsEntryRoot = "extension";
         private const string themesEntryRoot = "themes";
-        private static readonly string[] configFilesNames = new string[] { PlaynitePaths.ConfigFileName, PlaynitePaths.FullscreenConfigFileName };
+        private static readonly string[] configFilesNames = new string[] { PlaynitePaths.ConfigFileName };
 
         public static void BackupData(string optionsFile, CancellationToken cancelToken)
         {
@@ -183,7 +183,6 @@ namespace Playnite
                     }
 
                     packThemes(ApplicationMode.Desktop);
-                    packThemes(ApplicationMode.Fullscreen);
                 }
             }
 
@@ -325,7 +324,6 @@ namespace Playnite
 
                         FileSystem.CreateDirectory(outputDir, false);
                         cleanThemeModeDir(ApplicationMode.Desktop);
-                        cleanThemeModeDir(ApplicationMode.Fullscreen);
                         foreach (var entry in archive.Entries)
                         {
                             if (entry.FullName.StartsWith(dirPrefix, StringComparison.OrdinalIgnoreCase))
