@@ -23,7 +23,6 @@ namespace Playnite
     {
         private static ILogger logger = LogManager.GetLogger();
         public static System.Version DesktopApiVersion => new System.Version("2.6.0");
-        public static System.Version FullscreenApiVersion => new System.Version("2.6.0");
         public static ThemeManifest CurrentTheme { get; private set; }
         public static ThemeManifest DefaultTheme { get; private set; }
         public const string DefaultDesktopThemeId = "Playnite_builtin_DefaultDesktop";
@@ -32,7 +31,7 @@ namespace Playnite
 
         public static System.Version GetApiVersion(ApplicationMode mode)
         {
-            return mode == ApplicationMode.Desktop ? DesktopApiVersion : FullscreenApiVersion;
+            return DesktopApiVersion;
         }
 
         public static string GetThemeRootDir(ApplicationMode mode)
