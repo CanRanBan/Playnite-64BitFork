@@ -25,7 +25,6 @@ namespace Playnite
         public const string ExtensionsDataDirName = "ExtensionsData";
         public const string ThemesDirName = "Themes";
         public const string ConfigFileName = "config.json";
-        public const string FullscreenConfigFileName = "fullscreenConfig.json";
         public const string WindowPositionsFileName = "windowPositions.json";
         public const string LocalizationsDirName = "Localization";
 
@@ -36,7 +35,6 @@ namespace Playnite
         public static string DataCachePath { get; }
 
         public static string DesktopExecutablePath { get; }
-        public static string FullscreenExecutablePath { get; }
         public static string PlayniteAssemblyPath { get; }
         public static string PlayniteSDKAssemblyPath { get; }
         public static string ExtensionsUserDataPath { get; }
@@ -52,10 +50,8 @@ namespace Playnite
         public static string TempPath { get; }
         public static string LogPath { get; }
         public static string ConfigFilePath { get; }
-        public static string FullscreenConfigFilePath { get; }
         public static string WindowPositionsPath { get; }
         public static string BackupConfigFilePath { get; }
-        public static string BackupFullscreenConfigFilePath { get; }
         public static string BackupWindowPositionsPath { get; }
         public static string ImagesCachePath { get; }
         public static string IconsCachePath { get; }
@@ -95,7 +91,6 @@ namespace Playnite
             ConfigFilePath = Path.Combine(ConfigRootPath, ConfigFileName);
             WindowPositionsPath = Path.Combine(ConfigRootPath, WindowPositionsFileName);
             BackupConfigFilePath = Path.Combine(ConfigRootPath, "Backup", ConfigFileName);
-            BackupFullscreenConfigFilePath = Path.Combine(ConfigRootPath, "Backup", FullscreenConfigFileName);
             BackupWindowPositionsPath = Path.Combine(ConfigRootPath, "Backup", WindowPositionsFileName);
             ImagesCachePath = Path.Combine(DataCachePath, "Images");
             IconsCachePath = Path.Combine(DataCachePath, "Icons");
