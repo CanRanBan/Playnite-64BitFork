@@ -32,17 +32,6 @@ namespace Playnite.SDK
     }
 
     /// <summary>
-    /// Describes interface for Fullscreen mode settings.
-    /// </summary>
-    public interface IFullscreenSettingsAPI
-    {
-        /// <summary>
-        ///
-        /// </summary>
-        bool IsMusicMuted { get; set; }
-    }
-
-    /// <summary>
     /// Describes interface for completion status related settings.
     /// </summary>
     public interface ICompletionStatusSettingsApi
