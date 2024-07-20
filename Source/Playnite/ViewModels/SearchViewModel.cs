@@ -1060,14 +1060,8 @@ namespace Playnite.ViewModels
         private void OpenSearchSettings()
         {
             Close();
-            if (mainModel.App.Mode == ApplicationMode.Desktop)
-            {
-                mainModel.OpenSettings((int)DesktopSettingsPage.Search);
-            }
-            else
-            {
-                throw new NotSupportedInFullscreenException();
-            }
+
+            mainModel.OpenSettings((int)DesktopSettingsPage.Search);
         }
 
         private void ToggleInstalledFilter()
