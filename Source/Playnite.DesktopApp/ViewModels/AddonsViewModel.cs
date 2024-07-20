@@ -24,12 +24,10 @@ namespace Playnite.DesktopApp.ViewModels
             InstalledMetadata = 1,
             InstalledGeneric = 2,
             InstalledThemesDesktop = 3,
-            InstalledThemesFullscreen = 4,
             BrowseLibraries = 5,
             BrowseMetadata = 6,
             BrowseGeneric = 7,
             BrowseThemesDesktop = 8,
-            BrowseThemesFullscreen = 9,
             Updates = 10,
             None = 99
         }
@@ -217,12 +215,10 @@ namespace Playnite.DesktopApp.ViewModels
                 { View.InstalledMetadata, new Controls.AddonsSections.InstalledExtensions() { DataContext = this } },
                 { View.InstalledGeneric, new Controls.AddonsSections.InstalledExtensions() { DataContext = this } },
                 { View.InstalledThemesDesktop, new Controls.AddonsSections.InstalledThemes() { DataContext = this } },
-                { View.InstalledThemesFullscreen, new Controls.AddonsSections.InstalledThemes() { DataContext = this } },
                 { View.BrowseLibraries, new Controls.AddonsSections.BrowseAddons() { DataContext = this } },
                 { View.BrowseMetadata, new Controls.AddonsSections.BrowseAddons() { DataContext = this } },
                 { View.BrowseGeneric, new Controls.AddonsSections.BrowseAddons() { DataContext = this } },
                 { View.BrowseThemesDesktop, new Controls.AddonsSections.BrowseAddons() { DataContext = this } },
-                { View.BrowseThemesFullscreen, new Controls.AddonsSections.BrowseAddons() { DataContext = this } },
                 { View.Updates, new Controls.AddonsSections.AddonUpdates() { DataContext = this } },
                 { View.None, null },
             };
@@ -259,7 +255,6 @@ namespace Playnite.DesktopApp.ViewModels
                 .ToList();
 
             DesktopThemeList = ThemeManager.GetAvailableThemes(ApplicationMode.Desktop).OrderBy(a => a.Name).ToList();
-            FullscreenThemeList = ThemeManager.GetAvailableThemes(ApplicationMode.Fullscreen).OrderBy(a => a.Name).ToList();
             GenericPlugins = Extensions.Plugins.Values.Where(a => a.Description.Type == ExtensionType.GenericPlugin && ((GenericPlugin)a.Plugin).Properties?.HasSettings == true).OrderBy(a => a.Description.Name).ToList();
             AnyGenericPluginSettings = GenericPlugins.HasItems();
         }
@@ -326,12 +321,6 @@ namespace Playnite.DesktopApp.ViewModels
                     AddonSearchText = string.Empty;
                     SearchAddon();
                     break;
-                case View.BrowseThemesFullscreen:
-                    application.ShowAddonPerfNotice();
-                    activeAddonSearchMode = AddonType.ThemeFullscreen;
-                    AddonSearchText = string.Empty;
-                    SearchAddon();
-                    break;
                 case View.InstalledLibraries:
                     ActiveInstalledExtensionsList = LibraryPluginList;
                     break;
@@ -343,9 +332,6 @@ namespace Playnite.DesktopApp.ViewModels
                     break;
                 case View.InstalledThemesDesktop:
                     ActiveInstalledThemeList = DesktopThemeList;
-                    break;
-                case View.InstalledThemesFullscreen:
-                    ActiveInstalledThemeList = FullscreenThemeList;
                     break;
                 case View.Updates:
                     CheckUpdates();
