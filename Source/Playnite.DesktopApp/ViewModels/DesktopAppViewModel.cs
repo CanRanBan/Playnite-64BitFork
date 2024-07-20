@@ -956,46 +956,6 @@ namespace Playnite.DesktopApp.ViewModels
 #pragma warning restore CS4014 // Because this call is not awaited, execution of the current method continues before the call is completed
         }
 
-        public void SwitchToFullscreenMode()
-        {
-            Logger.Info("Switching to Fullscreen mode.");
-            if (GlobalTaskHandler.IsActive)
-            {
-                if (Dialogs.ShowMessage(
-                    Resources.GetString(LOC.BackgroundProgressCancelAskSwitchMode),
-                    Resources.GetString(LOC.MenuOpenFullscreen),
-                    MessageBoxButton.YesNo) != MessageBoxResult.Yes)
-                {
-                    return;
-                }
-
-                var dialogRes = Dialogs.ActivateGlobalProgress((_) =>
-                    {
-                        var waitRes = GlobalTaskHandler.CancelAndWait(30_000);
-                        if (waitRes == false)
-                        {
-                            Logger.Error("Active global task failed to finish in time when switching to fullscreen mode.");
-                        }
-                    },
-                    new GlobalProgressOptions(LOC.OpeningFullscreenModeMessage));
-                if (dialogRes.Error != null)
-                {
-                    Logger.Error(dialogRes.Error, "Cancelling global task when switching to fullscreen mode failed.");
-                }
-            }
-
-            CloseView();
-            App.QuitAndStart(
-                PlaynitePaths.FullscreenExecutablePath,
-                new CmdLineOptions()
-                {
-                    SkipLibUpdate = true,
-                    StartInFullscreen = true,
-                    MasterInstance = true,
-                    SafeStartup = App.CmdLine.SafeStartup
-                }.ToString());
-        }
-
         public void PlayRandomGame()
         {
             var model = new RandomGameSelectViewModel(
@@ -1222,9 +1182,6 @@ namespace Playnite.DesktopApp.ViewModels
             {
                 yield return item;
             }
-
-            // Switch mode
-            yield return new SearchItem(LOC.MenuOpenFullscreen, LOC.Activate, () => SwitchToFullscreenMode(), "FullscreenModeIcon");
 
             // Settings
             yield return new SearchItem(LOC.MenuPlayniteSettingsTitle, LOC.Open, () => OpenSettingsCommand.Execute(null), "SettingsIcon");
