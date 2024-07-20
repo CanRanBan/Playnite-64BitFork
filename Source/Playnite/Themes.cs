@@ -57,11 +57,11 @@ namespace Playnite
                 return AddonLoadError.Unknown;
             }
 
-            var apiVesion = mode == ApplicationMode.Desktop ? DesktopApiVersion : FullscreenApiVersion;
+            var apiVersion = DesktopApiVersion;
             if (!theme.ThemeApiVersion.IsNullOrEmpty())
             {
                 var themeVersion = new Version(theme.ThemeApiVersion);
-                if (themeVersion.Major != apiVesion.Major || themeVersion > apiVesion)
+                if (themeVersion.Major != apiVersion.Major || themeVersion > apiVersion)
                 {
                     logger.Error($"Failed to apply {theme.Name} theme, unsupported API version {theme.ThemeApiVersion}.");
                     return AddonLoadError.SDKVersion;
