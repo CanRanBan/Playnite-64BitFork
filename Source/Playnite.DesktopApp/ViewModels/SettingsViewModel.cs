@@ -435,7 +435,6 @@ namespace Playnite.DesktopApp.ViewModels
                 { DesktopSettingsPage.AppearanceGridView, new Controls.SettingsSections.AppearanceGridView() { DataContext = this } },
                 { DesktopSettingsPage.AppearanceLayout, new Controls.SettingsSections.AppearanceLayout() { DataContext = this } },
                 { DesktopSettingsPage.GeneralAdvanced, new Controls.SettingsSections.GeneralAdvanced() { DataContext = this } },
-                { DesktopSettingsPage.Input, new Controls.SettingsSections.Input() { DataContext = this } },
                 { DesktopSettingsPage.Metadata, new Controls.SettingsSections.Metadata() { DataContext = this } },
                 { DesktopSettingsPage.Scripting, new Controls.SettingsSections.Scripting() { DataContext = this } },
                 { DesktopSettingsPage.ClientShutdown, new Controls.SettingsSections.ClientShutdown() { DataContext = this } },
