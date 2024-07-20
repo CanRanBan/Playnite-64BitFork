@@ -296,14 +296,7 @@ namespace Playnite.DesktopApp
 
         public override void SwitchAppMode(ApplicationMode mode)
         {
-            if (mode == ApplicationMode.Fullscreen)
-            {
-                MainModel.SwitchToFullscreenMode();
-            }
-            else
-            {
-                Restore();
-            }
+            Restore();
         }
 
         public override PlayniteAPI GetApiInstance(ExtensionManifest pluginOwner)
