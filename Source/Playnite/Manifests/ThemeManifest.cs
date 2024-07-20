@@ -45,11 +45,11 @@ namespace Playnite
                 IsBuiltInTheme = BuiltinExtensions.BuiltinThemeIds.Contains(thm.Id);
             }
 
-            var apiVesion = Mode == ApplicationMode.Desktop ? ThemeManager.DesktopApiVersion : ThemeManager.FullscreenApiVersion;
+            var apiVersion = ThemeManager.DesktopApiVersion;
             if (!ThemeApiVersion.IsNullOrEmpty())
             {
                 var themeVersion = new Version(ThemeApiVersion);
-                if (themeVersion.Major == apiVesion.Major && themeVersion <= apiVesion)
+                if (themeVersion.Major == apiVersion.Major && themeVersion <= apiVersion)
                 {
                     IsCompatible = true;
                 }
