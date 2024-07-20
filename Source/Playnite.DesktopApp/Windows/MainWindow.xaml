@@ -38,9 +38,6 @@
         <KeyBinding Command="{Binding OpenSettingsCommand}"
                 Key ="{Binding OpenSettingsCommand.Gesture.Key}"
                 Modifiers="{Binding OpenSettingsCommand.Gesture.Modifiers}" />
-        <KeyBinding Command="{Binding OpenFullScreenCommand}"
-                Key ="{Binding OpenFullScreenCommand.Gesture.Key}"
-                Modifiers="{Binding OpenFullScreenCommand.Gesture.Modifiers}" />
         <KeyBinding Command="{Binding ReloadScriptsCommand}"
                 Key ="{Binding ReloadScriptsCommand.Gesture.Key}"
                 Modifiers="{Binding ReloadScriptsCommand.Gesture.Modifiers}" />
