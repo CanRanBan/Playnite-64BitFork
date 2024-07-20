@@ -30,21 +30,6 @@ namespace Playnite.SDK
     }
 
     /// <summary>
-    ///
-    /// </summary>
-    public enum FullscreenView : int
-    {
-        /// <summary>
-        ///
-        /// </summary>
-        List = 0,
-        /// <summary>
-        ///
-        /// </summary>
-        Details = 1,
-    }
-
-    /// <summary>
     /// Describes object providing API for main UI view.
     /// </summary>
     public interface IMainViewAPI
