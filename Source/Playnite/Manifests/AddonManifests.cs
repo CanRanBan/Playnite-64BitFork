@@ -118,15 +118,9 @@ namespace Playnite
                     {
                         return ThemeManager.GetAvailableThemes(ApplicationMode.Desktop).Any(a => a.Id == AddonId);
                     }
-                    else
-                    {
-                        return ThemeManager.GetAvailableThemes(ApplicationMode.Fullscreen).Any(a => a.Id == AddonId);
-                    }
                 }
-                else
-                {
-                    return ExtensionFactory.GetInstalledManifests().Any(a => a.Id == AddonId);
-                }
+
+                return ExtensionFactory.GetInstalledManifests().Any(a => a.Id == AddonId);
             }
         }
 
