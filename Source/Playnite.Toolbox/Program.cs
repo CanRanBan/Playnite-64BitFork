@@ -81,8 +81,6 @@ namespace Playnite.Toolbox
                 {
                     case ApplicationMode.Desktop:
                         return ItemType.DesktopTheme;
-                    case ApplicationMode.Fullscreen:
-                        return ItemType.FullscreenTheme;
                 }
             }
             else if (File.Exists(extMan))
@@ -113,9 +111,6 @@ namespace Playnite.Toolbox
                 {
                     case ItemType.DesktopTheme:
                         outPath = Themes.GenerateNewTheme(ApplicationMode.Desktop, options.Name);
-                        break;
-                    case ItemType.FullscreenTheme:
-                        outPath = Themes.GenerateNewTheme(ApplicationMode.Fullscreen, options.Name);
                         break;
                     case ItemType.PowerShellScript:
                         outPath = Extensions.GenerateScriptExtension(options.Name, options.OutDirectory.Trim('"'));
@@ -158,9 +153,6 @@ namespace Playnite.Toolbox
                     case ItemType.DesktopTheme:
                         outPath = Themes.PackageTheme(options.Directory, options.Destination, ApplicationMode.Desktop);
                         break;
-                    case ItemType.FullscreenTheme:
-                        outPath = Themes.PackageTheme(options.Directory, options.Destination, ApplicationMode.Fullscreen);
-                        break;
                     case ItemType.PowerShellScript:
                     case ItemType.GenericPlugin:
                     case ItemType.MetadataPlugin:
@@ -188,9 +180,6 @@ namespace Playnite.Toolbox
                 switch (type)
                 {
                     case ItemType.DesktopTheme:
-                        Themes.UpdateTheme(options.Directory, ApplicationMode.Desktop);
-                        break;
-                    case ItemType.FullscreenTheme:
                         Themes.UpdateTheme(options.Directory, ApplicationMode.Desktop);
                         break;
                     case ItemType.Unknown:
