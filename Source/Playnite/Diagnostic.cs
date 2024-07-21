@@ -167,10 +167,16 @@ namespace Playnite
                         try
                         {
                             var cefEntry = archive.CreateEntry(Path.GetFileName(logPath));
-                            using (var cefS = new FileStream(logPath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite))
-                            using (var writer = new StreamWriter(cefEntry.Open()))
+                            using (var cefS = new FileStream(
+                                                             logPath,
+                                                             FileMode.Open,
+                                                             FileAccess.Read,
+                                                             FileShare.ReadWrite))
                             {
-                                cefS.CopyTo(writer.BaseStream);
+                                using (var writer = new StreamWriter(cefEntry.Open()))
+                                {
+                                    cefS.CopyTo(writer.BaseStream);
+                                }
                             }
                         }
                         catch (Exception e)
@@ -201,17 +207,22 @@ namespace Playnite
         {
             FileSystem.DeleteFile(path);
             using (FileStream zipToOpen = new FileStream(path, FileMode.Create))
-            using (ZipArchive archive = new ZipArchive(zipToOpen, ZipArchiveMode.Update))
             {
-                foreach (var logFile in Directory.GetFiles(PlaynitePaths.ConfigRootPath, "*.log", SearchOption.TopDirectoryOnly))
+                using (ZipArchive archive = new ZipArchive(zipToOpen, ZipArchiveMode.Update))
                 {
-                    if (Path.GetFileName(logFile) == "cef.log" || Path.GetFileName(logFile) == "debug.log")
+                    foreach (var logFile in Directory.GetFiles(
+                                                               PlaynitePaths.ConfigRootPath,
+                                                               "*.log",
+                                                               SearchOption.TopDirectoryOnly))
                     {
-                        continue;
-                    }
-                    else
-                    {
-                        archive.CreateEntryFromFile(logFile, Path.GetFileName(logFile));
+                        if (Path.GetFileName(logFile) == "cef.log" || Path.GetFileName(logFile) == "debug.log")
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            archive.CreateEntryFromFile(logFile, Path.GetFileName(logFile));
+                        }
                     }
                 }
             }

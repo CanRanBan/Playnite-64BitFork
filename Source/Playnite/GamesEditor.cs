@@ -422,36 +422,51 @@ namespace Playnite
                     case GameActionType.Emulator:
                     case GameActionType.Script:
                         using (var scriptRuntime = new PowerShellRuntime("Custom action runtime"))
-                        using (var controller = new GenericPlayController(Database, game, scriptRuntime, Application.PlayniteApiGlobal))
                         {
-                            if (action.Type == GameActionType.Emulator)
+                            using (var controller = new GenericPlayController(
+                                                                           Database,
+                                                                           game,
+                                                                           scriptRuntime,
+                                                                           Application.PlayniteApiGlobal))
                             {
-                                var emulator = Database.Emulators[action.EmulatorId];
-                                if (emulator == null)
+                                if (action.Type == GameActionType.Emulator)
                                 {
-                                    throw new Exception($"Emulator not found.");
-                                }
+                                    var emulator = Database.Emulators[action.EmulatorId];
+                                    if (emulator == null)
+                                    {
+                                        throw new Exception($"Emulator not found.");
+                                    }
 
-                                var prof = emulator.AllProfiles.FirstOrDefault(a => a.Id == action.EmulatorProfileId);
-                                var newAction = action.GetClone<GameAction, EmulationPlayAction>();
-                                newAction.SelectedEmulatorProfile = prof ?? throw new Exception("Specified emulator config does't exists.");
-                                newAction.SelectedRomPath = game.Roms.HasItems() ? game.Roms[0].Path : string.Empty;
-                                controller.StartEmulator(newAction, false, new SDK.Events.OnGameStartingEventArgs
+                                    var prof = emulator.AllProfiles.FirstOrDefault(
+                                     a => a.Id == action.EmulatorProfileId);
+                                    var newAction = action.GetClone<GameAction, EmulationPlayAction>();
+                                    newAction.SelectedEmulatorProfile =
+                                        prof ?? throw new Exception("Specified emulator config does't exists.");
+                                    newAction.SelectedRomPath = game.Roms.HasItems() ? game.Roms[0].Path : string.Empty;
+                                    controller.StartEmulator(
+                                                             newAction,
+                                                             false,
+                                                             new SDK.Events.OnGameStartingEventArgs
+                                                             {
+                                                                 Game = game,
+                                                                 SelectedRomFile = newAction.SelectedRomPath,
+                                                                 SourceAction = action
+                                                             });
+                                }
+                                else
                                 {
-                                    Game = game,
-                                    SelectedRomFile = newAction.SelectedRomPath,
-                                    SourceAction = action
-                                });
-                            }
-                            else
-                            {
-                                controller.Start(action, false, new SDK.Events.OnGameStartingEventArgs
-                                {
-                                    Game = game,
-                                    SourceAction = action
-                                });
+                                    controller.Start(
+                                                     action,
+                                                     false,
+                                                     new SDK.Events.OnGameStartingEventArgs
+                                                     {
+                                                         Game = game,
+                                                         SourceAction = action
+                                                     });
+                                }
                             }
                         }
+
                         break;
                     default:
                         throw new NotImplementedException();

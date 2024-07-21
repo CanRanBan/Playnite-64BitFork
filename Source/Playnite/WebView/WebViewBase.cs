@@ -54,27 +54,31 @@ namespace Playnite.WebView
         public List<HttpCookie> GetCookies()
         {
             using (var manager = Cef.GetGlobalCookieManager())
-            using (var visitor = new StandardCookieVisitor())
             {
-                MakeSureCookiesExist(manager);
-                if (manager.VisitAllCookies(visitor))
+                using (var visitor = new StandardCookieVisitor())
                 {
-                    visitor.Finished.WaitOne();
-                }
+                    MakeSureCookiesExist(manager);
+                    if (manager.VisitAllCookies(visitor))
+                    {
+                        visitor.Finished.WaitOne();
+                    }
 
-                return visitor.Cookies;
+                    return visitor.Cookies;
+                }
             }
         }
 
         public void DeleteDomainCookies(string domain)
         {
             using (var manager = Cef.GetGlobalCookieManager())
-            using (var destoyer = new CookieDestroyer(domain, false))
             {
-                MakeSureCookiesExist(manager);
-                if (manager.VisitAllCookies(destoyer))
+                using (var destoyer = new CookieDestroyer(domain, false))
                 {
-                    destoyer.Finished.WaitOne();
+                    MakeSureCookiesExist(manager);
+                    if (manager.VisitAllCookies(destoyer))
+                    {
+                        destoyer.Finished.WaitOne();
+                    }
                 }
             }
         }
@@ -82,12 +86,14 @@ namespace Playnite.WebView
         public void DeleteDomainCookiesRegex(string domainRegex)
         {
             using (var manager = Cef.GetGlobalCookieManager())
-            using (var destoyer = new CookieDestroyer(domainRegex, true))
             {
-                MakeSureCookiesExist(manager);
-                if (manager.VisitAllCookies(destoyer))
+                using (var destoyer = new CookieDestroyer(domainRegex, true))
                 {
-                    destoyer.Finished.WaitOne();
+                    MakeSureCookiesExist(manager);
+                    if (manager.VisitAllCookies(destoyer))
+                    {
+                        destoyer.Finished.WaitOne();
+                    }
                 }
             }
         }
@@ -95,12 +101,14 @@ namespace Playnite.WebView
         public void DeleteCookies(string url, string name)
         {
             using (var manager = Cef.GetGlobalCookieManager())
-            using (var deleteHandle = new DeleteCookiesHandler())
             {
-                MakeSureCookiesExist(manager);
-                if (manager.DeleteCookies(url, name, deleteHandle))
+                using (var deleteHandle = new DeleteCookiesHandler())
                 {
-                    deleteHandle.Finished.WaitOne();
+                    MakeSureCookiesExist(manager);
+                    if (manager.DeleteCookies(url, name, deleteHandle))
+                    {
+                        deleteHandle.Finished.WaitOne();
+                    }
                 }
             }
         }
@@ -108,20 +116,25 @@ namespace Playnite.WebView
         public void SetCookies(string url, string domain, string name, string value, string path, DateTime expires)
         {
             using (var manager = Cef.GetGlobalCookieManager())
-            using (var setHandler = new SetCookieHandler())
             {
-                if (manager.SetCookie(url, new Cookie
+                using (var setHandler = new SetCookieHandler())
                 {
-                    Domain = domain,
-                    Name = name,
-                    Value = value,
-                    Expires = expires,
-                    HttpOnly = false,
-                    Secure = false,
-                    Path = path
-                }, setHandler))
-                {
-                    setHandler.Finished.WaitOne();
+                    if (manager.SetCookie(
+                                          url,
+                                          new Cookie
+                                          {
+                                              Domain = domain,
+                                              Name = name,
+                                              Value = value,
+                                              Expires = expires,
+                                              HttpOnly = false,
+                                              Secure = false,
+                                              Path = path
+                                          },
+                                          setHandler))
+                    {
+                        setHandler.Finished.WaitOne();
+                    }
                 }
             }
         }
@@ -129,22 +142,27 @@ namespace Playnite.WebView
         public void SetCookies(string url, HttpCookie cookie)
         {
             using (var manager = Cef.GetGlobalCookieManager())
-            using (var setHandler = new SetCookieHandler())
             {
-                if (manager.SetCookie(url, new Cookie()
+                using (var setHandler = new SetCookieHandler())
                 {
-                    Domain = cookie.Domain,
-                    Expires = cookie.Expires,
-                    HttpOnly = cookie.HttpOnly,
-                    Secure = cookie.Secure,
-                    SameSite = (CefSharp.Enums.CookieSameSite)(int)cookie.SameSite,
-                    Priority = (CefSharp.Enums.CookiePriority)(int)cookie.Priority,
-                    Name = cookie.Name,
-                    Path = cookie.Path,
-                    Value = cookie.Value
-                }, setHandler))
-                {
-                    setHandler.Finished.WaitOne();
+                    if (manager.SetCookie(
+                                          url,
+                                          new Cookie()
+                                          {
+                                              Domain = cookie.Domain,
+                                              Expires = cookie.Expires,
+                                              HttpOnly = cookie.HttpOnly,
+                                              Secure = cookie.Secure,
+                                              SameSite = (CefSharp.Enums.CookieSameSite)(int)cookie.SameSite,
+                                              Priority = (CefSharp.Enums.CookiePriority)(int)cookie.Priority,
+                                              Name = cookie.Name,
+                                              Path = cookie.Path,
+                                              Value = cookie.Value
+                                          },
+                                          setHandler))
+                    {
+                        setHandler.Finished.WaitOne();
+                    }
                 }
             }
         }

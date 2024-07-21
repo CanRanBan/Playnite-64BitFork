@@ -89,98 +89,100 @@ namespace Playnite
             FileSystem.PrepareSaveFile(tmpFile);
 
             using (var zipFile = new FileStream(tmpFile, FileMode.Create))
-            using (var archive = new ZipArchive(zipFile, ZipArchiveMode.Create))
             {
-                // Settings
-                foreach (var config in configFilesNames)
+                using (var archive = new ZipArchive(zipFile, ZipArchiveMode.Create))
                 {
-                    var fullPath = Path.Combine(options.DataDir, config);
-                    if (File.Exists(fullPath))
+                    // Settings
+                    foreach (var config in configFilesNames)
                     {
-                        archive.CreateEntryFromFile(fullPath, config);
-                    }
-                };
+                        var fullPath = Path.Combine(options.DataDir, config);
+                        if (File.Exists(fullPath))
+                        {
+                            archive.CreateEntryFromFile(fullPath, config);
+                        }
+                    };
 
-                if (Directory.Exists(options.LibraryDir))
-                {
-                    // Library
-                    foreach (var libFile in Directory.GetFiles(Path.Combine(options.LibraryDir)))
+                    if (Directory.Exists(options.LibraryDir))
                     {
+                        // Library
+                        foreach (var libFile in Directory.GetFiles(Path.Combine(options.LibraryDir)))
+                        {
+                            if (cancelToken.IsCancellationRequested)
+                            {
+                                goto archiveDone;
+                            }
+
+                            archive.CreateEntryFromFile(libFile, Path.Combine(libraryEntryRoot, Path.GetFileName(libFile)));
+                        }
+
                         if (cancelToken.IsCancellationRequested)
                         {
                             goto archiveDone;
                         }
 
-                        archive.CreateEntryFromFile(libFile, Path.Combine(libraryEntryRoot, Path.GetFileName(libFile)));
-                    }
-
-                    if (cancelToken.IsCancellationRequested)
-                    {
-                        goto archiveDone;
-                    }
-
-                    // Library files
-                    var libFilesDir = Path.Combine(options.LibraryDir, GameDatabase.filesDirName);
-                    if (options.BackupItems.Contains(BackupDataItem.LibraryFiles) && Directory.Exists(libFilesDir))
-                    {
-                        archive.CreateEntryFromDirectory(libFilesDir, libraryFilesEntryRoot, cancelToken);
-                    }
-
-                    if (cancelToken.IsCancellationRequested)
-                    {
-                        goto archiveDone;
-                    }
-                }
-
-                // Extensions
-                var addonsDir = Path.Combine(options.DataDir, PlaynitePaths.ExtensionsDirName);
-                if (options.BackupItems.Contains(BackupDataItem.Extensions) && Directory.Exists(addonsDir))
-                {
-                    archive.CreateEntryFromDirectory(addonsDir, extensionsEntryRoot, cancelToken);
-                }
-
-                if (cancelToken.IsCancellationRequested)
-                {
-                    goto archiveDone;
-                }
-
-                // Extensions data
-                var extDataDir = Path.Combine(options.DataDir, PlaynitePaths.ExtensionsDataDirName);
-                if (options.BackupItems.Contains(BackupDataItem.ExtensionsData) && Directory.Exists(extDataDir))
-                {
-                    archive.CreateEntryFromDirectory(extDataDir, extensionsDataEntryRoot, cancelToken);
-                }
-
-                if (cancelToken.IsCancellationRequested)
-                {
-                    goto archiveDone;
-                }
-
-                // Themes
-                var themesDir = Path.Combine(options.DataDir, PlaynitePaths.ThemesDirName);
-                if (options.BackupItems.Contains(BackupDataItem.Themes) && Directory.Exists(themesDir))
-                {
-                    void packThemes(ApplicationMode mode)
-                    {
-                        var themeRootDir = ThemeManager.GetThemeRootDir(mode);
-                        var modeThemesDir = Path.Combine(themesDir, themeRootDir);
-                        if (Directory.Exists(modeThemesDir))
+                        // Library files
+                        var libFilesDir = Path.Combine(options.LibraryDir, GameDatabase.filesDirName);
+                        if (options.BackupItems.Contains(BackupDataItem.LibraryFiles) && Directory.Exists(libFilesDir))
                         {
-                            foreach (var themeDir in Directory.GetDirectories(modeThemesDir))
-                            {
-                                var themeDirName = Path.GetFileName(themeDir);
-                                // Never backup default themes
-                                if (themeDirName == ThemeManager.DefaultThemeDirName)
-                                {
-                                    continue;
-                                }
+                            archive.CreateEntryFromDirectory(libFilesDir, libraryFilesEntryRoot, cancelToken);
+                        }
 
-                                archive.CreateEntryFromDirectory(themeDir, Path.Combine(themesEntryRoot, themeRootDir, themeDirName), cancelToken);
-                            }
+                        if (cancelToken.IsCancellationRequested)
+                        {
+                            goto archiveDone;
                         }
                     }
 
-                    packThemes(ApplicationMode.Desktop);
+                    // Extensions
+                    var addonsDir = Path.Combine(options.DataDir, PlaynitePaths.ExtensionsDirName);
+                    if (options.BackupItems.Contains(BackupDataItem.Extensions) && Directory.Exists(addonsDir))
+                    {
+                        archive.CreateEntryFromDirectory(addonsDir, extensionsEntryRoot, cancelToken);
+                    }
+
+                    if (cancelToken.IsCancellationRequested)
+                    {
+                        goto archiveDone;
+                    }
+
+                    // Extensions data
+                    var extDataDir = Path.Combine(options.DataDir, PlaynitePaths.ExtensionsDataDirName);
+                    if (options.BackupItems.Contains(BackupDataItem.ExtensionsData) && Directory.Exists(extDataDir))
+                    {
+                        archive.CreateEntryFromDirectory(extDataDir, extensionsDataEntryRoot, cancelToken);
+                    }
+
+                    if (cancelToken.IsCancellationRequested)
+                    {
+                        goto archiveDone;
+                    }
+
+                    // Themes
+                    var themesDir = Path.Combine(options.DataDir, PlaynitePaths.ThemesDirName);
+                    if (options.BackupItems.Contains(BackupDataItem.Themes) && Directory.Exists(themesDir))
+                    {
+                        void packThemes(ApplicationMode mode)
+                        {
+                            var themeRootDir = ThemeManager.GetThemeRootDir(mode);
+                            var modeThemesDir = Path.Combine(themesDir, themeRootDir);
+                            if (Directory.Exists(modeThemesDir))
+                            {
+                                foreach (var themeDir in Directory.GetDirectories(modeThemesDir))
+                                {
+                                    var themeDirName = Path.GetFileName(themeDir);
+                                    // Never backup default themes
+                                    if (themeDirName == ThemeManager.DefaultThemeDirName)
+                                    {
+                                        continue;
+                                    }
+
+                                    archive.CreateEntryFromDirectory(themeDir, Path.Combine(themesEntryRoot, themeRootDir, themeDirName), cancelToken);
+                                }
+                            }
+                        }
+
+                        packThemes(ApplicationMode.Desktop);
+                    }
                 }
             }
 
@@ -221,130 +223,132 @@ namespace Playnite
             FileSystem.CreateDirectory(options.DataDir);
             FileSystem.CreateDirectory(options.LibraryDir);
             using (var zipFile = new FileStream(options.BackupFile, FileMode.Open))
-            using (var archive = new ZipArchive(zipFile, ZipArchiveMode.Read))
             {
-                // Settings
-                if (options.RestoreItems.Contains(BackupDataItem.Settings))
+                using (var archive = new ZipArchive(zipFile, ZipArchiveMode.Read))
                 {
-                    foreach (var config in configFilesNames)
+                    // Settings
+                    if (options.RestoreItems.Contains(BackupDataItem.Settings))
                     {
-                        var configEntry = archive.GetEntry(config);
-                        if (configEntry != null)
+                        foreach (var config in configFilesNames)
                         {
-                            var origFile = Path.Combine(options.DataDir, config);
-                            FileSystem.DeleteFile(origFile);
-                            configEntry.ExtractToFile(Paths.FixPathLength(origFile));
-                        }
-                    }
-
-                    if (!options.RestoreLibrarySettingsPath.IsNullOrEmpty())
-                    {
-                        // We are doing direct string replacement because proper serialization might not be safe here.
-                        // We don't know what settings model version is the original file and potential conversion will
-                        // be left to setting load on next startup.
-                        var mainConfigFile = Paths.FixPathLength(Path.Combine(options.DataDir, PlaynitePaths.ConfigFileName));
-                        var resultLine = $"\"{nameof(PlayniteSettings.DatabasePath)}\": {Newtonsoft.Json.JsonConvert.ToString(options.RestoreLibrarySettingsPath)},";
-                        var configContent = File.ReadAllLines(mainConfigFile);
-                        for (int i = 0; i < configContent.Length; i++)
-                        {
-                            if (configContent[i].Contains($"\"{nameof(PlayniteSettings.DatabasePath)}\""))
+                            var configEntry = archive.GetEntry(config);
+                            if (configEntry != null)
                             {
-                                configContent[i] = resultLine;
+                                var origFile = Path.Combine(options.DataDir, config);
+                                FileSystem.DeleteFile(origFile);
+                                configEntry.ExtractToFile(Paths.FixPathLength(origFile));
                             }
                         }
 
-                        File.WriteAllLines(mainConfigFile, configContent);
-                    }
-                }
-
-                // Library
-                var libPrefix = libraryEntryRoot + Path.DirectorySeparatorChar;
-                if (options.RestoreItems.Contains(BackupDataItem.Library) && archive.Entries.Any(a => a.FullName.StartsWith(libPrefix, StringComparison.OrdinalIgnoreCase)))
-                {
-                    foreach (var file in Directory.GetFiles(options.LibraryDir))
-                    {
-                        File.Delete(file);
-                    }
-
-                    foreach (var entry in archive.Entries)
-                    {
-                        if (entry.FullName.StartsWith(libPrefix, StringComparison.OrdinalIgnoreCase) &&
-                            entry.FullName.Count(a => a == Path.DirectorySeparatorChar) == 1)
+                        if (!options.RestoreLibrarySettingsPath.IsNullOrEmpty())
                         {
-                            entry.ExtractToFile(Paths.FixPathLength(Path.Combine(options.LibraryDir, entry.Name)));
+                            // We are doing direct string replacement because proper serialization might not be safe here.
+                            // We don't know what settings model version is the original file and potential conversion will
+                            // be left to setting load on next startup.
+                            var mainConfigFile = Paths.FixPathLength(Path.Combine(options.DataDir, PlaynitePaths.ConfigFileName));
+                            var resultLine = $"\"{nameof(PlayniteSettings.DatabasePath)}\": {Newtonsoft.Json.JsonConvert.ToString(options.RestoreLibrarySettingsPath)},";
+                            var configContent = File.ReadAllLines(mainConfigFile);
+                            for (int i = 0; i < configContent.Length; i++)
+                            {
+                                if (configContent[i].Contains($"\"{nameof(PlayniteSettings.DatabasePath)}\""))
+                                {
+                                    configContent[i] = resultLine;
+                                }
+                            }
+
+                            File.WriteAllLines(mainConfigFile, configContent);
                         }
                     }
-                }
 
-                void unpackBackupDir(bool restore, string outputDir, string dirPrefix)
-                {
-                    dirPrefix = dirPrefix + Path.DirectorySeparatorChar;
-                    if (restore && archive.Entries.Any(a => a.FullName.StartsWith(dirPrefix, StringComparison.OrdinalIgnoreCase)))
+                    // Library
+                    var libPrefix = libraryEntryRoot + Path.DirectorySeparatorChar;
+                    if (options.RestoreItems.Contains(BackupDataItem.Library) && archive.Entries.Any(a => a.FullName.StartsWith(libPrefix, StringComparison.OrdinalIgnoreCase)))
                     {
-                        FileSystem.CreateDirectory(outputDir, true);
+                        foreach (var file in Directory.GetFiles(options.LibraryDir))
+                        {
+                            File.Delete(file);
+                        }
+
                         foreach (var entry in archive.Entries)
                         {
-                            if (entry.FullName.StartsWith(dirPrefix, StringComparison.OrdinalIgnoreCase))
+                            if (entry.FullName.StartsWith(libPrefix, StringComparison.OrdinalIgnoreCase) &&
+                                entry.FullName.Count(a => a == Path.DirectorySeparatorChar) == 1)
                             {
-                                var outFile = Path.Combine(outputDir, entry.FullName.Replace(dirPrefix, ""));
-                                FileSystem.PrepareSaveFile(outFile);
-                                entry.ExtractToFile(Paths.FixPathLength(outFile));
+                                entry.ExtractToFile(Paths.FixPathLength(Path.Combine(options.LibraryDir, entry.Name)));
                             }
                         }
                     }
-                }
 
-                void unpackThemeBackupDir(bool restore, string outputDir, string dirPrefix)
-                {
-                    dirPrefix = dirPrefix + Path.DirectorySeparatorChar;
-                    if (restore && archive.Entries.Any(a => a.FullName.StartsWith(dirPrefix, StringComparison.OrdinalIgnoreCase)))
+                    void unpackBackupDir(bool restore, string outputDir, string dirPrefix)
                     {
-                        void cleanThemeModeDir(ApplicationMode mode)
+                        dirPrefix = dirPrefix + Path.DirectorySeparatorChar;
+                        if (restore && archive.Entries.Any(a => a.FullName.StartsWith(dirPrefix, StringComparison.OrdinalIgnoreCase)))
                         {
-                            var modeDir = Path.Combine(outputDir, ThemeManager.GetThemeRootDir(mode));
-                            FileSystem.CreateDirectory(modeDir, false);
-                            foreach (var dir in Directory.GetDirectories(modeDir))
+                            FileSystem.CreateDirectory(outputDir, true);
+                            foreach (var entry in archive.Entries)
                             {
-                                // Default themes must not be deleted since they are never included in the backup
-                                if (new DirectoryInfo(dir).Name.Equals(ThemeManager.DefaultThemeDirName, StringComparison.OrdinalIgnoreCase))
+                                if (entry.FullName.StartsWith(dirPrefix, StringComparison.OrdinalIgnoreCase))
                                 {
-                                    continue;
+                                    var outFile = Path.Combine(outputDir, entry.FullName.Replace(dirPrefix, ""));
+                                    FileSystem.PrepareSaveFile(outFile);
+                                    entry.ExtractToFile(Paths.FixPathLength(outFile));
+                                }
+                            }
+                        }
+                    }
+
+                    void unpackThemeBackupDir(bool restore, string outputDir, string dirPrefix)
+                    {
+                        dirPrefix = dirPrefix + Path.DirectorySeparatorChar;
+                        if (restore && archive.Entries.Any(a => a.FullName.StartsWith(dirPrefix, StringComparison.OrdinalIgnoreCase)))
+                        {
+                            void cleanThemeModeDir(ApplicationMode mode)
+                            {
+                                var modeDir = Path.Combine(outputDir, ThemeManager.GetThemeRootDir(mode));
+                                FileSystem.CreateDirectory(modeDir, false);
+                                foreach (var dir in Directory.GetDirectories(modeDir))
+                                {
+                                    // Default themes must not be deleted since they are never included in the backup
+                                    if (new DirectoryInfo(dir).Name.Equals(ThemeManager.DefaultThemeDirName, StringComparison.OrdinalIgnoreCase))
+                                    {
+                                        continue;
+                                    }
+
+                                    FileSystem.DeleteDirectory(dir);
                                 }
 
-                                FileSystem.DeleteDirectory(dir);
+                                foreach (var file in Directory.GetFiles(modeDir))
+                                {
+                                    FileSystem.DeleteFile(file);
+                                }
                             }
 
-                            foreach (var file in Directory.GetFiles(modeDir))
+                            FileSystem.CreateDirectory(outputDir, false);
+                            cleanThemeModeDir(ApplicationMode.Desktop);
+                            foreach (var entry in archive.Entries)
                             {
-                                FileSystem.DeleteFile(file);
-                            }
-                        }
-
-                        FileSystem.CreateDirectory(outputDir, false);
-                        cleanThemeModeDir(ApplicationMode.Desktop);
-                        foreach (var entry in archive.Entries)
-                        {
-                            if (entry.FullName.StartsWith(dirPrefix, StringComparison.OrdinalIgnoreCase))
-                            {
-                                var outFile = Path.Combine(outputDir, entry.FullName.Replace(dirPrefix, ""));
-                                FileSystem.PrepareSaveFile(outFile);
-                                entry.ExtractToFile(Paths.FixPathLength(outFile));
+                                if (entry.FullName.StartsWith(dirPrefix, StringComparison.OrdinalIgnoreCase))
+                                {
+                                    var outFile = Path.Combine(outputDir, entry.FullName.Replace(dirPrefix, ""));
+                                    FileSystem.PrepareSaveFile(outFile);
+                                    entry.ExtractToFile(Paths.FixPathLength(outFile));
+                                }
                             }
                         }
                     }
+
+                    // Library files
+                    unpackBackupDir(options.RestoreItems.Contains(BackupDataItem.LibraryFiles), Path.Combine(options.LibraryDir, GameDatabase.filesDirName), libraryFilesEntryRoot);
+
+                    // Extensions
+                    unpackBackupDir(options.RestoreItems.Contains(BackupDataItem.Extensions), Path.Combine(options.DataDir, PlaynitePaths.ExtensionsDirName), extensionsEntryRoot);
+
+                    // Extensions data
+                    unpackBackupDir(options.RestoreItems.Contains(BackupDataItem.ExtensionsData), Path.Combine(options.DataDir, PlaynitePaths.ExtensionsDataDirName), extensionsDataEntryRoot);
+
+                    // Themes
+                    unpackThemeBackupDir(options.RestoreItems.Contains(BackupDataItem.Themes), Path.Combine(options.DataDir, PlaynitePaths.ThemesDirName), themesEntryRoot);
                 }
-
-                // Library files
-                unpackBackupDir(options.RestoreItems.Contains(BackupDataItem.LibraryFiles), Path.Combine(options.LibraryDir, GameDatabase.filesDirName), libraryFilesEntryRoot);
-
-                // Extensions
-                unpackBackupDir(options.RestoreItems.Contains(BackupDataItem.Extensions), Path.Combine(options.DataDir, PlaynitePaths.ExtensionsDirName), extensionsEntryRoot);
-
-                // Extensions data
-                unpackBackupDir(options.RestoreItems.Contains(BackupDataItem.ExtensionsData), Path.Combine(options.DataDir, PlaynitePaths.ExtensionsDataDirName), extensionsDataEntryRoot);
-
-                // Themes
-                unpackThemeBackupDir(options.RestoreItems.Contains(BackupDataItem.Themes), Path.Combine(options.DataDir, PlaynitePaths.ThemesDirName), themesEntryRoot);
             }
         }
 
@@ -352,30 +356,40 @@ namespace Playnite
         {
             var selections = new List<BackupDataItem> { BackupDataItem.Settings, BackupDataItem.Library };
             using (var zipFile = new FileStream(backupFile, FileMode.Open))
-            using (var archive = new ZipArchive(zipFile, ZipArchiveMode.Read))
             {
-                var entires = archive.Entries;
-                if (entires.Any(a => a.FullName.StartsWith(libraryFilesEntryRoot, StringComparison.OrdinalIgnoreCase)))
+                using (var archive = new ZipArchive(zipFile, ZipArchiveMode.Read))
                 {
-                    selections.Add(BackupDataItem.LibraryFiles);
-                }
+                    var entires = archive.Entries;
+                    if (entires.Any(
+                                    a => a.FullName.StartsWith(
+                                                               libraryFilesEntryRoot,
+                                                               StringComparison.OrdinalIgnoreCase)))
+                    {
+                        selections.Add(BackupDataItem.LibraryFiles);
+                    }
 
-                if (entires.Any(a => a.FullName.StartsWith(extensionsEntryRoot, StringComparison.OrdinalIgnoreCase)))
-                {
-                    selections.Add(BackupDataItem.Extensions);
-                }
+                    if (entires.Any(
+                                    a => a.FullName.StartsWith(
+                                                               extensionsEntryRoot,
+                                                               StringComparison.OrdinalIgnoreCase)))
+                    {
+                        selections.Add(BackupDataItem.Extensions);
+                    }
 
-                if (entires.Any(a => a.FullName.StartsWith(extensionsDataEntryRoot, StringComparison.OrdinalIgnoreCase)))
-                {
-                    selections.Add(BackupDataItem.ExtensionsData);
-                }
+                    if (entires.Any(
+                                    a => a.FullName.StartsWith(
+                                                               extensionsDataEntryRoot,
+                                                               StringComparison.OrdinalIgnoreCase)))
+                    {
+                        selections.Add(BackupDataItem.ExtensionsData);
+                    }
 
-                if (entires.Any(a => a.FullName.StartsWith(themesEntryRoot, StringComparison.OrdinalIgnoreCase)))
-                {
-                    selections.Add(BackupDataItem.Themes);
+                    if (entires.Any(a => a.FullName.StartsWith(themesEntryRoot, StringComparison.OrdinalIgnoreCase)))
+                    {
+                        selections.Add(BackupDataItem.Themes);
+                    }
                 }
             }
-
             return selections;
         }
 

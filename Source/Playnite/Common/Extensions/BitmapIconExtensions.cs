@@ -116,9 +116,11 @@ namespace System.Drawing.Imaging
         public static bool ConvertToIcon(string inputPath, string outputPath)
         {
             using (FileStream inputStream = new FileStream(inputPath, FileMode.Open))
-            using (FileStream outputStream = new FileStream(outputPath, FileMode.Create))
             {
-                return ConvertToIcon(inputStream, outputStream);
+                using (FileStream outputStream = new FileStream(outputPath, FileMode.Create))
+                {
+                    return ConvertToIcon(inputStream, outputStream);
+                }
             }
         }
 

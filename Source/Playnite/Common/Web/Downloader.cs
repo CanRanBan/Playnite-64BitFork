@@ -76,10 +76,13 @@ namespace Playnite.Common.Web
             try
             {
                 using (var webClient = new WebClient { Encoding = Encoding.UTF8 })
-                using (var registration = cancelToken.Register(() => webClient.CancelAsync()))
                 {
-                    webClient.Headers.Add("User-Agent", playniteUserAgent);
-                    return Task.Run(async () => await webClient.DownloadStringTaskAsync(url)).GetAwaiter().GetResult();
+                    using (var registration = cancelToken.Register(() => webClient.CancelAsync()))
+                    {
+                        webClient.Headers.Add("User-Agent", playniteUserAgent);
+                        return Task.Run(async () => await webClient.DownloadStringTaskAsync(url)).GetAwaiter()
+                                   .GetResult();
+                    }
                 }
             }
             catch (WebException ex) when (ex.Status == WebExceptionStatus.RequestCanceled)
@@ -153,10 +156,12 @@ namespace Playnite.Common.Web
             try
             {
                 using (var webClient = new WebClient())
-                using (var registration = cancelToken.Register(() => webClient.CancelAsync()))
                 {
-                    webClient.Headers.Add("User-Agent", playniteUserAgent);
-                    return webClient.DownloadData(url);
+                    using (var registration = cancelToken.Register(() => webClient.CancelAsync()))
+                    {
+                        webClient.Headers.Add("User-Agent", playniteUserAgent);
+                        return webClient.DownloadData(url);
+                    }
                 }
             }
             catch (WebException ex) when (ex.Status == WebExceptionStatus.RequestCanceled)
@@ -185,10 +190,12 @@ namespace Playnite.Common.Web
             try
             {
                 using (var webClient = new WebClient())
-                using (var registration = cancelToken.Register(() => webClient.CancelAsync()))
                 {
-                    webClient.Headers.Add("User-Agent", playniteUserAgent);
-                    Task.Run(async () => await webClient.DownloadFileTaskAsync(new Uri(url), path)).Wait();
+                    using (var registration = cancelToken.Register(() => webClient.CancelAsync()))
+                    {
+                        webClient.Headers.Add("User-Agent", playniteUserAgent);
+                        Task.Run(async () => await webClient.DownloadFileTaskAsync(new Uri(url), path)).Wait();
+                    }
                 }
             }
             catch (WebException ex) when (ex.Status == WebExceptionStatus.RequestCanceled)

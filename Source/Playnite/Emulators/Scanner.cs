@@ -1045,9 +1045,11 @@ namespace Playnite.Emulators
                             if (streams != null)
                             {
                                 using (streams.Item2)
-                                using (streams.Item1)
                                 {
-                                    crcs.AddMissing(FileSystem.GetCRC32(streams.Item1));
+                                    using (streams.Item1)
+                                    {
+                                        crcs.AddMissing(FileSystem.GetCRC32(streams.Item1));
+                                    }
                                 }
                             }
                         }

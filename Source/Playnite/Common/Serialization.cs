@@ -308,17 +308,20 @@ namespace Playnite.Common
         public static void ToJsonStream(object obj, Stream stream, bool formatted = false)
         {
             using (var sw = new StreamWriter(stream, Encoding.UTF8, 4096, true))
-            using (var writer = new JsonTextWriter(sw))
             {
-                var ser = JsonSerializer.Create(new JsonSerializerSettings()
+                using (var writer = new JsonTextWriter(sw))
                 {
-                    Formatting = formatted ? Formatting.Indented : Formatting.None,
-                    NullValueHandling = NullValueHandling.Ignore,
-                    ContractResolver = JsonResolver.Global,
-                    MaxDepth = 128
-                });
+                    var ser = JsonSerializer.Create(
+                                                    new JsonSerializerSettings()
+                                                    {
+                                                        Formatting = formatted ? Formatting.Indented : Formatting.None,
+                                                        NullValueHandling = NullValueHandling.Ignore,
+                                                        ContractResolver = JsonResolver.Global,
+                                                        MaxDepth = 128
+                                                    });
 
-                ser.Serialize(writer, obj);
+                    ser.Serialize(writer, obj);
+                }
             }
         }
 
@@ -339,9 +342,11 @@ namespace Playnite.Common
         public static T FromJsonStream<T>(Stream stream) where T : class
         {
             using (var sr = new StreamReader(stream))
-            using (var reader = new JsonTextReader(sr))
             {
-                return JsonSerializer.Create(jsonDesSettings).Deserialize<T>(reader);
+                using (var reader = new JsonTextReader(sr))
+                {
+                    return JsonSerializer.Create(jsonDesSettings).Deserialize<T>(reader);
+                }
             }
         }
 
@@ -350,9 +355,11 @@ namespace Playnite.Common
             try
             {
                 using (var sr = new StreamReader(stream))
-                using (var reader = new JsonTextReader(sr))
                 {
-                    deserialized = JsonSerializer.Create(jsonDesSettings).Deserialize<T>(reader);
+                    using (var reader = new JsonTextReader(sr))
+                    {
+                        deserialized = JsonSerializer.Create(jsonDesSettings).Deserialize<T>(reader);
+                    }
                 }
 
                 return true;
@@ -369,9 +376,11 @@ namespace Playnite.Common
             try
             {
                 using (var sr = new StreamReader(stream))
-                using (var reader = new JsonTextReader(sr))
                 {
-                    deserialized = JsonSerializer.Create(jsonDesSettings).Deserialize<T>(reader);
+                    using (var reader = new JsonTextReader(sr))
+                    {
+                        deserialized = JsonSerializer.Create(jsonDesSettings).Deserialize<T>(reader);
+                    }
                 }
 
                 error = null;
