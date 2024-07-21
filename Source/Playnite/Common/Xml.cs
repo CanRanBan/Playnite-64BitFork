@@ -64,7 +64,7 @@ namespace Playnite.Common
                     if (!AreEqual(elems1[i], elems2[i]))
                     {
                         return false;
-                    }                        
+                    }
                 }
             }
 

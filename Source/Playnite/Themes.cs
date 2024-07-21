@@ -1,21 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.IO;
-using Playnite;
-using System.Windows;
-using System.Windows.Markup;
 using System.Text.RegularExpressions;
-using Playnite.Settings;
-using Playnite.Common;
-using Playnite.SDK;
-using YamlDotNet.Serialization;
-using Playnite.API;
-using Playnite.Extensions.Markup;
+using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
+using System.Windows.Markup;
+using Playnite;
+using Playnite.API;
+using Playnite.Common;
+using Playnite.Extensions.Markup;
 using Playnite.Plugins;
+using Playnite.SDK;
+using Playnite.Settings;
+using YamlDotNet.Serialization;
 
 namespace Playnite
 {

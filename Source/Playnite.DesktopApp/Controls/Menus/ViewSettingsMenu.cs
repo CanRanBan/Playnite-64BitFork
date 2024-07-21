@@ -1,11 +1,4 @@
-﻿using Playnite.Common;
-using Playnite.Converters;
-using Playnite.Extensions.Markup;
-using Playnite.SDK;
-using Playnite.SDK.Models;
-using Playnite.Settings;
-using Playnite.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing.Imaging;
 using System.Linq;
@@ -15,6 +8,13 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Media.Imaging;
+using Playnite.Common;
+using Playnite.Converters;
+using Playnite.Extensions.Markup;
+using Playnite.SDK;
+using Playnite.SDK.Models;
+using Playnite.Settings;
+using Playnite.ViewModels;
 
 namespace Playnite.DesktopApp.Controls
 {

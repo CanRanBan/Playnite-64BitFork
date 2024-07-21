@@ -1,7 +1,4 @@
-﻿using Playnite;
-using Playnite.SDK;
-using Playnite.Settings;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +7,9 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Markup;
 using System.Windows.Media;
+using Playnite;
+using Playnite.SDK;
+using Playnite.Settings;
 
 namespace Playnite.Converters
 {

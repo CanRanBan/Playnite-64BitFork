@@ -173,7 +173,7 @@ namespace Playnite.Database.OldModels.NewVer1
                 OnPropertyChanged();
             }
         }
-        
+
         /// <inheritdoc/>
         public override string ToString()
         {

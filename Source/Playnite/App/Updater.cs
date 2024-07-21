@@ -4,16 +4,16 @@ using System.Configuration;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using Newtonsoft.Json;
 using System.Windows;
 using Flurl;
-using System.Net;
+using Newtonsoft.Json;
 using Playnite.Common;
 using Playnite.Common.Web;
-using Playnite.Settings;
 using Playnite.SDK;
+using Playnite.Settings;
 
 namespace Playnite
 {

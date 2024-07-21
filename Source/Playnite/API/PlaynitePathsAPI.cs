@@ -1,10 +1,10 @@
-﻿using Playnite.SDK;
-using Playnite.Settings;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Playnite.SDK;
+using Playnite.Settings;
 
 namespace Playnite.API
 {

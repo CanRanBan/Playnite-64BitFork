@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Net;
+using System.Runtime.InteropServices;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
-using System.Security.Cryptography;
-using Playnite.SDK;
-using System.Diagnostics;
 using Playnite.Native;
-using System.Runtime.InteropServices;
+using Playnite.SDK;
 
 namespace Playnite.Common
 {

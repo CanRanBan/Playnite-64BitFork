@@ -1,13 +1,13 @@
-﻿using System.Windows.Controls.Primitives;
-using System.Windows.Controls;
-using System.Windows;
-using System.Windows.Media;
-using System;
-using System.Diagnostics;
+﻿using System;
 using System.Collections.Specialized;
 using System.ComponentModel;
-using System.Reflection;
+using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
+using System.Windows.Media;
 
 namespace Playnite.DesktopApp.Controls
 {

@@ -1,16 +1,16 @@
-﻿using CefSharp;
-using Playnite.Windows;
-using Playnite.SDK;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Windows.Media;
 using System.Windows;
-using Playnite.SDK.Events;
+using System.Windows.Media;
+using CefSharp;
 using CefSharp.Wpf.Rendering.Experimental;
+using Playnite.SDK;
+using Playnite.SDK.Events;
+using Playnite.Windows;
 
 namespace Playnite.WebView
 {

@@ -1,13 +1,4 @@
-﻿using Playnite.Behaviors;
-using Playnite.Common;
-using Playnite.Controls;
-using Playnite.Converters;
-using Playnite.DesktopApp.Markup;
-using Playnite.DesktopApp.ViewModels;
-using Playnite.SDK;
-using Playnite.SDK.Controls;
-using Playnite.SDK.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -19,6 +10,15 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Xml.Linq;
+using Playnite.Behaviors;
+using Playnite.Common;
+using Playnite.Controls;
+using Playnite.Converters;
+using Playnite.DesktopApp.Markup;
+using Playnite.DesktopApp.ViewModels;
+using Playnite.SDK;
+using Playnite.SDK.Controls;
+using Playnite.SDK.Models;
 using BooleanToVisibilityConverter = Playnite.Converters.BooleanToVisibilityConverter;
 
 namespace Playnite.DesktopApp.Controls.Views

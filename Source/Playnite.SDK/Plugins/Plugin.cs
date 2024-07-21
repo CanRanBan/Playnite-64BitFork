@@ -1,7 +1,4 @@
-﻿using Playnite.SDK.Data;
-using Playnite.SDK.Events;
-using Playnite.SDK.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -11,6 +8,9 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
+using Playnite.SDK.Data;
+using Playnite.SDK.Events;
+using Playnite.SDK.Models;
 
 namespace Playnite.SDK.Plugins
 {

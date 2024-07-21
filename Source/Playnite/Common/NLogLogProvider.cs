@@ -1,13 +1,13 @@
-﻿using NLog.Config;
-using NLog.Targets;
-using Playnite.SDK;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using NLog.Config;
+using NLog.Targets;
+using Playnite.SDK;
 
 namespace Playnite.Common
 {

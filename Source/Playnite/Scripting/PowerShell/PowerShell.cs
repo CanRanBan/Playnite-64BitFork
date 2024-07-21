@@ -1,20 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Management.Automation;
 using System.Management.Automation.Runspaces;
-using System.Collections.ObjectModel;
-using Playnite.API;
-using Microsoft.Win32;
-using System.IO;
-using Playnite.SDK.Exceptions;
-using Microsoft.PowerShell;
-using Playnite.SDK;
-using System.Diagnostics;
-using Playnite.Native;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
+using Microsoft.PowerShell;
+using Microsoft.Win32;
+using Playnite.API;
+using Playnite.Native;
+using Playnite.SDK;
+using Playnite.SDK.Exceptions;
 
 namespace Playnite.Scripting.PowerShell
 {

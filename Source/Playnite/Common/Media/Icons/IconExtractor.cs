@@ -25,8 +25,6 @@
  *  SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 
-using Playnite.SDK;
-using Playnite.Native;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -34,6 +32,8 @@ using System.Drawing;
 using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
+using Playnite.Native;
+using Playnite.SDK;
 
 namespace Playnite.Common.Media.Icons
 {

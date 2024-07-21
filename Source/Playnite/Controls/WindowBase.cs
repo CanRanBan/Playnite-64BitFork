@@ -1,7 +1,4 @@
-﻿using Playnite.Common;
-using Playnite.Native;
-using Playnite.Windows;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Globalization;
@@ -16,6 +13,9 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Interop;
 using System.Windows.Media;
+using Playnite.Common;
+using Playnite.Native;
+using Playnite.Windows;
 
 namespace Playnite.Controls
 {
@@ -381,7 +381,7 @@ namespace Playnite.Controls
             }
         }
 
-        public void OnPropertyChanged([CallerMemberName]string name = null)
+        public void OnPropertyChanged([CallerMemberName] string name = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }

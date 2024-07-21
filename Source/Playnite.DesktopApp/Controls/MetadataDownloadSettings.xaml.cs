@@ -1,7 +1,4 @@
-﻿using Playnite.Metadata;
-using Playnite.SDK;
-using Playnite.SDK.Plugins;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -19,6 +16,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Playnite.Metadata;
+using Playnite.SDK;
+using Playnite.SDK.Plugins;
 
 namespace Playnite.DesktopApp.Controls
 {
@@ -506,7 +506,7 @@ namespace Playnite.DesktopApp.Controls
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public void OnPropertyChanged([CallerMemberName]string name = null)
+        public void OnPropertyChanged([CallerMemberName] string name = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }

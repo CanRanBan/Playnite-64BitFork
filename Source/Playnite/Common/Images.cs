@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Media.Imaging;
 using System.Windows.Controls;
 using System.Windows.Media;
-using System.IO;
-using Playnite.SDK;
+using System.Windows.Media.Imaging;
 using Playnite.Common.Media.Icons;
-using System.Drawing.Imaging;
+using Playnite.SDK;
 
 namespace Playnite.Common
 {

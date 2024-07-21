@@ -1,8 +1,4 @@
-﻿using LiteDB;
-using Playnite.SDK;
-using Playnite.SDK.Models;
-using SqlNado;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -11,6 +7,10 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LiteDB;
+using Playnite.SDK;
+using Playnite.SDK.Models;
+using SqlNado;
 
 namespace Playnite.Database
 {

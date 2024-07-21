@@ -1,15 +1,15 @@
-﻿using Nett;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
-using Playnite.SDK;
-using Playnite.SDK.Data;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using Nett;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+using Playnite.SDK;
+using Playnite.SDK.Data;
 using YamlDotNet.Serialization;
 
 namespace Playnite.Common

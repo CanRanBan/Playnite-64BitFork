@@ -1,7 +1,4 @@
-﻿using Playnite.Common;
-using Playnite.SDK;
-using Playnite.Settings;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
@@ -12,6 +9,9 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Markup;
+using Playnite.Common;
+using Playnite.SDK;
+using Playnite.Settings;
 
 namespace Playnite
 {

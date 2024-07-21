@@ -1,13 +1,13 @@
-﻿using CefSharp;
-using CefSharp.Wpf;
-using Playnite.Common;
-using Playnite.Settings;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CefSharp;
+using CefSharp.Wpf;
+using Playnite.Common;
+using Playnite.Settings;
 
 namespace Playnite
 {

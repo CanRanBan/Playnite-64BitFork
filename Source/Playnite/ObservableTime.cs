@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Threading;
-using Playnite.Common;
+using System.Threading.Tasks;
 using System.Windows;
+using Playnite.Common;
 
 namespace Playnite
 {

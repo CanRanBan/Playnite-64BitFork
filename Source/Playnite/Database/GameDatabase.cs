@@ -1,22 +1,22 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Net;
+using System.Reflection;
+using System.Threading;
 using System.Windows.Media.Imaging;
+using Playnite.Common;
+using Playnite.Common.Media.Icons;
+using Playnite.Common.Web;
 using Playnite.Emulators;
 using Playnite.SDK;
 using Playnite.SDK.Models;
-using Playnite.Common;
-using Playnite.Settings;
 using Playnite.SDK.Plugins;
-using System.Net;
-using Playnite.Common.Web;
-using System.Drawing.Imaging;
-using System.Threading;
-using System.Collections.Concurrent;
-using Playnite.Common.Media.Icons;
-using System.Reflection;
+using Playnite.Settings;
 using SdkModels = Playnite.SDK.Models;
 
 namespace Playnite.Database
@@ -1391,12 +1391,12 @@ namespace Playnite.Database
                 Playtime = 115200,
                 LastActivity = DateTime.Today,
                 IsInstalled = true,
-                AgeRatingIds =  new List<Guid> { database.AgeRatings.First().Id },
+                AgeRatingIds = new List<Guid> { database.AgeRatings.First().Id },
                 CategoryIds = new List<Guid> { database.Categories.First().Id },
                 DeveloperIds = new List<Guid> { database.Companies.First().Id },
                 PublisherIds = new List<Guid> { database.Companies.Last().Id },
                 GenreIds = new List<Guid> { database.Genres.First().Id },
-                RegionIds =  new List<Guid> { database.Regions.First().Id },
+                RegionIds = new List<Guid> { database.Regions.First().Id },
                 SeriesIds = new List<Guid> { database.Series.First().Id },
                 SourceId = database.Sources.First().Id,
                 TagIds = new List<Guid> { database.Tags.First().Id },

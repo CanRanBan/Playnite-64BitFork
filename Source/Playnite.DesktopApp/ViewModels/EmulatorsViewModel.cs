@@ -1,9 +1,4 @@
-﻿using Playnite;
-using Playnite.Database;
-using Playnite.SDK;
-using Playnite.SDK.Models;
-using Playnite.Commands;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -12,13 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Data;
+using Playnite;
+using Playnite.Commands;
 using Playnite.Common;
-using Playnite.Settings;
-using Playnite.Windows;
+using Playnite.Database;
 using Playnite.DesktopApp.Windows;
 using Playnite.Emulators;
-using System.Windows.Controls;
+using Playnite.SDK;
+using Playnite.SDK.Models;
+using Playnite.Settings;
+using Playnite.Windows;
 
 namespace Playnite.DesktopApp.ViewModels
 {
@@ -421,7 +421,7 @@ namespace Playnite.DesktopApp.ViewModels
                 }
             }
 
-            checkDone:
+        checkDone:
             if (hasChanges)
             {
                 return dialogs.ShowMessage(LOC.UnsavedChangesAskMessage, "", MessageBoxButton.YesNoCancel, MessageBoxImage.Warning);

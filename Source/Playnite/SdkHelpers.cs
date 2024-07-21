@@ -1,8 +1,4 @@
-﻿using Playnite.Common;
-using Playnite.Database;
-using Playnite.Extensions.Markup;
-using Playnite.SDK;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing.Imaging;
 using System.Linq;
@@ -13,6 +9,10 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using Playnite.Common;
+using Playnite.Database;
+using Playnite.Extensions.Markup;
+using Playnite.SDK;
 
 namespace Playnite
 {

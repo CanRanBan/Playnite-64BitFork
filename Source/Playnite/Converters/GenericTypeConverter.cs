@@ -1,6 +1,4 @@
-﻿using Playnite.SDK;
-using Playnite.Settings;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
@@ -10,6 +8,8 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Markup;
+using Playnite.SDK;
+using Playnite.Settings;
 
 namespace Playnite.Converters
 {

@@ -1,8 +1,8 @@
-﻿using Playnite.Settings;
-using System;
+﻿using System;
 using System.Globalization;
 using System.Windows.Data;
 using System.Windows.Markup;
+using Playnite.Settings;
 
 namespace Playnite.Converters
 {
@@ -13,7 +13,7 @@ namespace Playnite.Converters
         // raw pixel value to percentage
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var source = (double) value;
+            var source = (double)value;
 
             return Math.Round(source / OneHundredPercentValue * 100);
         }
@@ -21,7 +21,7 @@ namespace Playnite.Converters
         // percentage to raw pixel value
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var source = (double) value;
+            var source = (double)value;
 
             return Math.Round(source * OneHundredPercentValue / 100);
         }

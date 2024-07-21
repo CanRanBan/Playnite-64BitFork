@@ -1,8 +1,4 @@
-﻿using Microsoft.Win32;
-using Newtonsoft.Json;
-using Playnite.Common;
-using Playnite.SDK;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
@@ -10,6 +6,10 @@ using System.Linq;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Win32;
+using Newtonsoft.Json;
+using Playnite.Common;
+using Playnite.SDK;
 
 namespace Playnite.Services
 {

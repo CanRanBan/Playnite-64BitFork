@@ -1,12 +1,4 @@
-﻿using Playnite.Commands;
-using Playnite.Common;
-using Playnite.DesktopApp.ViewModels;
-using Playnite.Extensions.Markup;
-using Playnite.Plugins;
-using Playnite.SDK;
-using Playnite.SDK.Plugins;
-using Playnite.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing.Imaging;
@@ -20,6 +12,14 @@ using System.Windows.Data;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using Playnite.Commands;
+using Playnite.Common;
+using Playnite.DesktopApp.ViewModels;
+using Playnite.Extensions.Markup;
+using Playnite.Plugins;
+using Playnite.SDK;
+using Playnite.SDK.Plugins;
+using Playnite.ViewModels;
 
 namespace Playnite.DesktopApp.Controls
 {

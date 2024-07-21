@@ -1,10 +1,10 @@
-﻿using Playnite.SDK.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Playnite.SDK.Models;
 
 namespace Playnite
 {
@@ -68,7 +68,7 @@ namespace Playnite
         {
             var id = $"{gameId}_{libraryId}";
             using (var provider = System.Security.Cryptography.MD5.Create())
-            return new Guid(provider.ComputeHash(Encoding.UTF8.GetBytes(id)));
+                return new Guid(provider.ComputeHash(Encoding.UTF8.GetBytes(id)));
         }
 
         /// <inheritdoc/>

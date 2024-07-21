@@ -1,9 +1,9 @@
-﻿using Playnite.SDK;
-using Playnite.Commands;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Windows;
+using Playnite.Commands;
+using Playnite.SDK;
 using Playnite.Windows;
 
 namespace Playnite.ViewModels

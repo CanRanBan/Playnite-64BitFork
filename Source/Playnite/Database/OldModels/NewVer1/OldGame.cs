@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -8,7 +9,6 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Collections.Concurrent;
 using Newtonsoft.Json;
 
 namespace Playnite.Database.OldModels.NewVer1
@@ -34,8 +34,8 @@ namespace Playnite.Database.OldModels.NewVer1
                 backgroundImage = value;
                 OnPropertyChanged();
             }
-        }       
-        
+        }
+
         private string description;
         /// <summary>
         /// Gets or sets HTML game description.
@@ -126,7 +126,7 @@ namespace Playnite.Database.OldModels.NewVer1
             }
         }
 
-        
+
         private string icon;
         /// <summary>
         /// Gets or sets game icon. Local file path, HTTP URL or database file ids are supported.

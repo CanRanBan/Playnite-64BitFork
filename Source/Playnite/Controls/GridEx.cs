@@ -1,5 +1,4 @@
-﻿using Playnite.Extensions.Markup;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
@@ -15,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Playnite.Extensions.Markup;
 using TheArtOfDev.HtmlRenderer.WPF;
 
 namespace Playnite.Controls

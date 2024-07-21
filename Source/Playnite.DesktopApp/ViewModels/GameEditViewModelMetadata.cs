@@ -1,13 +1,4 @@
-﻿using Playnite.Common;
-using Playnite.Common.Web;
-using Playnite.Database;
-using Playnite.DesktopApp.Windows;
-using Playnite.Emulators;
-using Playnite.SDK;
-using Playnite.SDK.Models;
-using Playnite.SDK.Plugins;
-using Playnite.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -17,6 +8,15 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using Playnite.Common;
+using Playnite.Common.Web;
+using Playnite.Database;
+using Playnite.DesktopApp.Windows;
+using Playnite.Emulators;
+using Playnite.SDK;
+using Playnite.SDK.Models;
+using Playnite.SDK.Plugins;
+using Playnite.ViewModels;
 
 namespace Playnite.DesktopApp.ViewModels
 {
@@ -429,7 +429,7 @@ namespace Playnite.DesktopApp.ViewModels
                     var existingItem = selectList.FirstOrDefault(a => a.Item.Id == idProp.Id);
                     if (existingItem != null)
                     {
-                        yield return  (T)existingItem.Item;
+                        yield return (T)existingItem.Item;
                     }
                 }
                 else if (property is MetadataSpecProperty specProp)

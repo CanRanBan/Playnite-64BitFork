@@ -1,5 +1,4 @@
-﻿using Playnite.SDK;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Markup;
+using Playnite.SDK;
 
 namespace Playnite.Converters
 {

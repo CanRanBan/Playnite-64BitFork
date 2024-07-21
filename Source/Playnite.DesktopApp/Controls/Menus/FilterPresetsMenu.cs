@@ -1,7 +1,4 @@
-﻿using Playnite.Common;
-using Playnite.Converters;
-using Playnite.DesktopApp.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -9,6 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using Playnite.Common;
+using Playnite.Converters;
+using Playnite.DesktopApp.ViewModels;
 
 namespace Playnite.DesktopApp.Controls
 {

@@ -1,11 +1,4 @@
-﻿using Playnite.API;
-using Playnite.Common;
-using Playnite.Database;
-using Playnite.Plugins;
-using Playnite.SDK;
-using Playnite.SDK.Plugins;
-using Playnite.Windows;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -15,6 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using Playnite.API;
+using Playnite.Common;
+using Playnite.Database;
+using Playnite.Plugins;
+using Playnite.SDK;
+using Playnite.SDK.Plugins;
+using Playnite.Windows;
 
 namespace Playnite.DesktopApp.ViewModels
 {

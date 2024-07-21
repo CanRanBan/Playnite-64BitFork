@@ -16,7 +16,7 @@ namespace Playnite.DesktopApp.Controls
 
         public double SliderValue
         {
-            get => (double) GetValue(SliderValueProperty);
+            get => (double)GetValue(SliderValueProperty);
             set => SetValue(SliderValueProperty, value);
         }
         public static readonly DependencyProperty SliderValueProperty = DependencyProperty.Register(nameof(SliderValue), typeof(double), typeof(SliderWithPopup));

@@ -1,6 +1,4 @@
-﻿using Playnite.SDK;
-using Playnite.Controls;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -14,6 +12,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Playnite.Controls;
+using Playnite.SDK;
 using Playnite.Windows;
 
 namespace Playnite.DesktopApp.Windows

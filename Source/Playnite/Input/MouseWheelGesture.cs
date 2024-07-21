@@ -77,7 +77,7 @@ namespace Playnite.Input
                 default:
                     return false;
             }
-        }        
+        }
 
         public enum WheelDirection
         {

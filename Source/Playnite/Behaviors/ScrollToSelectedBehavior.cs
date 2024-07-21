@@ -57,7 +57,7 @@ namespace Playnite.Behaviors
             if (sender is ListView listView)
             {
                 if (listView.SelectedItems?.Count == 1)
-                {                    
+                {
                     listView.ScrollIntoView(listView.SelectedItem);
                     return;
                 }

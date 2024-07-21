@@ -1,8 +1,4 @@
-﻿using PhotoSauce.MagicScaler;
-using Playnite;
-using Playnite.Common;
-using Playnite.SDK;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing.Imaging;
@@ -15,11 +11,15 @@ using System.Windows;
 using System.Windows.Interop;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using PhotoSauce.MagicScaler;
+using Playnite;
+using Playnite.Common;
+using Playnite.SDK;
 using TGASharpLib;
 
 namespace System.Drawing.Imaging
 {
-    public class BitmapLoadProperties: IEquatable<BitmapLoadProperties>
+    public class BitmapLoadProperties : IEquatable<BitmapLoadProperties>
     {
         public ImageLoadScaling Scaling { get; set; } = ImageLoadScaling.BitmapDotNet;
         public DpiScale? DpiScale { get; set; }

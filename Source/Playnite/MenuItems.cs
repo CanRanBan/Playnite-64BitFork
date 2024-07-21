@@ -1,14 +1,14 @@
-﻿using Playnite.Commands;
-using Playnite.SDK;
-using Playnite.SDK.Models;
-using Playnite.SDK.Plugins;
-using Playnite.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Playnite.Commands;
+using Playnite.SDK;
+using Playnite.SDK.Models;
+using Playnite.SDK.Plugins;
+using Playnite.ViewModels;
 
 namespace Playnite
 {
@@ -227,14 +227,14 @@ namespace Playnite
                 game.Favorite ? LOC.RemoveFavoriteGame : LOC.FavoriteGame,
                 LOC.Activate,
                 () => model.App.GamesEditor.ToggleFavoriteGame(game))
-                { Icon = game.Favorite ? unFavoriteIcon : favoriteIcon });
+            { Icon = game.Favorite ? unFavoriteIcon : favoriteIcon });
 
             // Toggle Hide
             items.Add(new SearchItem(
                 game.Hidden ? LOC.UnHideGame : LOC.HideGame,
                 LOC.Activate,
                 () => model.App.GamesEditor.ToggleHideGame(game))
-                { Icon = game.Hidden ? unHideIcon : hideIcon });
+            { Icon = game.Hidden ? unHideIcon : hideIcon });
 
             // Edit
             items.Add(new SearchItem(LOC.EditGame, LOC.Activate, () => model.EditGame(game), editIcon));

@@ -1,15 +1,15 @@
-﻿using Playnite.Database;
-using System;
+﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
-using Playnite.SDK.Models;
+using Playnite.Database;
 using Playnite.SDK;
+using Playnite.SDK.Models;
 using Playnite.SDK.Plugins;
-using System.Collections.Concurrent;
 
 namespace Playnite.Metadata
 {

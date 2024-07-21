@@ -1,5 +1,4 @@
-﻿using Playnite.SDK;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -7,6 +6,7 @@ using System.Net;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Playnite.SDK;
 
 namespace Playnite.Common.Web
 {
@@ -157,8 +157,8 @@ namespace Playnite.Common.Web
                 {
                     webClient.Headers.Add("User-Agent", playniteUserAgent);
                     return webClient.DownloadData(url);
-                    }
                 }
+            }
             catch (WebException ex) when (ex.Status == WebExceptionStatus.RequestCanceled)
             {
                 logger.Warn("Download canceled.");

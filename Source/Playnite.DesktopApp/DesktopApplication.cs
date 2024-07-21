@@ -1,4 +1,16 @@
-﻿using Hardcodet.Wpf.TaskbarNotification;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Drawing;
+using System.Drawing.Imaging;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Media.Imaging;
+using Hardcodet.Wpf.TaskbarNotification;
 using Playnite.API;
 using Playnite.Common;
 using Playnite.Controllers;
@@ -18,18 +30,6 @@ using Playnite.Settings;
 using Playnite.ViewModels;
 using Playnite.WebView;
 using Playnite.Windows;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Media.Imaging;
 
 namespace Playnite.DesktopApp
 {

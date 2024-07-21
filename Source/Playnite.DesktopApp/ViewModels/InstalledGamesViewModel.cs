@@ -1,26 +1,26 @@
-﻿using Playnite;
-using Playnite.Database;
-using Playnite.SDK.Models;
-using Playnite.SDK;
-using Playnite.Commands;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Data;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using Playnite;
+using Playnite.Commands;
 using Playnite.Common;
-using System.Diagnostics;
-using System.Drawing.Imaging;
-using Playnite.Windows;
-using System.Drawing;
 using Playnite.Common.Media.Icons;
-using System.Windows.Data;
+using Playnite.Database;
+using Playnite.SDK;
+using Playnite.SDK.Models;
+using Playnite.Windows;
 
 namespace Playnite.DesktopApp.ViewModels
 {
@@ -335,7 +335,7 @@ namespace Playnite.DesktopApp.ViewModels
                     }
                 };
 
-                if (program.IconSource != null &&  program.IconSource != ImportableProgram.EmptyImage)
+                if (program.IconSource != null && program.IconSource != ImportableProgram.EmptyImage)
                 {
                     var bitmap = (BitmapSource)program.IconSource;
                     newGame.Icon = new MetadataFile(Guid.NewGuid().ToString() + ".png", bitmap.ToPngArray());
@@ -420,7 +420,7 @@ namespace Playnite.DesktopApp.ViewModels
                 Programs.Clear();
                 Programs.AddRange(winApps.OrderBy(a => a.Item.Name));
             }
-                catch (Exception e) when(!PlayniteEnvironment.ThrowAllErrors)
+            catch (Exception e) when (!PlayniteEnvironment.ThrowAllErrors)
             {
                 logger.Error(e, "Failed to detect Windows Store apps.");
             }

@@ -1,12 +1,12 @@
-﻿using Playnite.Commands;
-using Playnite.SDK;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using Playnite.Commands;
+using Playnite.SDK;
 
 namespace Playnite.API
 {

@@ -206,7 +206,7 @@ namespace Playnite.Common
                 return string.Empty;
             }
 
-            if (common[common.Length -1] == Path.DirectorySeparatorChar)
+            if (common[common.Length - 1] == Path.DirectorySeparatorChar)
             {
                 return common;
             }

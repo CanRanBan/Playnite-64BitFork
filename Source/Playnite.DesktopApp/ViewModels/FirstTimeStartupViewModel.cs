@@ -1,22 +1,22 @@
-﻿using Playnite;
-using Playnite.API;
-using Playnite.Common;
-using Playnite.Plugins;
-using Playnite.SDK;
-using Playnite.SDK.Plugins;
-using Playnite.Settings;
-using Playnite.Commands;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using Playnite.Windows;
-using Playnite.DesktopApp.Windows;
-using Playnite.Services;
+using Playnite;
+using Playnite.API;
+using Playnite.Commands;
+using Playnite.Common;
 using Playnite.Common.Web;
+using Playnite.DesktopApp.Windows;
+using Playnite.Plugins;
+using Playnite.SDK;
+using Playnite.SDK.Plugins;
+using Playnite.Services;
+using Playnite.Settings;
+using Playnite.Windows;
 
 namespace Playnite.DesktopApp.ViewModels
 {

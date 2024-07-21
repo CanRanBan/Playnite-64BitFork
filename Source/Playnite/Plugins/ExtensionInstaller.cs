@@ -1,13 +1,13 @@
-﻿using Playnite.API;
-using Playnite.Common;
-using Playnite.SDK;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Playnite.API;
+using Playnite.Common;
+using Playnite.SDK;
 
 namespace Playnite.Plugins
 {

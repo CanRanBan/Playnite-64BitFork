@@ -1,12 +1,4 @@
-﻿using Playnite.Behaviors;
-using Playnite.Common;
-using Playnite.Controls;
-using Playnite.Converters;
-using Playnite.DesktopApp.ViewModels;
-using Playnite.SDK;
-using Playnite.SDK.Models;
-using Playnite.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -16,6 +8,14 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Xml.Linq;
+using Playnite.Behaviors;
+using Playnite.Common;
+using Playnite.Controls;
+using Playnite.Converters;
+using Playnite.DesktopApp.ViewModels;
+using Playnite.SDK;
+using Playnite.SDK.Models;
+using Playnite.ViewModels;
 using BooleanToVisibilityConverter = Playnite.Converters.BooleanToVisibilityConverter;
 
 namespace Playnite.DesktopApp.Controls.Views
@@ -69,7 +69,7 @@ namespace Playnite.DesktopApp.Controls.Views
             if (e.PropertyName == nameof(ViewSettings.GroupingOrder))
             {
                 ListGames.ItemsPanel = GetItemsPanelTemplateCache();
-                var scrollViewer = ElementTreeHelper.FindVisualChildren< ScrollViewer>(ListGames).FirstOrDefault();
+                var scrollViewer = ElementTreeHelper.FindVisualChildren<ScrollViewer>(ListGames).FirstOrDefault();
                 scrollViewer?.ScrollToTop();
             }
         }

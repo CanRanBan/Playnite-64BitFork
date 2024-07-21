@@ -1,12 +1,4 @@
-﻿using Playnite.Commands;
-using Playnite.Common;
-using Playnite.Controls;
-using Playnite.Converters;
-using Playnite.DesktopApp.ViewModels;
-using Playnite.Extensions;
-using Playnite.SDK;
-using Playnite.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -18,6 +10,14 @@ using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Media;
 using System.Windows.Media.Effects;
+using Playnite.Commands;
+using Playnite.Common;
+using Playnite.Controls;
+using Playnite.Converters;
+using Playnite.DesktopApp.ViewModels;
+using Playnite.Extensions;
+using Playnite.SDK;
+using Playnite.ViewModels;
 
 namespace Playnite.DesktopApp.Controls.Views
 {

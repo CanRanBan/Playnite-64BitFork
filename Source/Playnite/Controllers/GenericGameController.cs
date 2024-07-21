@@ -1,13 +1,4 @@
-﻿using Playnite.Common;
-using Playnite.Database;
-using Playnite.Emulators;
-using Playnite.Scripting.PowerShell;
-using Playnite.SDK;
-using Playnite.SDK.Events;
-using Playnite.SDK.Exceptions;
-using Playnite.SDK.Models;
-using Playnite.SDK.Plugins;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -20,6 +11,15 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
+using Playnite.Common;
+using Playnite.Database;
+using Playnite.Emulators;
+using Playnite.Scripting.PowerShell;
+using Playnite.SDK;
+using Playnite.SDK.Events;
+using Playnite.SDK.Exceptions;
+using Playnite.SDK.Models;
+using Playnite.SDK.Plugins;
 
 namespace Playnite.Controllers
 {
@@ -678,7 +678,7 @@ namespace Playnite.Controllers
                             if (id > 0)
                             {
                                 gameStartedAction?.Invoke(id);
-                                InvokeOnStarted(new GameStartedEventArgs {  StartedProcessId = id });
+                                InvokeOnStarted(new GameStartedEventArgs { StartedProcessId = id });
                                 break;
                             }
                         }

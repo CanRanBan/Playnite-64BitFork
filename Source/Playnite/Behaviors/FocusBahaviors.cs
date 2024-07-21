@@ -45,7 +45,7 @@ namespace Playnite.Behaviors
             {
                 if (control.Focusable)
                 {
-                    control.Focus();                    
+                    control.Focus();
                 }
                 else
                 {
@@ -109,7 +109,7 @@ namespace Playnite.Behaviors
             var control = (FrameworkElement)obj;
             if ((bool)args.NewValue)
             {
-                control.IsVisibleChanged += Control_IsVisibleChanged;                
+                control.IsVisibleChanged += Control_IsVisibleChanged;
             }
             else
             {

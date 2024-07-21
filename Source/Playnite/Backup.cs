@@ -1,7 +1,4 @@
-﻿using Playnite.Common;
-using Playnite.Database;
-using Playnite.SDK;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
@@ -11,6 +8,9 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
+using Playnite.Common;
+using Playnite.Database;
+using Playnite.SDK;
 
 namespace Playnite
 {
@@ -37,7 +37,7 @@ namespace Playnite
         public string OutputFile { get; set; }
         public string OutputDir { get; set; }
         public List<BackupDataItem> BackupItems { get; set; }
-        public bool ClosedWhenDone  { get; set; }
+        public bool ClosedWhenDone { get; set; }
         public bool CancelIfGameRunning { get; set; }
         public int RotatingBackups { get; set; } = 0;
     }

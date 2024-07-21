@@ -1,6 +1,4 @@
-﻿using Playnite.Plugins;
-using Playnite.SDK.Plugins;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -9,6 +7,8 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Data;
 using System.Windows.Markup;
+using Playnite.Plugins;
+using Playnite.SDK.Plugins;
 
 namespace Playnite.Extensions.Markup
 {

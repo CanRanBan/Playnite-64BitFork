@@ -76,7 +76,7 @@ namespace Playnite.Common
     public class IniParser
     {
         public static IniData Parse(string[] iniString)
-        {            
+        {
             if (iniString?.Any() != true)
             {
                 throw new ArgumentNullException();

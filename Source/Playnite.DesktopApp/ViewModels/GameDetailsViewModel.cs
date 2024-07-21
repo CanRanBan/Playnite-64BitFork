@@ -1,15 +1,15 @@
-﻿using Playnite;
-using Playnite.SDK;
-using Playnite.SDK.Models;
-using Playnite.Settings;
-using Playnite.Commands;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using Playnite;
+using Playnite.Commands;
 using Playnite.Converters;
+using Playnite.SDK;
+using Playnite.SDK.Models;
+using Playnite.Settings;
 
 namespace Playnite.DesktopApp.ViewModels
 {

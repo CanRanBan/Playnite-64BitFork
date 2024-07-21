@@ -1,4 +1,11 @@
-﻿using Playnite.API;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows;
+using Playnite.API;
 using Playnite.Common;
 using Playnite.Database;
 using Playnite.Emulators;
@@ -10,13 +17,6 @@ using Playnite.SDK.Exceptions;
 using Playnite.SDK.Models;
 using Playnite.SDK.Plugins;
 using Playnite.Windows;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows;
 
 namespace Playnite.ViewModels
 {

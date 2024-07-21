@@ -8,11 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
 using Playnite.Database;
-using Playnite.SDK.Models;
-using Playnite.SDK;
-using Playnite.Settings;
 using Playnite.Plugins;
+using Playnite.SDK;
+using Playnite.SDK.Models;
 using Playnite.SDK.Plugins;
+using Playnite.Settings;
 
 namespace Playnite
 {

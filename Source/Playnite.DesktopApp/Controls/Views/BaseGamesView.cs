@@ -1,10 +1,4 @@
-﻿using Playnite.Behaviors;
-using Playnite.Common;
-using Playnite.Controls;
-using Playnite.DesktopApp.ViewModels;
-using Playnite.SDK;
-using Playnite.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -14,6 +8,12 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
+using Playnite.Behaviors;
+using Playnite.Common;
+using Playnite.Controls;
+using Playnite.DesktopApp.ViewModels;
+using Playnite.SDK;
+using Playnite.ViewModels;
 
 namespace Playnite.DesktopApp.Controls.Views
 {

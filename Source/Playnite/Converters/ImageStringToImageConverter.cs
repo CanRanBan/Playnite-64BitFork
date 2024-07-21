@@ -1,22 +1,22 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Data;
-using System.Windows.Media.Imaging;
-using Playnite.Database;
-using NLog;
-using System.IO;
-using Playnite;
 using System.Windows.Markup;
-using Playnite.Common.Web;
-using Playnite.Settings;
-using System.Collections.Concurrent;
-using System.Collections.Specialized;
+using System.Windows.Media.Imaging;
+using NLog;
+using Playnite;
 using Playnite.Common;
-using System.Drawing.Imaging;
+using Playnite.Common.Web;
+using Playnite.Database;
+using Playnite.Settings;
 
 namespace Playnite.Converters
 {

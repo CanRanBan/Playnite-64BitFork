@@ -5,9 +5,9 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Playnite.SDK.Models;
 using Playnite.Database;
 using Playnite.SDK;
+using Playnite.SDK.Models;
 
 namespace Playnite.Database
 {

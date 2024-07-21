@@ -1,16 +1,16 @@
-﻿using Microsoft.Win32;
-using Playnite.SDK;
-using Playnite.Native;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Management;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Diagnostics;
+using Microsoft.Win32;
+using Playnite.Native;
+using Playnite.SDK;
 
 namespace Playnite.Common
 {

@@ -1,14 +1,14 @@
-﻿using Playnite.SDK;
-using Playnite.SDK.Models;
-using Playnite.SDK.Events;
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Management.Automation;
 using System.Text;
 using System.Threading.Tasks;
-using System.Management.Automation;
 using Playnite.Common;
+using Playnite.SDK;
+using Playnite.SDK.Events;
+using Playnite.SDK.Models;
 using Playnite.SDK.Plugins;
 
 namespace Playnite.Scripting.PowerShell

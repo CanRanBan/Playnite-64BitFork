@@ -1,11 +1,11 @@
-﻿using Playnite.Common;
-using Playnite.SDK;
-using Playnite.Services;
-using Playnite.Windows;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
+using Playnite.Common;
+using Playnite.SDK;
+using Playnite.Services;
+using Playnite.Windows;
 
 namespace Playnite.ViewModels
 {

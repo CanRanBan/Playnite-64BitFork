@@ -1,11 +1,11 @@
-﻿using Playnite.SDK;
-using Playnite.Metadata;
-using Playnite.Commands;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Playnite.Commands;
+using Playnite.Metadata;
+using Playnite.SDK;
 using Playnite.Windows;
 
 namespace Playnite.DesktopApp.ViewModels
@@ -127,7 +127,7 @@ namespace Playnite.DesktopApp.ViewModels
 
         public MetadataDownloadViewModel(IWindowFactory window)
         {
-            this.window = window;            
+            this.window = window;
         }
 
         public bool? OpenView(ViewMode mode, MetadataDownloaderSettings settings)

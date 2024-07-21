@@ -1,20 +1,20 @@
-﻿using Playnite.API;
-using Playnite.Database;
-using Playnite.Controllers;
-using Playnite.Scripting;
-using Playnite.SDK;
-using Playnite.SDK.Plugins;
-using Playnite.Settings;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using Playnite.API;
 using Playnite.Common;
-using Playnite.SDK.Models;
+using Playnite.Controllers;
+using Playnite.Database;
+using Playnite.Scripting;
+using Playnite.SDK;
 using Playnite.SDK.Events;
+using Playnite.SDK.Models;
+using Playnite.SDK.Plugins;
+using Playnite.Settings;
 
 namespace Playnite.Plugins
 {
@@ -135,7 +135,7 @@ namespace Playnite.Plugins
                     {
                         logger.Error(e, $"Failed to dispose script {script.Name}");
                     }
-            }
+                }
             }
 
             Scripts = new List<PlayniteScript>();
