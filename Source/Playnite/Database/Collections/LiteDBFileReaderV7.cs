@@ -4,8 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading;
-using System.Threading.Tasks;
 using static LiteDBConversion.Constants;
 
 // This is copy from LiteDB 5 version and it's only used for recovery of corrupted databases.

@@ -3,17 +3,12 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using LiteDB;
 using Newtonsoft.Json.Linq;
 using Playnite.Common;
 using Playnite.Database.OldModels;
 using Playnite.Emulators;
-using Playnite.SDK;
 using Playnite.SDK.Models;
-using SdkModels = Playnite.SDK.Models;
 
 namespace Playnite.Database
 {

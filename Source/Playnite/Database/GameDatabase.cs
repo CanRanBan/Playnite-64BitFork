@@ -10,14 +10,11 @@ using System.Reflection;
 using System.Threading;
 using System.Windows.Media.Imaging;
 using Playnite.Common;
-using Playnite.Common.Media.Icons;
 using Playnite.Common.Web;
 using Playnite.Emulators;
 using Playnite.SDK;
 using Playnite.SDK.Models;
 using Playnite.SDK.Plugins;
-using Playnite.Settings;
-using SdkModels = Playnite.SDK.Models;
 
 namespace Playnite.Database
 {

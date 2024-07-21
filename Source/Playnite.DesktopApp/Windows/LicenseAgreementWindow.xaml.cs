@@ -1,5 +1,4 @@
 ﻿using Playnite.Controls;
-using Playnite.Windows;
 
 namespace Playnite.DesktopApp.Windows
 {

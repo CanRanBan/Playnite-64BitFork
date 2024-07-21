@@ -6,27 +6,17 @@ using System.Diagnostics;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
-using System.Net;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
-using Playnite;
-using Playnite.Commands;
 using Playnite.Common;
-using Playnite.Common.Media.Icons;
-using Playnite.Common.Web;
 using Playnite.Database;
 using Playnite.DesktopApp.Windows;
-using Playnite.Metadata;
 using Playnite.Plugins;
 using Playnite.Scripting.PowerShell;
 using Playnite.SDK;
 using Playnite.SDK.Exceptions;
 using Playnite.SDK.Models;
 using Playnite.SDK.Plugins;
-using Playnite.Settings;
 using Playnite.Windows;
 
 namespace Playnite.DesktopApp.ViewModels

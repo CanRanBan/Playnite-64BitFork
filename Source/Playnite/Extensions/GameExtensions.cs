@@ -4,17 +4,12 @@ using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using Playnite.Common;
-using Playnite.Controllers;
 using Playnite.Database;
 using Playnite.Emulators;
 using Playnite.SDK;
 using Playnite.SDK.Models;
-using Playnite.SDK.Plugins;
-using Playnite.Settings;
 
 namespace Playnite
 {

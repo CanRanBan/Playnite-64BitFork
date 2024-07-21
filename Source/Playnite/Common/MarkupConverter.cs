@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Playnite.Common
+﻿namespace Playnite.Common
 {
     public class MarkupConverter : SDK.Data.IMarkupConverter
     {

@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Automation;
 using System.Windows.Controls;
@@ -17,7 +13,6 @@ using Playnite.Converters;
 using Playnite.DesktopApp.Markup;
 using Playnite.DesktopApp.ViewModels;
 using Playnite.SDK;
-using Playnite.SDK.Controls;
 using Playnite.SDK.Models;
 using BooleanToVisibilityConverter = Playnite.Converters.BooleanToVisibilityConverter;
 

@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Runtime;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using CommandLine;
 using Playnite.Common;

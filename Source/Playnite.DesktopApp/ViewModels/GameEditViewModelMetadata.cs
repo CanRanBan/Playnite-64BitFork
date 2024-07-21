@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
-using System.Text;
-using System.Text.RegularExpressions;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
 using Playnite.Common;
 using Playnite.Common.Web;
@@ -16,7 +13,6 @@ using Playnite.Emulators;
 using Playnite.SDK;
 using Playnite.SDK.Models;
 using Playnite.SDK.Plugins;
-using Playnite.ViewModels;
 
 namespace Playnite.DesktopApp.ViewModels
 {

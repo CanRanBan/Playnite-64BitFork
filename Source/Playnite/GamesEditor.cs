@@ -3,31 +3,22 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Input;
 using System.Windows.Shell;
-using Playnite;
-using Playnite.API;
 using Playnite.Common;
 using Playnite.Controllers;
 using Playnite.Database;
 using Playnite.Plugins;
-using Playnite.Scripting;
 using Playnite.Scripting.PowerShell;
 using Playnite.SDK;
 using Playnite.SDK.Exceptions;
 using Playnite.SDK.Models;
 using Playnite.SDK.Plugins;
-using Playnite.Settings;
-using Playnite.ViewModels;
-using Playnite.Windows;
 
 namespace Playnite
 {

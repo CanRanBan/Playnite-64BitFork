@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Text;
-using System.Threading.Tasks;
-using Playnite.Common;
 using Playnite.SDK;
-using Playnite.SDK.Data;
 using Serialization = Playnite.SDK.Data.Serialization;
 
 namespace Playnite.Services

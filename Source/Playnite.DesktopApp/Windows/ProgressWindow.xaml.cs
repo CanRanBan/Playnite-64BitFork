@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows.Interop;
+﻿using System.Windows.Interop;
 using Playnite.Controls;
 using Playnite.Native;
 

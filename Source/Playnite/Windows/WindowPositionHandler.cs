@@ -1,15 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Forms;
 using System.Windows.Media;
-using Playnite;
 using Playnite.Common;
-using Playnite.Settings;
 
 namespace Playnite.Windows
 {

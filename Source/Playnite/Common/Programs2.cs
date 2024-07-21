@@ -8,8 +8,6 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Xml;
-using Microsoft.Win32;
-using Playnite.SDK;
 using Windows.ApplicationModel;
 using Windows.Management.Deployment;
 

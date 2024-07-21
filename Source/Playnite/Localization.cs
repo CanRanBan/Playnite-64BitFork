@@ -5,13 +5,9 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Markup;
 using Playnite.Common;
 using Playnite.SDK;
-using Playnite.Settings;
 
 namespace Playnite
 {

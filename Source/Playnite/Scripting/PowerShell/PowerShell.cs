@@ -6,13 +6,9 @@ using System.IO;
 using System.Linq;
 using System.Management.Automation;
 using System.Management.Automation.Runspaces;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using Microsoft.PowerShell;
 using Microsoft.Win32;
-using Playnite.API;
-using Playnite.Native;
 using Playnite.SDK;
 using Playnite.SDK.Exceptions;
 

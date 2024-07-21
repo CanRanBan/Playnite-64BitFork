@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using LiteDB;
 using Playnite.SDK;
 using Playnite.SDK.Models;
-using SdkModels = Playnite.SDK.Models;
 
 namespace Playnite.Database
 {

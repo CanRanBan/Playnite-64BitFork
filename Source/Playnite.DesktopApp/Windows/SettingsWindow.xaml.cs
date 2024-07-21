@@ -1,10 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Windows.Controls;
-using Playnite.Controls;
-using Playnite.ViewModels;
+﻿using Playnite.Controls;
 using Playnite.Windows;
 
 namespace Playnite.DesktopApp.Windows

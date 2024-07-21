@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Playnite.Database.OldModels.NewVer1
+﻿namespace Playnite.Database.OldModels.NewVer1
 {
     /// <summary>
     /// Represents game completion status.
