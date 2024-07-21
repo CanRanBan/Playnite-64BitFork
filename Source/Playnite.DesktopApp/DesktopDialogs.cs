@@ -24,7 +24,7 @@ namespace Playnite.DesktopApp
 
         private T Invoke<T>(Func<T> action)
         {
-            T result = default(T);
+            T result = default;
             context.Send((a) =>
             {
                 result = action();
