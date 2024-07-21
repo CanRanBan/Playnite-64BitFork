@@ -62,7 +62,7 @@ namespace Playnite.DesktopApp.Controls
             }
         }
 
-        public new static readonly DependencyProperty IsFocusedProperty = DependencyProperty.Register(nameof(IsFocused), typeof(bool), typeof(SearchBox), new PropertyMetadata(false, IsFocusedPropertyChangedCallback));
+        public static new readonly DependencyProperty IsFocusedProperty = DependencyProperty.Register(nameof(IsFocused), typeof(bool), typeof(SearchBox), new PropertyMetadata(false, IsFocusedPropertyChangedCallback));
 
         static SearchBox()
         {

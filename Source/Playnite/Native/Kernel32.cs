@@ -10,11 +10,11 @@ namespace Playnite.Native
         private const string dllName = "Kernel32.dll";
 
         [DllImport(dllName, SetLastError = true, CharSet = CharSet.Auto)]
-        public extern static uint GetFinalPathNameByHandle(IntPtr hFile, [MarshalAs(UnmanagedType.LPTStr)] StringBuilder lpszFilePath, uint cchFilePath, uint dwFlags);
+        public static extern uint GetFinalPathNameByHandle(IntPtr hFile, [MarshalAs(UnmanagedType.LPTStr)] StringBuilder lpszFilePath, uint cchFilePath, uint dwFlags);
 
         [DllImport(dllName, SetLastError = true)]
         [return: MarshalAs(UnmanagedType.Bool)]
-        public extern static bool CloseHandle(IntPtr hObject);
+        public static extern bool CloseHandle(IntPtr hObject);
 
         [DllImport(dllName, CharSet = CharSet.Auto, SetLastError = true)]
         public static extern IntPtr CreateFile(

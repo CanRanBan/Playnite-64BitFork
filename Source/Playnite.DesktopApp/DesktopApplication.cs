@@ -38,7 +38,7 @@ namespace Playnite.DesktopApp
             }
         }
 
-        public new static DesktopApplication Current
+        public static new DesktopApplication Current
         {
             get => PlayniteApplication.Current == null ? null : (DesktopApplication)PlayniteApplication.Current;
         }

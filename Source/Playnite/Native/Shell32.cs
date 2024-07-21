@@ -8,6 +8,6 @@ namespace Playnite.Native
         private const string dllName = "Shell32.dll";
 
         [DllImport(dllName)]
-        public extern static int ExtractIconEx(string libName, int iconIndex, IntPtr[] largeIcon, IntPtr[] smallIcon, uint nIcons);
+        public static extern int ExtractIconEx(string libName, int iconIndex, IntPtr[] largeIcon, IntPtr[] smallIcon, uint nIcons);
     }
 }

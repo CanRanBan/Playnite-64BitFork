@@ -43,7 +43,7 @@ namespace Playnite
             return null;
         }
 
-        public async static Task CancelAndWaitAsync()
+        public static async Task CancelAndWaitAsync()
         {
             if (IsActive)
             {

@@ -130,8 +130,8 @@ namespace Playnite.Common.Media.Icons
 
         // Resource types for EnumResourceNames().
 
-        private readonly static IntPtr RT_ICON = (IntPtr)3;
-        private readonly static IntPtr RT_GROUP_ICON = (IntPtr)14;
+        private static readonly IntPtr RT_ICON = (IntPtr)3;
+        private static readonly IntPtr RT_GROUP_ICON = (IntPtr)14;
 
         private const int MAX_PATH = 260;
 
