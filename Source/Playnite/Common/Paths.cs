@@ -240,7 +240,7 @@ namespace Playnite.Common
 
             // Relative paths don't support long paths
             // https://docs.microsoft.com/en-us/windows/win32/fileio/maximum-file-path-limitation?tabs=cmd
-            if (!Paths.IsFullPath(path))
+            if (!IsFullPath(path))
             {
                 return path;
             }

@@ -21,12 +21,12 @@ namespace Playnite
         {
             public TempDateTime(IDateTimes customDates)
             {
-                DateTimes.dateProvider = customDates;
+                dateProvider = customDates;
             }
 
             public void Dispose()
             {
-                DateTimes.dateProvider = DateTimes.defaultDateProvider;
+                dateProvider = defaultDateProvider;
             }
         }
 

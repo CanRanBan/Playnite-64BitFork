@@ -29,7 +29,7 @@ namespace LiteDBConversion
         /// </summary>
         public LiteDB.BsonDocument Deserialize(byte[] bson)
         {
-            return this.ReadDocument(new ByteReader(bson));
+            return ReadDocument(new ByteReader(bson));
         }
 
         /// <summary>
@@ -43,7 +43,7 @@ namespace LiteDBConversion
 
             while (reader.Position < end)
             {
-                var value = this.ReadElement(reader, out string name);
+                var value = ReadElement(reader, out string name);
                 obj.RawValue[name] = value;
             }
 
@@ -63,7 +63,7 @@ namespace LiteDBConversion
 
             while (reader.Position < end)
             {
-                var value = this.ReadElement(reader, out string name);
+                var value = ReadElement(reader, out string name);
                 arr.Add(value);
             }
 
@@ -90,11 +90,11 @@ namespace LiteDBConversion
             }
             else if (type == 0x03) // Document
             {
-                return this.ReadDocument(reader);
+                return ReadDocument(reader);
             }
             else if (type == 0x04) // Array
             {
-                return this.ReadArray(reader);
+                return ReadArray(reader);
             }
             else if (type == 0x05) // Binary
             {
@@ -259,7 +259,7 @@ namespace LiteDBConversion
         {
             var buffer = new byte[count];
 
-            System.Buffer.BlockCopy(_buffer, _pos, buffer, 0, count);
+            Buffer.BlockCopy(_buffer, _pos, buffer, 0, count);
 
             _pos += count;
 
@@ -272,7 +272,7 @@ namespace LiteDBConversion
 
         public string ReadString()
         {
-            var length = this.ReadInt32();
+            var length = ReadInt32();
             var str = Encoding.UTF8.GetString(_buffer, _pos, length);
             _pos += length;
 
@@ -292,7 +292,7 @@ namespace LiteDBConversion
         /// </summary>
         public string ReadBsonString()
         {
-            var length = this.ReadInt32();
+            var length = ReadInt32();
             var str = Encoding.UTF8.GetString(_buffer, _pos, length - 1);
             _pos += length;
 
@@ -327,19 +327,19 @@ namespace LiteDBConversion
             // fix #921 converting index key into LocalTime
             // this is not best solution because uctDate must be a global parameter
             // this will be review in v5
-            var date = new DateTime(this.ReadInt64(), DateTimeKind.Utc);
+            var date = new DateTime(ReadInt64(), DateTimeKind.Utc);
 
             return date.ToLocalTime();
         }
 
         public Guid ReadGuid()
         {
-            return new Guid(this.ReadBytes(16));
+            return new Guid(ReadBytes(16));
         }
 
         public LiteDB.ObjectId ReadObjectId()
         {
-            return new LiteDB.ObjectId(this.ReadBytes(12));
+            return new LiteDB.ObjectId(ReadBytes(12));
         }
 
         // Legacy PageAddress structure: [uint, ushort]
@@ -350,28 +350,28 @@ namespace LiteDBConversion
 
         public LiteDB.BsonValue ReadBsonValue(ushort length)
         {
-            var type = (LiteDB.BsonType)this.ReadByte();
+            var type = (LiteDB.BsonType)ReadByte();
 
             switch (type)
             {
                 case LiteDB.BsonType.Null: return LiteDB.BsonValue.Null;
 
-                case LiteDB.BsonType.Int32: return this.ReadInt32();
-                case LiteDB.BsonType.Int64: return this.ReadInt64();
-                case LiteDB.BsonType.Double: return this.ReadDouble();
-                case LiteDB.BsonType.Decimal: return this.ReadDecimal();
+                case LiteDB.BsonType.Int32: return ReadInt32();
+                case LiteDB.BsonType.Int64: return ReadInt64();
+                case LiteDB.BsonType.Double: return ReadDouble();
+                case LiteDB.BsonType.Decimal: return ReadDecimal();
 
-                case LiteDB.BsonType.String: return this.ReadString(length);
+                case LiteDB.BsonType.String: return ReadString(length);
 
                 case LiteDB.BsonType.Document: return new BsonReader(false).ReadDocument(this);
                 case LiteDB.BsonType.Array: return new BsonReader(false).ReadArray(this);
 
-                case LiteDB.BsonType.Binary: return this.ReadBytes(length);
-                case LiteDB.BsonType.ObjectId: return this.ReadObjectId();
-                case LiteDB.BsonType.Guid: return this.ReadGuid();
+                case LiteDB.BsonType.Binary: return ReadBytes(length);
+                case LiteDB.BsonType.ObjectId: return ReadObjectId();
+                case LiteDB.BsonType.Guid: return ReadGuid();
 
-                case LiteDB.BsonType.Boolean: return this.ReadBoolean();
-                case LiteDB.BsonType.DateTime: return this.ReadDateTime();
+                case LiteDB.BsonType.Boolean: return ReadBoolean();
+                case LiteDB.BsonType.DateTime: return ReadDateTime();
 
                 case LiteDB.BsonType.MinValue: return LiteDB.BsonValue.MinValue;
                 case LiteDB.BsonType.MaxValue: return LiteDB.BsonValue.MaxValue;
@@ -603,7 +603,7 @@ namespace LiteDBConversion
             _stream = stream;
 
             // only userVersion was avaiable in old file format versions
-            _header = this.ReadPage(0);
+            _header = ReadPage(0);
 
             if (password == null && _header["salt"].AsBinary.IsFullZero() == false)
             {
@@ -625,7 +625,7 @@ namespace LiteDBConversion
         public IEnumerable<IndexInfo> GetIndexes(string collection)
         {
             var pageID = (uint)_header["collections"].AsDocument[collection].AsInt32;
-            var page = this.ReadPage(pageID);
+            var page = ReadPage(pageID);
 
             foreach (var index in page["indexes"].AsArray)
             {
@@ -651,14 +651,14 @@ namespace LiteDBConversion
         public IEnumerable<LiteDB.BsonDocument> GetDocuments(string collection)
         {
             var colPageID = (uint)_header["collections"].AsDocument[collection].AsInt32;
-            var col = this.ReadPage(colPageID);
+            var col = ReadPage(colPageID);
             var headPageID = (uint)col.Index("indexes").Index(0).Index("headPageID").AsInt32;
 
-            var indexPages = this.VisitIndexPages(headPageID);
+            var indexPages = VisitIndexPages(headPageID);
 
             foreach (var indexPageID in indexPages)
             {
-                var indexPage = this.ReadPage(indexPageID);
+                var indexPage = ReadPage(indexPageID);
 
                 foreach (var node in indexPage["nodes"].AsArray)
                 {
@@ -668,7 +668,7 @@ namespace LiteDBConversion
                     if (dataBlock.Index("pageID").AsInt32 != -1)
                     {
                         // read dataPage and data block
-                        var dataPage = this.ReadPage((uint)dataBlock.Index("pageID").AsInt32);
+                        var dataPage = ReadPage((uint)dataBlock.Index("pageID").AsInt32);
 
                         if (dataPage["pageType"].AsInt32 != 4) continue;
 
@@ -679,7 +679,7 @@ namespace LiteDBConversion
                         // read byte[] from block or from extend pages
                         var data = block["extendPageID"] == -1 ?
                             block["data"].AsBinary :
-                            this.ReadExtendData((uint)block["extendPageID"].AsInt32);
+                            ReadExtendData((uint)block["extendPageID"].AsInt32);
 
                         if (data.Length == 0) continue;
 
@@ -905,7 +905,7 @@ namespace LiteDBConversion
             {
                 while (extendPageID != uint.MaxValue)
                 {
-                    var page = this.ReadPage(extendPageID);
+                    var page = ReadPage(extendPageID);
 
                     if (page["pageType"].AsInt32 != 5) return new byte[0];
 
@@ -932,7 +932,7 @@ namespace LiteDBConversion
 
                 toVisit.Remove(indexPageID);
 
-                var indexPage = this.ReadPage(indexPageID);
+                var indexPage = ReadPage(indexPageID);
 
                 if (indexPage == null || indexPage["pageType"] != 3) continue;
 

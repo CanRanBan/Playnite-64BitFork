@@ -199,7 +199,7 @@ namespace Playnite.ViewModels
             {
                 try
                 {
-                    Scripting.PowerShell.PowerShellRuntime.StartInteractiveSession(new Dictionary<string, object>
+                    PowerShellRuntime.StartInteractiveSession(new Dictionary<string, object>
                     {
                         { "PlayniteApi", App.PlayniteApiGlobal }
                     });
@@ -512,7 +512,7 @@ namespace Playnite.ViewModels
                 return;
             }
 
-            if (!await Common.Network.GetIsConnectedToInternet())
+            if (!await Network.GetIsConnectedToInternet())
             {
                 Logger.Warn("Startup library update disabled because of no internet connection.");
                 return;

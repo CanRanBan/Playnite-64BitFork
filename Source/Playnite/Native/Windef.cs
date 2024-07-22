@@ -89,10 +89,10 @@ namespace Playnite.Native
 
         public RECT(int left, int top, int right, int bottom)
         {
-            this._left = left;
-            this._top = top;
-            this._right = right;
-            this._bottom = bottom;
+            _left = left;
+            _top = top;
+            _right = right;
+            _bottom = bottom;
         }
 
         public RECT(RECT rcSrc)

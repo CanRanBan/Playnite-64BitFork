@@ -53,13 +53,13 @@ namespace Playnite
                         if (contextSource == null)
                         {
                             BindingTools.SetBinding(plugControl,
-                                plugControl is PluginUserControl ? PluginUserControl.GameContextProperty : Control.DataContextProperty,
+                                plugControl is PluginUserControl ? PluginUserControl.GameContextProperty : FrameworkElement.DataContextProperty,
                                 contextPath);
                         }
                         else
                         {
                             BindingTools.SetBinding(plugControl,
-                                plugControl is PluginUserControl ? PluginUserControl.GameContextProperty : Control.DataContextProperty,
+                                plugControl is PluginUserControl ? PluginUserControl.GameContextProperty : FrameworkElement.DataContextProperty,
                                 contextSource,
                                 contextPath);
                         }

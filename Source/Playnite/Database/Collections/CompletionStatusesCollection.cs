@@ -33,7 +33,7 @@ namespace Playnite.Database
             }
         }
 
-        public CompletionStatusesCollection(GameDatabase database, LiteDB.BsonMapper mapper) : base(mapper, type: GameDatabaseCollection.CompletionStatuses)
+        public CompletionStatusesCollection(GameDatabase database, BsonMapper mapper) : base(mapper, type: GameDatabaseCollection.CompletionStatuses)
         {
             db = database;
         }
@@ -58,7 +58,7 @@ namespace Playnite.Database
             SettingsCollection.Upsert(settings);
         }
 
-        public static void MapLiteDbEntities(LiteDB.BsonMapper mapper)
+        public static void MapLiteDbEntities(BsonMapper mapper)
         {
             mapper.Entity<CompletionStatus>().Id(a => a.Id, false);
         }

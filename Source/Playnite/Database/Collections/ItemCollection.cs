@@ -85,7 +85,7 @@ namespace Playnite.Database
 
         public ItemCollection(string path, BsonMapper mapper, GameDatabaseCollection type = GameDatabaseCollection.Unknown)
         {
-            this.isPersistent = true;
+            isPersistent = true;
             this.mapper = mapper;
             Items = new ConcurrentDictionary<Guid, TItem>();
             InitializeCollection(path);

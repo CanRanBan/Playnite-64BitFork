@@ -132,7 +132,7 @@ namespace Playnite.DesktopApp.Controls
                             new XAttribute(nameof(CheckBox.IsChecked), "{Binding Selected}"),
                             new XAttribute(nameof(CheckBox.Content), "{Binding Item.Name}"),
                             new XAttribute(nameof(CheckBox.IsThreeState), "{Binding IsThreeState, Mode=OneWay, RelativeSource={RelativeSource AncestorType=DdItemListSelectionBox}}"),
-                            new XAttribute(nameof(CheckBox.Style), $"{{DynamicResource ComboBoxListItemStyle}}")))
+                            new XAttribute(nameof(Style), $"{{DynamicResource ComboBoxListItemStyle}}")))
                 ).ToString());
             }
 
@@ -152,7 +152,7 @@ namespace Playnite.DesktopApp.Controls
             {
                 BindingTools.SetBinding(
                     ElemSearchHost,
-                    FrameworkElement.VisibilityProperty,
+                    VisibilityProperty,
                     this,
                     nameof(ShowSearchBox),
                     converter: new Converters.BooleanToVisibilityConverter());

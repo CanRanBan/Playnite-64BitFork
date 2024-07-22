@@ -98,7 +98,7 @@ namespace Playnite.DesktopApp.Controls.Views
                 mainModel.Extensions,
                 Template,
                 this,
-                SDK.ApplicationMode.Desktop,
+                ApplicationMode.Desktop,
                 mainModel,
                 $"{nameof(DesktopAppViewModel.SelectedGameDetails)}.{nameof(GameDetailsViewModel.Game)}.{nameof(GameDetailsViewModel.Game.Game)}");
         }

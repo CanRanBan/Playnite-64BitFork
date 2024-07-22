@@ -342,7 +342,7 @@ namespace Playnite.DesktopApp.ViewModels
             }
         }
 
-        private void FilterSettings_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        private void FilterSettings_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
         }
 

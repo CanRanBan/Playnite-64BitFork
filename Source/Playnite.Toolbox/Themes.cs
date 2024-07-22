@@ -290,7 +290,7 @@ namespace Playnite.Toolbox
 
             var defaultThemeDir = Path.Combine(Paths.GetThemesPath(mode), "Default");
             var origFilesZip = Path.Combine(Paths.ChangeLogsDir, currentThemeMan.ThemeApiVersion + ".zip");
-            var themeChanges = Themes.GetThemeChangelog(origThemeApiVersion, mode);
+            var themeChanges = GetThemeChangelog(origThemeApiVersion, mode);
             if (!themeChanges.HasItems())
             {
                 logger.Info("No files to update.");
@@ -417,7 +417,7 @@ namespace Playnite.Toolbox
             csproj.Save(Path.Combine(outDir, PlaynitePaths.ThemeProjFileName));
 
             FileSystem.CopyFile(Paths.GetThemeTemplatePath(PlaynitePaths.EngLocSourceFileName), Path.Combine(outDir, PlaynitePaths.EngLocSourceFileName));
-            FileSystem.CopyFile(Paths.GetThemeTemplateFilePath(mode, Themes.GlobalResourcesName), Path.Combine(outDir, Themes.GlobalResourcesName));
+            FileSystem.CopyFile(Paths.GetThemeTemplateFilePath(mode, GlobalResourcesName), Path.Combine(outDir, GlobalResourcesName));
             FileSystem.CopyFile(Paths.GetThemeTemplateFilePath(mode, PlaynitePaths.ThemeSlnFileName), Path.Combine(outDir, PlaynitePaths.ThemeSlnFileName));
 
             var outGalleryFile = Path.Combine(outDir, ControlGalleryViewName);

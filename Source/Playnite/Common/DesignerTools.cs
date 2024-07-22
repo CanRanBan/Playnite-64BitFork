@@ -12,7 +12,7 @@ namespace System.Windows
             {
                 if (inDesignMode == null)
                 {
-                    inDesignMode = DesignerProperties.GetIsInDesignMode(new System.Windows.DependencyObject());
+                    inDesignMode = DesignerProperties.GetIsInDesignMode(new DependencyObject());
                 }
 
                 return inDesignMode.Value;

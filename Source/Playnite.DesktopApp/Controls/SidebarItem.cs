@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using Playnite.Common;
 using Playnite.DesktopApp.ViewModels;
 
@@ -20,27 +21,27 @@ namespace Playnite.DesktopApp.Controls
             base.OnApplyTemplate();
 
             BindingTools.SetBinding(this,
-                Button.CommandProperty,
+                CommandProperty,
                 nameof(SidebarWrapperItem.Command));
             BindingTools.SetBinding(this,
                 ContentPresenter.ContentProperty,
                 nameof(SidebarWrapperItem.IconObject));
             BindingTools.SetBinding(this,
-                ContentPresenter.VisibilityProperty,
+                VisibilityProperty,
                 nameof(SidebarWrapperItem.Visible),
                 converter: new BooleanToVisibilityConverter());
             BindingTools.SetBinding(this,
-                ContentPresenter.ToolTipProperty,
+                ToolTipProperty,
                 nameof(SidebarWrapperItem.Title));
 
             ProgressStatus = Template.FindName("PART_ProgressStatus", this) as ProgressBar;
             if (ProgressStatus != null)
             {
                 BindingTools.SetBinding(ProgressStatus,
-                    ProgressBar.MaximumProperty,
+                    RangeBase.MaximumProperty,
                     nameof(SidebarWrapperItem.ProgressMaximum));
                 BindingTools.SetBinding(ProgressStatus,
-                    ProgressBar.ValueProperty,
+                    RangeBase.ValueProperty,
                     nameof(SidebarWrapperItem.ProgressValue));
             }
         }

@@ -104,7 +104,7 @@ namespace Playnite.DesktopApp.Controls.Views
             if (ElemNoGamesNotif != null)
             {
                 BindingTools.SetBinding(ElemNoGamesNotif,
-                    Control.VisibilityProperty,
+                    VisibilityProperty,
                     mainModel,
                     $"{nameof(mainModel.GamesView)}.{nameof(mainModel.GamesView.CollectionView)}.{nameof(mainModel.GamesView.Items.Count)}",
                     converter: new IntToVisibilityConverter(),
@@ -122,7 +122,7 @@ namespace Playnite.DesktopApp.Controls.Views
                 mainModel.Extensions,
                 Template,
                 this,
-                SDK.ApplicationMode.Desktop,
+                ApplicationMode.Desktop,
                 mainModel,
                 $"{nameof(DesktopAppViewModel.SelectedGameDetails)}.{nameof(GameDetailsViewModel.Game)}.{nameof(GameDetailsViewModel.Game.Game)}");
         }
@@ -133,13 +133,13 @@ namespace Playnite.DesktopApp.Controls.Views
             if (elem != null)
             {
                 BindingTools.SetBinding(elem,
-                    Control.VisibilityProperty,
+                    VisibilityProperty,
                     mainModel.AppSettings.ViewSettings,
                     nameof(ViewSettings.GamesViewType),
                     converter: new EnumToVisibilityConverter(),
                     converterParameter: type);
                 BindingTools.SetBinding(elem,
-                    Control.IsEnabledProperty,
+                    IsEnabledProperty,
                     mainModel.AppSettings.ViewSettings,
                     nameof(ViewSettings.GamesViewType),
                     converter: new EnumToBooleanConverter(),

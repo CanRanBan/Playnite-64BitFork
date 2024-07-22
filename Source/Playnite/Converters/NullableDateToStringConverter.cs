@@ -12,7 +12,7 @@ namespace Playnite.Converters
     {
         public static readonly NullableDateToStringConverter Instance = new NullableDateToStringConverter();
 
-        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (value == null)
             {
@@ -34,7 +34,7 @@ namespace Playnite.Converters
             }
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (string.IsNullOrEmpty(value as string))
             {
@@ -62,7 +62,7 @@ namespace Playnite.Converters
     {
         public static readonly ReleaseDateToStringConverter Instance = new ReleaseDateToStringConverter();
 
-        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (value is ReleaseDate date)
             {
@@ -89,7 +89,7 @@ namespace Playnite.Converters
             }
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             var str = value as string;
             if (str.IsNullOrEmpty())
@@ -108,7 +108,7 @@ namespace Playnite.Converters
 
     public class EditingReleaseDateToStringConverter : MarkupExtension, IValueConverter
     {
-        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (value is ReleaseDate date)
             {
@@ -124,7 +124,7 @@ namespace Playnite.Converters
             }
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             var str = value as string;
             if (str.IsNullOrEmpty())
@@ -145,7 +145,7 @@ namespace Playnite.Converters
     {
         private const string InvalidInput = "Release date must be in year-month-day format!";
 
-        public override ValidationResult Validate(object value, System.Globalization.CultureInfo cultureInfo)
+        public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
             if (!string.IsNullOrEmpty((string)value))
             {
@@ -165,7 +165,7 @@ namespace Playnite.Converters
         private const string InvalidArgumentRangeInput = "The date and time is outside the range of dates supported!";
         private static DateTime TestDate = DateTime.Now;
 
-        public override ValidationResult Validate(object value, System.Globalization.CultureInfo cultureInfo)
+        public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
             var str = (string)value;
             try

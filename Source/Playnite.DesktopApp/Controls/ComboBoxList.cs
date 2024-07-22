@@ -134,7 +134,7 @@ namespace Playnite.DesktopApp.Controls
                             new XAttribute(nameof(CheckBox.IsChecked), "{Binding Selected}"),
                             new XAttribute(nameof(CheckBox.Content), "{Binding Item}"),
                             new XAttribute(nameof(CheckBox.IsThreeState), "{Binding IsThreeState, Mode=OneWay, RelativeSource={RelativeSource AncestorType=ComboBoxList}}"),
-                            new XAttribute(nameof(CheckBox.Style), $"{{DynamicResource ComboBoxListItemStyle}}")))
+                            new XAttribute(nameof(Style), $"{{DynamicResource ComboBoxListItemStyle}}")))
                 ).ToString());
             }
 

@@ -245,7 +245,7 @@ namespace Playnite
 
     public class PlayniteSettings : ObservableObject
     {
-        private static SDK.ILogger logger = SDK.LogManager.GetLogger();
+        private static ILogger logger = LogManager.GetLogger();
 
         public int Version
         {
@@ -2498,8 +2498,8 @@ namespace Playnite
             config.AddRuleForAllLevels(coreFileTarget);
 
             NLog.LogManager.Configuration = config;
-            SDK.LogManager.Init(new NLogLogProvider());
-            logger = SDK.LogManager.GetLogger();
+            LogManager.Init(new NLogLogProvider());
+            logger = LogManager.GetLogger();
         }
 
         public static string GetAppConfigValue(string key)

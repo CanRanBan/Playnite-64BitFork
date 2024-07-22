@@ -189,9 +189,9 @@ namespace Playnite.Emulators
             return Definitions.FirstOrDefault(a => a.Id == emulatorId)?.Profiles?.FirstOrDefault(a => a.Name == profileName);
         }
 
-        public static bool IsEmuProfileValid(SDK.Models.Emulator emulator, string profileId)
+        public static bool IsEmuProfileValid(Emulator emulator, string profileId)
         {
-            if (profileId.StartsWith(SDK.Models.CustomEmulatorProfile.ProfilePrefix))
+            if (profileId.StartsWith(CustomEmulatorProfile.ProfilePrefix))
             {
                 return emulator.CustomProfiles?.Any(a => a.Id == profileId) == true;
             }

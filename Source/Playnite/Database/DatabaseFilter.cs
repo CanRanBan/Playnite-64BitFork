@@ -201,7 +201,7 @@ namespace Playnite.Database
 
         public DatabaseFilter(IGameDatabaseMain database, ExtensionFactory extensions, PlayniteSettings settings, FilterSettings filter)
         {
-            this.context = SynchronizationContext.Current;
+            context = SynchronizationContext.Current;
             this.database = database;
             this.settings = settings;
             this.filter = filter;

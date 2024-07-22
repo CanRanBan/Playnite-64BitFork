@@ -18,7 +18,7 @@ namespace Playnite
         public static CustomEmulatorProfile ExpandVariables(this CustomEmulatorProfile profile, Game game, string emulatorDir, string romPath)
         {
             var g = game.GetCopy();
-            g.Roms = new System.Collections.ObjectModel.ObservableCollection<GameRom> { new GameRom("", romPath) };
+            g.Roms = new ObservableCollection<GameRom> { new GameRom("", romPath) };
             var expaded = profile.GetCopy();
             expaded.Arguments = g.ExpandVariables(expaded.Arguments, false, emulatorDir);
             expaded.WorkingDirectory = g.ExpandVariables(expaded.WorkingDirectory, true, emulatorDir);
@@ -78,7 +78,7 @@ namespace Playnite
                 game.GameId = path.MD5();
                 game.Name = Path.GetFileNameWithoutExtension(path);
                 game.InstallDirectory = prog.WorkDir.IsNullOrEmpty() ? fileInfo.Directory.FullName : prog.WorkDir;
-                game.GameActions = new System.Collections.ObjectModel.ObservableCollection<GameAction>
+                game.GameActions = new ObservableCollection<GameAction>
                 {
                     new GameAction()
                     {
@@ -119,7 +119,7 @@ namespace Playnite
 
                 game.Name = Path.GetFileNameWithoutExtension(path);
                 game.Icon = shortcut["IconFile"];
-                game.GameActions = new System.Collections.ObjectModel.ObservableCollection<GameAction>
+                game.GameActions = new ObservableCollection<GameAction>
                 {
                     new GameAction()
                     {
@@ -137,7 +137,7 @@ namespace Playnite
                 var programName = !string.IsNullOrEmpty(versionInfo.ProductName?.Trim()) ? versionInfo.ProductName : new DirectoryInfo(file.DirectoryName).Name;
                 game.Name = programName;
                 game.InstallDirectory = file.DirectoryName;
-                game.GameActions = new System.Collections.ObjectModel.ObservableCollection<GameAction>
+                game.GameActions = new ObservableCollection<GameAction>
                 {
                     new GameAction()
                     {

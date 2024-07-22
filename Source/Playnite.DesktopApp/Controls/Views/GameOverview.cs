@@ -15,6 +15,7 @@ using Playnite.DesktopApp.ViewModels;
 using Playnite.SDK;
 using Playnite.SDK.Models;
 using BooleanToVisibilityConverter = Playnite.Converters.BooleanToVisibilityConverter;
+using ThemeFile = Playnite.Extensions.Markup.ThemeFile;
 
 namespace Playnite.DesktopApp.Controls.Views
 {
@@ -220,13 +221,13 @@ namespace Playnite.DesktopApp.Controls.Views
             if (ButtonPlayAction != null)
             {
                 BindingTools.SetBinding(ButtonPlayAction,
-                    Button.CommandProperty,
+                    ButtonBase.CommandProperty,
                     nameof(GameDetailsViewModel.PlayCommand));
                 BindingTools.SetBinding(ButtonPlayAction,
-                    Button.ContentProperty,
+                    ContentControl.ContentProperty,
                     nameof(GameDetailsViewModel.ContextActionDescription));
                 BindingTools.SetBinding(ButtonPlayAction,
-                    Button.VisibilityProperty,
+                    VisibilityProperty,
                     nameof(GameDetailsViewModel.IsPlayAvailable),
                     converter: new BooleanToVisibilityConverter());
             }
@@ -235,13 +236,13 @@ namespace Playnite.DesktopApp.Controls.Views
             if (ButtonContextAction != null)
             {
                 BindingTools.SetBinding(ButtonContextAction,
-                    Button.CommandProperty,
+                    ButtonBase.CommandProperty,
                     nameof(GameDetailsViewModel.ContextActionCommand));
                 BindingTools.SetBinding(ButtonContextAction,
-                    Button.ContentProperty,
+                    ContentControl.ContentProperty,
                     nameof(GameDetailsViewModel.ContextActionDescription));
                 BindingTools.SetBinding(ButtonContextAction,
-                    Button.VisibilityProperty,
+                    VisibilityProperty,
                     nameof(GameDetailsViewModel.IsContextAvailable),
                     converter: new BooleanToVisibilityConverter());
             }
@@ -259,7 +260,7 @@ namespace Playnite.DesktopApp.Controls.Views
                         Placement = PlacementMode.Relative
                     };
                     BindingTools.SetBinding(ButtonMoreActions.ContextMenu,
-                        Button.DataContextProperty,
+                        DataContextProperty,
                         mainModel,
                         nameof(DesktopAppViewModel.SelectedGame));
                 }
@@ -269,7 +270,7 @@ namespace Playnite.DesktopApp.Controls.Views
             if (ButtonEditGame != null)
             {
                 BindingTools.SetBinding(ButtonEditGame,
-                    Button.CommandProperty,
+                    ButtonBase.CommandProperty,
                     nameof(GameDetailsViewModel.EditGameCommand));
                 AutomationProperties.SetName(ButtonEditGame, LOC.EditGame.GetLocalized());
             }
@@ -281,7 +282,7 @@ namespace Playnite.DesktopApp.Controls.Views
                     HtmlTextView.HtmlTextProperty,
                     GetGameBindingPath(nameof(GamesCollectionViewEntry.Description)));
                 BindingTools.SetBinding(HtmlDescription,
-                    HtmlTextView.VisibilityProperty,
+                    VisibilityProperty,
                     nameof(GameDetailsViewModel.DescriptionVisibility));
                 HtmlDescription.TemplatePath = ThemeFile.GetFilePath("DescriptionView.html");
                 BindingTools.SetBinding(HtmlDescription,
@@ -298,7 +299,7 @@ namespace Playnite.DesktopApp.Controls.Views
                     TextBox.TextProperty,
                     GetGameBindingPath(nameof(GamesCollectionViewEntry.Notes)));
                 BindingTools.SetBinding(TextNotes,
-                    TextBox.VisibilityProperty,
+                    VisibilityProperty,
                     nameof(GameDetailsViewModel.NotesVisibility));
             }
 
@@ -311,7 +312,7 @@ namespace Playnite.DesktopApp.Controls.Views
                     converter: new NullToDependencyPropertyUnsetConverter(),
                     mode: BindingMode.OneWay);
                 BindingTools.SetBinding(ImageCover,
-                    Image.VisibilityProperty,
+                    VisibilityProperty,
                     nameof(GameDetailsViewModel.CoverVisibility),
                     mode: BindingMode.OneWay);
             }
@@ -335,7 +336,7 @@ namespace Playnite.DesktopApp.Controls.Views
 
                 BindingOperations.SetBinding(ImageIcon, Image.SourceProperty, sourceBinding);
                 BindingTools.SetBinding(ImageIcon,
-                    Image.VisibilityProperty,
+                    VisibilityProperty,
                     nameof(GameDetailsViewModel.IconVisibility),
                     mode: BindingMode.OneWay);
             }
@@ -345,7 +346,7 @@ namespace Playnite.DesktopApp.Controls.Views
             {
                 SetBackgroundBinding();
                 BindingTools.SetBinding(ImageBackground,
-                    Image.VisibilityProperty,
+                    VisibilityProperty,
                     nameof(GameDetailsViewModel.BackgroundVisibility),
                     mode: BindingMode.OneWay);
                 BindingTools.SetBinding(ImageBackground,
@@ -456,7 +457,7 @@ namespace Playnite.DesktopApp.Controls.Views
             if (TextCommunityScore != null)
             {
                 BindingTools.SetBinding(TextCommunityScore,
-                    TextBlock.TagProperty,
+                    TagProperty,
                     GetGameBindingPath(nameof(GamesCollectionViewEntry.CommunityScoreRating)));
             }
 
@@ -466,7 +467,7 @@ namespace Playnite.DesktopApp.Controls.Views
             if (TextCriticScore != null)
             {
                 BindingTools.SetBinding(TextCriticScore,
-                    TextBlock.TagProperty,
+                    TagProperty,
                     GetGameBindingPath(nameof(GamesCollectionViewEntry.CriticScoreRating)));
             }
 
@@ -476,7 +477,7 @@ namespace Playnite.DesktopApp.Controls.Views
             if (TextUserScore != null)
             {
                 BindingTools.SetBinding(TextUserScore,
-                    TextBlock.TagProperty,
+                    TagProperty,
                     GetGameBindingPath(nameof(GamesCollectionViewEntry.UserScoreRating)));
             }
 
@@ -578,7 +579,7 @@ namespace Playnite.DesktopApp.Controls.Views
                     ItemsControl.ItemsSourceProperty,
                     GetGameBindingPath(listSource));
                 BindingTools.SetBinding(elem,
-                    TextBlock.VisibilityProperty,
+                    VisibilityProperty,
                     visibility);
             }
         }
@@ -589,7 +590,7 @@ namespace Playnite.DesktopApp.Controls.Views
             if (elem != null)
             {
                 BindingTools.SetBinding(elem,
-                    FrameworkElement.VisibilityProperty,
+                    VisibilityProperty,
                     binding);
             }
         }
@@ -605,7 +606,7 @@ namespace Playnite.DesktopApp.Controls.Views
                     converter: converter,
                     converterParameter: converterParameter);
                 BindingTools.SetBinding(text,
-                    TextBlock.VisibilityProperty,
+                    VisibilityProperty,
                     visibility);
             }
         }
@@ -616,18 +617,18 @@ namespace Playnite.DesktopApp.Controls.Views
             if (button != null)
             {
                 BindingTools.SetBinding(button,
-                    Button.CommandProperty,
+                    ButtonBase.CommandProperty,
                     command);
                 BindingTools.SetBinding(button,
-                    Button.CommandParameterProperty,
+                    ButtonBase.CommandParameterProperty,
                     commandParameter);
                 BindingTools.SetBinding(button,
-                    Button.ContentProperty,
+                    ContentControl.ContentProperty,
                     content,
                     converter: contentConverter,
                     converterParameter: contentConverterParameter);
                 BindingTools.SetBinding(button,
-                    Button.VisibilityProperty,
+                    VisibilityProperty,
                     visibility);
             }
         }

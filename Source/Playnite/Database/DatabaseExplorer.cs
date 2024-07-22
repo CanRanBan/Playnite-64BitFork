@@ -179,7 +179,7 @@ namespace Playnite.Database
         {
             this.database = database;
             this.extensions = extensions;
-            this.filters = settings.FilterSettings;
+            filters = settings.FilterSettings;
             this.settings = settings;
             this.mainModel = mainModel;
             settings.PropertyChanged += Settings_PropertyChanged;
@@ -346,7 +346,7 @@ namespace Playnite.Database
             }
         }
 
-        private void Settings_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        private void Settings_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             if (e.PropertyName == nameof(PlayniteSettings.ExplorerPanelVisible))
             {

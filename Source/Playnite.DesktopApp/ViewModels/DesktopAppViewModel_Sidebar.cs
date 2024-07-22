@@ -152,7 +152,7 @@ namespace Playnite.DesktopApp.ViewModels
         public MainSidebarViewItem(Control view, DesktopAppViewModel model, ApplicationView appView)
         {
             this.view = view;
-            this.AppView = appView;
+            AppView = appView;
             this.model = model;
             Type = SiderbarItemType.View;
             Opened = () =>

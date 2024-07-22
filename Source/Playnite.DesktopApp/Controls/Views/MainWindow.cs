@@ -45,7 +45,7 @@ namespace Playnite.DesktopApp.Controls.Views
             if (Sidebar != null)
             {
                 BindingTools.SetBinding(Sidebar,
-                    Sidebar.VisibilityProperty,
+                    VisibilityProperty,
                     mainModel.AppSettings,
                     nameof(PlayniteSettings.ShowSidebar),
                     converter: new BooleanToVisibilityConverter());

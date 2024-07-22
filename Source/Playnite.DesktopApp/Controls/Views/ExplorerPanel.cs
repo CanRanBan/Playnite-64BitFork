@@ -51,7 +51,7 @@ namespace Playnite.DesktopApp.Controls.Views
                     nameof(DatabaseExplorer.SelectedField),
                     BindingMode.TwoWay);
                 BindingTools.SetBinding(SelectFields,
-                    Selector.ItemsSourceProperty,
+                    ItemsControl.ItemsSourceProperty,
                     mainModel.DatabaseExplorer,
                     nameof(DatabaseExplorer.Fields));
             }
@@ -66,7 +66,7 @@ namespace Playnite.DesktopApp.Controls.Views
                     nameof(DatabaseExplorer.SelectedFieldObject),
                     BindingMode.TwoWay);
                 BindingTools.SetBinding(SelectItems,
-                    Selector.ItemsSourceProperty,
+                    ItemsControl.ItemsSourceProperty,
                     mainModel.DatabaseExplorer,
                     nameof(DatabaseExplorer.FieldValues));
             }

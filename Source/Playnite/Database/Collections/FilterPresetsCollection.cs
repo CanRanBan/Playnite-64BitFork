@@ -62,7 +62,7 @@ namespace Playnite.Database
             }
         }
 
-        public FilterPresetsCollection(GameDatabase database, LiteDB.BsonMapper mapper) : base(mapper, type: GameDatabaseCollection.FilterPresets)
+        public FilterPresetsCollection(GameDatabase database, BsonMapper mapper) : base(mapper, type: GameDatabaseCollection.FilterPresets)
         {
         }
 
@@ -88,7 +88,7 @@ namespace Playnite.Database
             OnSettingsUpdated?.Invoke(this, new FilterPresetsSettingsUpdateEvent(oldSettings, settings));
         }
 
-        public static void MapLiteDbEntities(LiteDB.BsonMapper mapper)
+        public static void MapLiteDbEntities(BsonMapper mapper)
         {
             mapper.Entity<FilterPreset>().Id(a => a.Id, false);
         }

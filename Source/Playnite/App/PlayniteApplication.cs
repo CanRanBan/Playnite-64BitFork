@@ -882,7 +882,7 @@ namespace Playnite
             if (AppSettings.DisableHwAcceleration || CmdLine.ForceSoftwareRender)
             {
                 logger.Info("Enabling software rendering.");
-                System.Windows.Media.RenderOptions.ProcessRenderMode = System.Windows.Interop.RenderMode.SoftwareOnly;
+                RenderOptions.ProcessRenderMode = System.Windows.Interop.RenderMode.SoftwareOnly;
             }
 
             if (CmdLine.ClearWebCache)
@@ -1503,7 +1503,7 @@ namespace Playnite
         public void OnExtensionsLoaded()
         {
             ExtensionsLoaded?.Invoke(this, EventArgs.Empty);
-            OnPropertyChanged(nameof(this.ExtensionsStatusBinder));
+            OnPropertyChanged(nameof(ExtensionsStatusBinder));
         }
 
         private void WaitForOtherInstacesToExit(bool throwOnTimetout)

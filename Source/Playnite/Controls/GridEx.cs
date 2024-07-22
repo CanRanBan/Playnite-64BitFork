@@ -199,7 +199,7 @@ namespace Playnite.Controls
             var index = 0;
             foreach (UIElement elem in Children)
             {
-                var span = Grid.GetColumnSpan(elem);
+                var span = GetColumnSpan(elem);
                 SetColumn(elem, index % columns);
                 SetRow(elem, index / columns);
                 if (span > 0)

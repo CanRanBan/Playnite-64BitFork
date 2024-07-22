@@ -14,13 +14,13 @@ namespace Playnite
     public class ThemeManager
     {
         private static ILogger logger = LogManager.GetLogger();
-        public static System.Version DesktopApiVersion => new System.Version("2.6.0");
+        public static Version DesktopApiVersion => new Version("2.6.0");
         public static ThemeManifest CurrentTheme { get; private set; }
         public static ThemeManifest DefaultTheme { get; private set; }
         public const string DefaultDesktopThemeId = "Playnite_builtin_DefaultDesktop";
         public const string DefaultThemeDirName = "Default";
 
-        public static System.Version GetApiVersion(ApplicationMode mode)
+        public static Version GetApiVersion(ApplicationMode mode)
         {
             return DesktopApiVersion;
         }

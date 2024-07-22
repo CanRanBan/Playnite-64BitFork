@@ -83,7 +83,7 @@ namespace Playnite.Common
         public static void CreateFile(string path)
         {
             path = Paths.FixPathLength(path);
-            FileSystem.PrepareSaveFile(path);
+            PrepareSaveFile(path);
             File.Create(path).Dispose();
         }
 

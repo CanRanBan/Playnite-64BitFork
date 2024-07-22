@@ -184,7 +184,7 @@ namespace Playnite.Common
             {
                 Is64Bit = Environment.Is64BitOperatingSystem,
                 WindowsVersion = Environment.OSVersion.VersionString,
-                ActualWindowsVersion = Computer.WindowsVersion.ToString(),
+                ActualWindowsVersion = WindowsVersion.ToString(),
                 WindowsBuildVersion = GetWindowsReleaseId(),
                 WindowsEdition = GetWindowsProductName()
             };

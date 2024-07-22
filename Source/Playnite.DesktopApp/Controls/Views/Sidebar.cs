@@ -90,9 +90,9 @@ namespace Playnite.DesktopApp.Controls.Views
                     StaysOpen = false,
                     Placement = PlacementMode.Bottom
                 };
-                ElemMainMenu.ContextMenu.SetResourceReference(ContextMenu.StyleProperty, "TopPanelMenu");
+                ElemMainMenu.ContextMenu.SetResourceReference(StyleProperty, "TopPanelMenu");
                 BindingTools.SetBinding(ElemMainMenu,
-                    FrameworkElement.VisibilityProperty,
+                    VisibilityProperty,
                     mainModel.AppSettings,
                     nameof(PlayniteSettings.ShowMainMenuOnTopPanel),
                     converter: new InvertedBooleanToVisibilityConverter());

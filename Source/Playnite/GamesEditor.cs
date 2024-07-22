@@ -121,11 +121,11 @@ namespace Playnite
             PlayniteApplication app,
             IActionSelector actionSelector)
         {
-            this.Dialogs = dialogs;
-            this.Database = database;
-            this.AppSettings = appSettings;
-            this.Extensions = extensions;
-            this.Application = app;
+            Dialogs = dialogs;
+            Database = database;
+            AppSettings = appSettings;
+            Extensions = extensions;
+            Application = app;
             this.actionSelector = actionSelector;
             controllers = controllerFactory;
             controllers.Installed += Controllers_Installed;

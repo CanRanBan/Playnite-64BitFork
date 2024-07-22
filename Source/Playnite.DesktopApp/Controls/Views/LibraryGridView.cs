@@ -105,7 +105,7 @@ namespace Playnite.DesktopApp.Controls.Views
             if (ControlGameView != null)
             {
                 BindingTools.SetBinding(ControlGameView,
-                    Control.VisibilityProperty,
+                    VisibilityProperty,
                     mainModel.AppSettings,
                     nameof(PlayniteSettings.GridViewSideBarVisible),
                     converter: new BooleanToVisibilityConverter());

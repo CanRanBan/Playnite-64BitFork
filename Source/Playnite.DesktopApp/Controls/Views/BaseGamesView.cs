@@ -67,7 +67,7 @@ namespace Playnite.DesktopApp.Controls.Views
                 if (ListGames != null)
                 {
                     BindingTools.SetBinding(ListGames,
-                        ExtendedListBox.ItemsSourceProperty,
+                        ItemsControl.ItemsSourceProperty,
                         mainModel,
                         $"{nameof(mainModel.GamesView)}.{nameof(DesktopCollectionView.CollectionView)}");
                     BindingTools.SetBinding(ListGames,
@@ -80,7 +80,7 @@ namespace Playnite.DesktopApp.Controls.Views
                 if (ControlGameView != null)
                 {
                     BindingTools.SetBinding(ControlGameView,
-                        Control.DataContextProperty,
+                        DataContextProperty,
                         mainModel,
                         nameof(DesktopAppViewModel.SelectedGameDetails),
                         mode: BindingMode.OneWay);
@@ -133,7 +133,7 @@ namespace Playnite.DesktopApp.Controls.Views
                 mainModel.Extensions,
                 Template,
                 this,
-                SDK.ApplicationMode.Desktop,
+                ApplicationMode.Desktop,
                 mainModel,
                 $"{nameof(DesktopAppViewModel.SelectedGameDetails)}.{nameof(GameDetailsViewModel.Game)}.{nameof(GameDetailsViewModel.Game.Game)}");
         }

@@ -142,7 +142,7 @@ namespace System.Drawing.Imaging
             using (var stream = new MemoryStream())
             {
                 encoder.Save(stream);
-                return BitmapExtensions.BitmapFromStream(stream, loadProperties);
+                return BitmapFromStream(stream, loadProperties);
             }
         }
 

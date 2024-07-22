@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Data;
 using System.Windows.Input;
 using Playnite.Common;
@@ -57,13 +58,13 @@ namespace Playnite.DesktopApp.Controls
                 {
                     var mBinding = new MouseBinding(mainModel.StartGameCommand, new MouseGesture(MouseAction.LeftDoubleClick));
                     BindingTools.SetBinding(mBinding,
-                        MouseBinding.CommandParameterProperty,
+                        InputBinding.CommandParameterProperty,
                         nameof(GamesCollectionViewEntry.Game));
                     PanelHost.InputBindings.Add(mBinding);
 
                     PanelHost.ContextMenu = new GameMenu(mainModel) { ShowStartSection = true };
                     BindingTools.SetBinding(PanelHost.ContextMenu,
-                        Button.DataContextProperty,
+                        DataContextProperty,
                         mainModel,
                         nameof(DesktopAppViewModel.SelectedGames));
                 }
@@ -73,7 +74,7 @@ namespace Playnite.DesktopApp.Controls
             if (ImageIcon != null)
             {
                 BindingTools.SetBinding(ImageIcon,
-                    Image.VisibilityProperty,
+                    VisibilityProperty,
                     mainModel.AppSettings,
                     nameof(PlayniteSettings.ShowIconsOnList),
                     converter: new BooleanToVisibilityConverter());
@@ -122,7 +123,7 @@ namespace Playnite.DesktopApp.Controls
             {
                 ButtonPlay.Command = mainModel.StartGameCommand;
                 BindingTools.SetBinding(ButtonPlay,
-                    Button.CommandParameterProperty,
+                    ButtonBase.CommandParameterProperty,
                     nameof(GamesCollectionViewEntry.Game));
             }
 
@@ -131,7 +132,7 @@ namespace Playnite.DesktopApp.Controls
             {
                 ButtonInfo.Command = mainModel.ShowGameSideBarCommand;
                 BindingTools.SetBinding(ButtonInfo,
-                    Button.CommandParameterProperty,
+                    ButtonBase.CommandParameterProperty,
                     string.Empty);
             }
 

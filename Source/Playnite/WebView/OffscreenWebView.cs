@@ -29,7 +29,7 @@ namespace Playnite.WebView
 
         public OffscreenWebView(WebViewSettings settings)
         {
-            this.userAgent = settings.UserAgent;
+            userAgent = settings.UserAgent;
             Initialize(new BrowserSettings
             {
                 Javascript = settings.JavaScriptEnabled ? CefState.Enabled : CefState.Disabled

@@ -103,7 +103,7 @@ namespace System.Drawing.Imaging
         /// <returns>Wether or not the icon was succesfully generated</returns>
         public static bool ConvertToIcon(Stream input, Stream output)
         {
-            Bitmap inputBitmap = (Bitmap)Bitmap.FromStream(input);
+            Bitmap inputBitmap = (Bitmap)Image.FromStream(input);
             return ConvertToIcon(inputBitmap, output);
         }
 

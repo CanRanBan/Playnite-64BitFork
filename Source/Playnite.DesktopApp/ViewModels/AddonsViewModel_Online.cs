@@ -11,7 +11,7 @@ using Playnite.ViewModels;
 
 namespace Playnite.DesktopApp.ViewModels
 {
-    public partial class AddonsViewModel : Playnite.ViewModels.AddonsViewModelBase
+    public partial class AddonsViewModel : AddonsViewModelBase
     {
         private AddonType activeAddonSearchMode;
 

@@ -38,7 +38,7 @@ namespace Playnite.Common
         {
             var image = new Image()
             {
-                Source = System.Drawing.Imaging.BitmapExtensions.BitmapFromFile(path),
+                Source = BitmapExtensions.BitmapFromFile(path),
                 Height = height,
                 Width = width
             };

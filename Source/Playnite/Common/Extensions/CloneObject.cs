@@ -25,7 +25,7 @@ namespace System
         /// <returns>The copied object.</returns>
         public static T GetClone<T>(this T source)
         {
-            if (Object.ReferenceEquals(source, null))
+            if (ReferenceEquals(source, null))
             {
                 return default(T);
             }
@@ -85,7 +85,7 @@ namespace System
 
         public static U GetClone<T, U>(this T source)
         {
-            if (Object.ReferenceEquals(source, null))
+            if (ReferenceEquals(source, null))
             {
                 return default(U);
             }

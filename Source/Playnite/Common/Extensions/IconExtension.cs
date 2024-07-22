@@ -8,7 +8,7 @@ namespace System.Drawing
 {
     public static class IconExtension
     {
-        public static byte[] ToByteArray(this Icon icon, System.Drawing.Imaging.ImageFormat format)
+        public static byte[] ToByteArray(this Icon icon, Imaging.ImageFormat format)
         {
             using (var stream = new MemoryStream())
             {
@@ -25,7 +25,7 @@ namespace System.Drawing
             using (Bitmap bitmap = icon.ToBitmap())
             {
                 IntPtr hBitmap = bitmap.GetHbitmap();
-                BitmapSource wpfBitmap = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(
+                BitmapSource wpfBitmap = Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(
                     hBitmap,
                     IntPtr.Zero,
                     Int32Rect.Empty,

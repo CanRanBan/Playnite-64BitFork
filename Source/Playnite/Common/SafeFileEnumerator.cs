@@ -28,7 +28,7 @@ namespace Playnite.Common
                 this.root = root;
                 this.pattern = pattern;
                 this.errors = errors;
-                this.searchOption = option;
+                searchOption = option;
 
                 Reset();
             }
@@ -190,7 +190,7 @@ namespace Playnite.Common
                 throw new ArgumentException("Root directory is not set or does not exist.", "root");
             }
             this.root = root;
-            this.searchOption = option;
+            searchOption = option;
             this.pattern = String.IsNullOrEmpty(pattern)
                 ? "*"
                 : pattern;

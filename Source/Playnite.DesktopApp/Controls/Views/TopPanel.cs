@@ -123,9 +123,9 @@ namespace Playnite.DesktopApp.Controls.Views
             tooltip = tooltip.StartsWith("LOC", StringComparison.Ordinal) ? ResourceProvider.GetString(tooltip) : tooltip;
             panelItem = new TopPanelWrapperItem(new SDK.Plugins.TopPanelItem { Title = tooltip }, mainModel);
             var item = new TopPanelItem() { DataContext = panelItem };
-            item.SetResourceReference(TopPanelItem.ContentTemplateProperty, contentTemplate);
+            item.SetResourceReference(ContentControl.ContentTemplateProperty, contentTemplate);
             LeftClickContextMenuBehavior.SetEnabled(item, true);
-            menu.SetResourceReference(ContextMenu.StyleProperty, "TopPanelMenu");
+            menu.SetResourceReference(StyleProperty, "TopPanelMenu");
             item.ContextMenu = menu;
             return item;
         }
@@ -139,7 +139,7 @@ namespace Playnite.DesktopApp.Controls.Views
             };
 
             var item = new TopPanelItem() { DataContext = panelItem };
-            item.SetResourceReference(TopPanelItem.ContentTemplateProperty, contentTemplate);
+            item.SetResourceReference(ContentControl.ContentTemplateProperty, contentTemplate);
             return item;
         }
 
@@ -196,7 +196,7 @@ namespace Playnite.DesktopApp.Controls.Views
 
                 var updatesButton = AssignPanelButton("TopPanelUpdateButtonTemplate", mainModel.OpenUpdatesCommand, ResourceProvider.GetString(LOC.UpdateIsAvailableNotificationBody), out _);
                 BindingTools.SetBinding(updatesButton,
-                    Button.VisibilityProperty,
+                    VisibilityProperty,
                     mainModel,
                     nameof(mainModel.UpdatesAvailable),
                     converter: new BooleanToVisibilityConverter());
@@ -222,10 +222,10 @@ namespace Playnite.DesktopApp.Controls.Views
             {
                 LeftClickContextMenuBehavior.SetEnabled(ElemMainMenu, true);
                 ElemMainMenu.ContextMenu = new MainMenu(mainModel);
-                ElemMainMenu.ContextMenu.SetResourceReference(ContextMenu.StyleProperty, "TopPanelMenu");
+                ElemMainMenu.ContextMenu.SetResourceReference(StyleProperty, "TopPanelMenu");
 
                 BindingTools.SetBinding(ElemMainMenu,
-                    FrameworkElement.VisibilityProperty,
+                    VisibilityProperty,
                     mainModel.AppSettings,
                     nameof(PlayniteSettings.ShowMainMenuOnTopPanel),
                     converter: new BooleanToVisibilityConverter());
@@ -241,7 +241,7 @@ namespace Playnite.DesktopApp.Controls.Views
                     BindingMode.TwoWay,
                     delay: 100);
                 BindingTools.SetBinding(TextMainSearch,
-                    SearchBox.VisibilityProperty,
+                    VisibilityProperty,
                     mainModel.AppSettings,
                     nameof(PlayniteSettings.ShowTopPanelSearchBox),
                     converter: new BooleanToVisibilityConverter());
@@ -261,7 +261,7 @@ namespace Playnite.DesktopApp.Controls.Views
                     nameof(PlayniteSettings.FilterPanelVisible),
                     BindingMode.TwoWay);
                 BindingTools.SetBinding(ToggleFilter,
-                    ToggleButton.TagProperty,
+                    TagProperty,
                     mainModel.AppSettings.FilterSettings,
                     nameof(FilterSettings.IsActive));
                 ToggleFilter.MouseRightButtonUp += (_, __) => mainModel.ClearFilters();
@@ -281,15 +281,15 @@ namespace Playnite.DesktopApp.Controls.Views
             if (ProgressGlobal != null)
             {
                 BindingTools.SetBinding(ProgressGlobal,
-                    ProgressBar.MaximumProperty,
+                    RangeBase.MaximumProperty,
                     mainModel,
                     nameof(mainModel.ProgressTotal));
                 BindingTools.SetBinding(ProgressGlobal,
-                    ProgressBar.ValueProperty,
+                    RangeBase.ValueProperty,
                     mainModel,
                     nameof(mainModel.ProgressValue));
                 BindingTools.SetBinding(ProgressGlobal,
-                    ProgressBar.VisibilityProperty,
+                    VisibilityProperty,
                     mainModel,
                     nameof(mainModel.ProgressActive),
                     converter: new BooleanToVisibilityConverter());
@@ -303,7 +303,7 @@ namespace Playnite.DesktopApp.Controls.Views
                     mainModel,
                     nameof(mainModel.ProgressStatus));
                 BindingTools.SetBinding(TextProgressText,
-                    TextBlock.VisibilityProperty,
+                    VisibilityProperty,
                     mainModel,
                     nameof(mainModel.ProgressActive),
                     converter: new BooleanToVisibilityConverter());
@@ -314,7 +314,7 @@ namespace Playnite.DesktopApp.Controls.Views
             {
                 ButtonProgressCancel.Command = mainModel.CancelProgressCommand;
                 BindingTools.SetBinding(ButtonProgressCancel,
-                    ButtonBase.VisibilityProperty,
+                    VisibilityProperty,
                     mainModel,
                     nameof(mainModel.ProgressActive),
                     converter: new BooleanToVisibilityConverter());

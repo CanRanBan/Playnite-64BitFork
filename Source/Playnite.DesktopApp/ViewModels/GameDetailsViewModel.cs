@@ -305,7 +305,7 @@ namespace Playnite.DesktopApp.ViewModels
 
         public GameDetailsViewModel(GamesCollectionViewEntry game, PlayniteSettings settings)
         {
-            this.resources = new ResourceProvider();
+            resources = new ResourceProvider();
             this.settings = settings;
             Game = game;
         }

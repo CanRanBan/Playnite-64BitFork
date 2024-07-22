@@ -40,7 +40,7 @@ namespace System
 
         public static byte[] MD5Bytes(this string s)
         {
-            using (var provider = System.Security.Cryptography.MD5.Create())
+            using (var provider = Security.Cryptography.MD5.Create())
             {
                 return provider.ComputeHash(Encoding.UTF8.GetBytes(s));
             }
@@ -176,7 +176,7 @@ namespace System
 
         public static string GetSHA256Hash(this string input)
         {
-            using (var sha = System.Security.Cryptography.SHA256.Create())
+            using (var sha = Security.Cryptography.SHA256.Create())
             {
                 var hash = sha.ComputeHash(Encoding.UTF8.GetBytes(input));
                 return BitConverter.ToString(hash).Replace("-", "");

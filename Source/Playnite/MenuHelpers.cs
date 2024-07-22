@@ -32,7 +32,7 @@ namespace Playnite
                 }
                 else if (resource is BitmapImage bitmap)
                 {
-                    var image = new System.Windows.Controls.Image() { Source = bitmap };
+                    var image = new Image() { Source = bitmap };
                     RenderOptions.SetBitmapScalingMode(image, RenderOptions.GetBitmapScalingMode(bitmap));
                     return image;
                 }
