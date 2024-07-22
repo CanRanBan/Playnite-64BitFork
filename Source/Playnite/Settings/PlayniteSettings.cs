@@ -8,7 +8,6 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 using NLog.Config;
 using NLog.Targets;
 using Playnite.Common;
