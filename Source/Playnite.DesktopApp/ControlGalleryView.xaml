@@ -116,8 +116,8 @@ or when typed text reaches the edge of the text box, a new line is automatically
                                                         <GridViewColumn Header="Mail" Width="150" DisplayMemberBinding="{Binding Mail}" />
                                                     </GridView>
                                                 </ListView.View>
-                                                <ListViewItem Content="Tea"></ListViewItem>
-                                                <ListViewItem Content="Test"></ListViewItem>
+                                                <ListViewItem Content="Tea" />
+                                                <ListViewItem Content="Test" />
                                             </ListView>
                                         </Expander>
                                         <ListBox SelectedIndex="1" Margin="5" Height="100">
@@ -171,8 +171,7 @@ or when typed text reaches the edge of the text box, a new line is automatically
                                     </StackPanel>
                                 </Grid>
                             </TabItem>
-                            <TabItem Header="Test2">
-                            </TabItem>
+                            <TabItem Header="Test2" />
                         </TabControl>
                     </DockPanel>
                 </ControlTemplate>

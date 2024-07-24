@@ -6,7 +6,6 @@
         xmlns:c="clr-namespace:Playnite.Controls;assembly=Playnite"
         xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
         xmlns:pbeh="clr-namespace:Playnite.Behaviors;assembly=Playnite"
-        xmlns:psdk="clr-namespace:Playnite.SDK.Plugins;assembly=Playnite.SDK"
         xmlns:pcon="clr-namespace:Playnite.Converters;assembly=Playnite"
         xmlns:p="clr-namespace:Playnite;assembly=Playnite"
         xmlns:pwin="clr-namespace:Playnite.DesktopApp.Windows"

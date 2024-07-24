@@ -47,14 +47,12 @@
                HorizontalAlignment="{Binding ElementName=ControlRoot, Path=HorizontalAlignment}"
                VerticalAlignment="{Binding ElementName=ControlRoot, Path=VerticalAlignment}"
                RenderOptions.BitmapScalingMode="Fant" Stretch="{Binding Stretch, RelativeSource={RelativeSource AncestorType=UserControl}}"
-               OpacityMask="{Binding ImageOpacityMask, ElementName=ControlRoot}">
-        </Image>
+               OpacityMask="{Binding ImageOpacityMask, ElementName=ControlRoot}" />
         <Image x:Name="Image2"
                HorizontalAlignment="{Binding ElementName=ControlRoot, Path=HorizontalAlignment}"
                VerticalAlignment="{Binding ElementName=ControlRoot, Path=VerticalAlignment}"
                RenderOptions.BitmapScalingMode="Fant" Stretch="{Binding Stretch, RelativeSource={RelativeSource AncestorType=UserControl}}"
-               OpacityMask="{Binding ImageOpacityMask, ElementName=ControlRoot}">
-        </Image>
+               OpacityMask="{Binding ImageOpacityMask, ElementName=ControlRoot}" />
         <Border x:Name="BorderDarken" Background="{Binding ImageDarkeningBrush, ElementName=ControlRoot}" />
     </Grid>
 </UserControl>

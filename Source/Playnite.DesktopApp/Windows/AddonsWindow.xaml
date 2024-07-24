@@ -6,8 +6,6 @@
         xmlns:controls="clr-namespace:Playnite.Controls;assembly=Playnite"
         xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:prism="clr-namespace:Prism.Interactivity;assembly=Prism.Wpf"
-        xmlns:pmrk="clr-namespace:Playnite.DesktopApp.Markup"
-        xmlns:pcmd="clr-namespace:Playnite.Commands;assembly=Playnite"
         mc:Ignorable="d"
         Style="{DynamicResource StandardWindowStyle}"
         WindowStartupLocation="CenterOwner"

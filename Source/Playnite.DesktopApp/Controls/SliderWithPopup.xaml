@@ -13,6 +13,5 @@
                 Minimum="{Binding SliderMinimumValue, RelativeSource={RelativeSource AncestorType=UserControl}, Mode=OneTime}"
                 IsSnapToTickEnabled="True" DockPanel.Dock="Right" VerticalAlignment="Center"
                 HorizontalAlignment="Stretch"
-                MouseMove="Slider_MouseMove" MouseLeave="Slider_MouseLeave">
-    </ctrls:SliderEx>
+                MouseMove="Slider_MouseMove" MouseLeave="Slider_MouseLeave" />
 </UserControl>

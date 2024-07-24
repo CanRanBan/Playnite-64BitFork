@@ -4,8 +4,6 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:controls="clr-namespace:Playnite.Controls;assembly=Playnite"
-        xmlns:pctrls="clr-namespace:Playnite.DesktopApp.Controls"
-        xmlns:pmrk="clr-namespace:Playnite.DesktopApp.Markup"
         xmlns:dvm="clr-namespace:Playnite.DesktopApp.ViewModels;assembly=Playnite.DesktopApp"
         mc:Ignorable="d"
         Style="{DynamicResource StandardWindowStyle}"

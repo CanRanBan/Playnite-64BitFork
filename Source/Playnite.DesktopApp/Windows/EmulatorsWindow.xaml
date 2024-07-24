@@ -5,7 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:p="clr-namespace:Playnite;assembly=Playnite"
         xmlns:pcmd="clr-namespace:Playnite.Commands;assembly=Playnite"
-        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:controls="clr-namespace:Playnite.Controls;assembly=Playnite"
         xmlns:pctrls="clr-namespace:Playnite.DesktopApp.Controls"
         xmlns:pcon="clr-namespace:Playnite.Converters;assembly=Playnite"

@@ -5,7 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:i="clr-namespace:System.Windows.Interactivity;assembly=System.Windows.Interactivity"
         xmlns:prism="clr-namespace:Prism.Interactivity;assembly=Prism.Wpf"
-        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         xmlns:controls="clr-namespace:Playnite.Controls;assembly=Playnite"
         mc:Ignorable="d"
         d:DesignStyle="{StaticResource WindowDesignStyle}"

@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-             xmlns:pcmd="clr-namespace:Playnite.Commands;assembly=Playnite"
              xmlns:p="clr-namespace:Playnite;assembly=Playnite"
              mc:Ignorable="d"
              d:DesignHeight="500" d:DesignWidth="700">
