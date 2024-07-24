@@ -1,15 +1,17 @@
-﻿<controls:WindowBase x:Class="Playnite.DesktopApp.Windows.MetadataComparisonWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:controls="clr-namespace:Playnite.Controls;assembly=Playnite"
-        xmlns:dvm="clr-namespace:Playnite.DesktopApp.ViewModels;assembly=Playnite.DesktopApp"
-        mc:Ignorable="d"
-        Style="{DynamicResource StandardWindowStyle}"
-        Title="{DynamicResource LOCMedataDiffWindowTitle}" 
-        WindowStartupLocation="CenterOwner" ShowInTaskbar="False"
-        Height="600" Width="800">
+﻿<!-- ReSharper disable once Xaml.RedundantNamespaceAlias -->
+<controls:WindowBase x:Class="Playnite.DesktopApp.Windows.MetadataComparisonWindow"
+                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                     xmlns:controls="clr-namespace:Playnite.Controls;assembly=Playnite"
+                     xmlns:dvm="clr-namespace:Playnite.DesktopApp.ViewModels;assembly=Playnite.DesktopApp"
+                     xmlns:pmrk="clr-namespace:Playnite.DesktopApp.Markup"
+                     mc:Ignorable="d"
+                     Style="{DynamicResource StandardWindowStyle}"
+                     Title="{DynamicResource LOCMedataDiffWindowTitle}" 
+                     WindowStartupLocation="CenterOwner" ShowInTaskbar="False"
+                     Height="600" Width="800">
     
     <controls:WindowBase.Resources>
         <Style TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
