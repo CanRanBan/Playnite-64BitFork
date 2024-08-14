@@ -6,6 +6,7 @@ using AngleSharp.Html.Parser;
 using Flurl;
 using Newtonsoft.Json;
 using Playnite.Common;
+using Playnite.SDK;
 using Playnite.WebView;
 
 namespace Playnite
