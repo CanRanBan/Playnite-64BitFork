@@ -28,14 +28,6 @@ namespace Playnite
             settings.CefCommandLineArgs.Add("disable-gpu", "1");
             settings.CefCommandLineArgs.Add("disable-gpu-compositing", "1");
 
-            // This is because cookies created with Alloy runtime won't work with Chrome runtime
-            // which is default since CefSharp 126. Alloy will be completely removed from CEF 128
-            // so P10 will be likely stuck forever on 127.
-            // https://github.com/cefsharp/CefSharp/issues/4847
-            // https://github.com/chromiumembedded/cef/issues/3721
-            settings.ChromeRuntime = false;
-            CefSharpSettings.RuntimeStyle = CefRuntimeStyle.Alloy;
-
             // Use CefSharp from subfolder
             settings.BrowserSubprocessPath = Path.Combine(PlaynitePaths.ProgramPath, "Include", "CefSharp", "CefSharp.BrowserSubprocess.exe");
             settings.CachePath = PlaynitePaths.BrowserCachePath;
