@@ -75,14 +75,12 @@
                     <TreeViewItem Header="{DynamicResource LOCMetadataProviders}" Tag="1" />
                     <TreeViewItem Header="{DynamicResource LOCExtensionGeneric}" Tag="2" />
                     <TreeViewItem Header="{DynamicResource LOCAddonsThemesDesktop}" Tag="3" />
-                    <TreeViewItem Header="{DynamicResource LOCAddonsThemesFullscren}" Tag="4" />
                 </TreeViewItem>
                 <TreeViewItem Header="{DynamicResource LOCExtensionsBrowse}" IsExpanded="True">
                     <TreeViewItem Header="{DynamicResource LOCLibraries}" Tag="5" />
                     <TreeViewItem Header="{DynamicResource LOCMetadataProviders}" Tag="6" />
                     <TreeViewItem Header="{DynamicResource LOCExtensionGeneric}" Tag="7" />
                     <TreeViewItem Header="{DynamicResource LOCAddonsThemesDesktop}" Tag="8" />
-                    <TreeViewItem Header="{DynamicResource LOCAddonsThemesFullscren}" Tag="9"/>
                 </TreeViewItem>
             </TreeView>
         </Border>

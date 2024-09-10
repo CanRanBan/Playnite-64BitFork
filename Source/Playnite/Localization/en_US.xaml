@@ -934,7 +934,6 @@ Application restart is requred to finish the process. Do you want to reset setti
 
 If you want to install or uninstall additional integrations, use "Add-ons" option from main menu.</sys:String>
     <sys:String x:Key="LOCAddonsThemesDesktop">Themes Desktop</sys:String>
-    <sys:String x:Key="LOCAddonsThemesFullscren">Themes Fullscreen</sys:String>
     <sys:String x:Key="LOCAddonsSearching">Searching…</sys:String>
     <sys:String x:Key="LOCAddonErrorNotCompatible">Add-on is not compatible with this version of Playnite.</sys:String>
     <sys:String x:Key="LOCAddonErrorDownloadFailed">Failed to download add-on installation package.</sys:String>

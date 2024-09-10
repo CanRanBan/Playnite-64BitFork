@@ -3350,10 +3350,6 @@ namespace Playnite
         /// </summary>
         public const string AddonsThemesDesktop = "LOCAddonsThemesDesktop";
         /// <summary>
-        /// Themes Fullscreen
-        /// </summary>
-        public const string AddonsThemesFullscren = "LOCAddonsThemesFullscren";
-        /// <summary>
         /// Searching…
         /// </summary>
         public const string AddonsSearching = "LOCAddonsSearching";
