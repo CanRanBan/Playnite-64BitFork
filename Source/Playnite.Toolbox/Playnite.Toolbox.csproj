@@ -171,7 +171,7 @@
       <Version>2.9.1</Version>
     </PackageReference>
     <PackageReference Include="NLog">
-      <Version>5.3.3</Version>
+      <Version>5.3.4</Version>
     </PackageReference>
   </ItemGroup>
   <ItemGroup>

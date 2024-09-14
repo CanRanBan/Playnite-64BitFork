@@ -551,7 +551,7 @@
       <Version>13.0.3</Version>
     </PackageReference>
     <PackageReference Include="NLog">
-      <Version>5.3.3</Version>
+      <Version>5.3.4</Version>
     </PackageReference>
     <PackageReference Include="PhotoSauce.MagicScaler">
       <Version>0.14.2</Version>
