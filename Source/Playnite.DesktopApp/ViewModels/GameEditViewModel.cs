@@ -1112,7 +1112,8 @@ namespace Playnite.DesktopApp.ViewModels
             var newAction = new GameAction()
             {
                 Name = "New Action",
-                IsPlayAction = true
+                IsPlayAction = true,
+                WorkingDir = "{InstallDir}"
             };
 
             newAction.PropertyChanged += GameAction_PropertyChanged;
