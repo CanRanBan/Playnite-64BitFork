@@ -194,60 +194,6 @@ namespace Playnite.SDK.Data
         bool TryFromJsonFile<T>(string filePath, out T content, out Exception error) where T : class;
 
         /// <summary>
-        /// Deserialize an object from TOML string.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="toml"></param>
-        /// <returns></returns>
-        T FromToml<T>(string toml) where T : class;
-
-        /// <summary>
-        /// Tries to deserialize an object from TOML string.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="toml"></param>
-        /// <param name="content"></param>
-        /// <returns></returns>
-        bool TryFromToml<T>(string toml, out T content) where T : class;
-
-        /// <summary>
-        /// Tries to deserialize an object from TOML string.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="toml"></param>
-        /// <param name="content"></param>
-        /// <param name="error"></param>
-        /// <returns></returns>
-        bool TryFromToml<T>(string toml, out T content, out Exception error) where T : class;
-
-        /// <summary>
-        /// Deserialize an object from a file containing TOML string.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="filePath"></param>
-        /// <returns></returns>
-        T FromTomlFile<T>(string filePath) where T : class;
-
-        /// <summary>
-        /// Tries to deserialize an object from TOML file.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="filePath"></param>
-        /// <param name="content"></param>
-        /// <returns></returns>
-        bool TryFromTomlFile<T>(string filePath, out T content) where T : class;
-
-        /// <summary>
-        /// Tries to deserialize an object from TOML file.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="filePath"></param>
-        /// <param name="content"></param>
-        /// <param name="error"></param>
-        /// <returns></returns>
-        bool TryFromTomlFile<T>(string filePath, out T content, out Exception error) where T : class;
-
-        /// <summary>
         /// Creates clone of an object using json serialization.
         /// </summary>
         /// <typeparam name="T"></typeparam>
@@ -497,78 +443,6 @@ namespace Playnite.SDK.Data
         public static bool TryFromJsonFile<T>(string filePath, out T content, out Exception error) where T : class
         {
             return serializer.TryFromJsonFile<T>(filePath, out content, out error);
-        }
-
-        /// <summary>
-        /// Deserialize an object from TOML string.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="toml"></param>
-        /// <returns></returns>
-        public static T FromToml<T>(string toml) where T : class
-        {
-            return serializer.FromToml<T>(toml);
-        }
-
-        /// <summary>
-        /// Tries to deserialize an object from TOML string.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="toml"></param>
-        /// <param name="content"></param>
-        /// <returns></returns>
-        public static bool TryFromToml<T>(string toml, out T content) where T : class
-        {
-            return serializer.TryFromToml<T>(toml, out content);
-        }
-
-        /// <summary>
-        /// Tries to deserialize an object from TOML string.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="toml"></param>
-        /// <param name="content"></param>
-        /// <param name="error"></param>
-        /// <returns></returns>
-        public static bool TryFromToml<T>(string toml, out T content, out Exception error) where T : class
-        {
-            return serializer.TryFromToml<T>(toml, out content, out error);
-        }
-
-        /// <summary>
-        /// Deserialize an object from a file containing TOML string.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="filePath"></param>
-        /// <returns></returns>
-        public static T FromTomlFile<T>(string filePath) where T : class
-        {
-            return serializer.FromTomlFile<T>(filePath);
-        }
-
-        /// <summary>
-        /// Tries to deserialize an object from TOML file.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="filePath"></param>
-        /// <param name="content"></param>
-        /// <returns></returns>
-        public static bool TryFromTomlFile<T>(string filePath, out T content) where T : class
-        {
-            return serializer.TryFromTomlFile<T>(filePath, out content);
-        }
-
-        /// <summary>
-        /// Tries to deserialize an object from TOML file.
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="filePath"></param>
-        /// <param name="content"></param>
-        /// <param name="error"></param>
-        /// <returns></returns>
-        public static bool TryFromTomlFile<T>(string filePath, out T content, out Exception error) where T : class
-        {
-            return serializer.TryFromTomlFile<T>(filePath, out content, out error);
         }
 
         /// <summary>

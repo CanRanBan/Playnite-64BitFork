@@ -4,7 +4,6 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using Nett;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using Playnite.SDK;
@@ -89,16 +88,6 @@ namespace Playnite.Common
             return Serialization.FromJsonFile<T>(filePath);
         }
 
-        public T FromToml<T>(string toml) where T : class
-        {
-            return Serialization.FromToml<T>(toml);
-        }
-
-        public T FromTomlFile<T>(string filePath) where T : class
-        {
-            return Serialization.FromTomlFile<T>(filePath);
-        }
-
         public bool TryFromYaml<T>(string yaml, out T content) where T : class
         {
             return Serialization.TryFromYaml(yaml, out content);
@@ -147,26 +136,6 @@ namespace Playnite.Common
         public bool TryFromJsonFile<T>(string filePath, out T content, out Exception error) where T : class
         {
             return Serialization.TryFromJsonFile(filePath, out content, out error);
-        }
-
-        public bool TryFromToml<T>(string toml, out T content) where T : class
-        {
-            return Serialization.TryFromToml(toml, out content);
-        }
-
-        public bool TryFromToml<T>(string toml, out T content, out Exception error) where T : class
-        {
-            return Serialization.TryFromToml(toml, out content, out error);
-        }
-
-        public bool TryFromTomlFile<T>(string filePath, out T content) where T : class
-        {
-            return Serialization.TryFromTomlFile(filePath, out content);
-        }
-
-        public bool TryFromTomlFile<T>(string filePath, out T content, out Exception error) where T : class
-        {
-            return Serialization.TryFromTomlFile(filePath, out content, out error);
         }
 
         public bool AreObjectsEqual(object object1, object object2)
@@ -462,85 +431,6 @@ namespace Playnite.Common
             try
             {
                 deserialized = JsonConvert.DeserializeObject<T>(json, jsonDesSettings);
-                error = null;
-                return true;
-            }
-            catch (Exception e)
-            {
-                deserialized = null;
-                error = e;
-                return false;
-            }
-        }
-
-        public static T FromToml<T>(string toml) where T : class
-        {
-            try
-            {
-                return Toml.ReadString<T>(toml);
-            }
-            catch (Exception e)
-            {
-                logger.Error(e, $"Failed to deserialize {typeof(T).FullName} from toml:");
-                logger.Debug(toml);
-                throw;
-            }
-        }
-
-        public static bool TryFromToml<T>(string toml, out T deserialized) where T : class
-        {
-            try
-            {
-                deserialized = Toml.ReadString<T>(toml);
-                return true;
-            }
-            catch
-            {
-                deserialized = null;
-                return false;
-            }
-        }
-
-        public static bool TryFromToml<T>(string toml, out T deserialized, out Exception error) where T : class
-        {
-            try
-            {
-                deserialized = Toml.ReadString<T>(toml);
-                error = null;
-                return true;
-            }
-            catch (Exception e)
-            {
-                deserialized = null;
-                error = e;
-                return false;
-            }
-        }
-
-        public static T FromTomlFile<T>(string filePath) where T : class
-        {
-            return FromToml<T>(FileSystem.ReadStringFromFile(filePath));
-        }
-
-        public static bool TryFromTomlFile<T>(string filePath, out T deserialized) where T : class
-        {
-            try
-            {
-                deserialized = FromToml<T>(FileSystem.ReadStringFromFile(filePath));
-                return true;
-            }
-            catch
-            {
-                deserialized = null;
-                return false;
-            }
-        }
-
-        public static bool TryFromTomlFile<T>(string filePath, out T deserialized, out Exception error) where T : class
-        {
-            try
-            {
-                deserialized = FromToml<T>(FileSystem.ReadStringFromFile(filePath));
                 error = null;
                 return true;
             }
