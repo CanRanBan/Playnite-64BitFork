@@ -64,8 +64,7 @@ namespace Playnite
         {
             UserProgramDataPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Playnite");
             ProgramPath = Path.GetDirectoryName(AppDomain.CurrentDomain.BaseDirectory);
-            UninstallerPath = Path.Combine(ProgramPath, "unins000.exe");
-            IsPortable = !File.Exists(UninstallerPath);
+            IsPortable = PlayniteSettings.GetAppConfigBoolValue("PortableInstallation");
             ConfigRootPath = IsPortable ? ProgramPath : UserProgramDataPath;
             LocalizationsPath = Path.Combine(ProgramPath, LocalizationsDirName);
             DataCachePath = Path.Combine(ConfigRootPath, "Cache");
