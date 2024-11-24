@@ -22,8 +22,8 @@ namespace Playnite
         public const string ExtensionsDirName = "Extensions";
         public const string ExtensionsDataDirName = "ExtensionsData";
         public const string ThemesDirName = "Themes";
-        public const string ConfigFileName = "config.json";
-        public const string WindowPositionsFileName = "windowPositions.json";
+        public const string ConfigFileName = "Config.json";
+        public const string WindowPositionsFileName = "WindowPositions.json";
         public const string LocalizationsDirName = "Localization";
 
         public static string UserProgramDataPath { get; }
@@ -94,7 +94,7 @@ namespace Playnite
             JitProfilesPath = Path.Combine(ConfigRootPath, "JITProfiles");
             EmulationDatabasePath = Path.Combine(ProgramPath, "Emulation", "Database");
             SafeStartupFlagFile = Path.Combine(ConfigRootPath, "safestart.flag");
-            BackupActionFile = Path.Combine(ConfigRootPath, "backup.json");
+            BackupActionFile = Path.Combine(ConfigRootPath, "Backup.json");
             RestoreBackupActionFile = Path.Combine(ConfigRootPath, "restoreBackup.json");
         }
 
