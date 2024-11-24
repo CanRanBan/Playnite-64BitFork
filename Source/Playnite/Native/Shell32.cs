@@ -26,8 +26,8 @@ namespace Playnite.Native
         */
         [DllImport(Shell32Dll)]
         private static extern int SHGetKnownFolderPath(
-            [MarshalAs(UnmanagedType.LPStruct)] [In]
-            Guid rfid,
+            [MarshalAs(UnmanagedType.LPStruct)]
+            [In] Guid rfid,
             [In] uint dwFlags,
             [In, Optional] IntPtr hToken,
             [Out] out IntPtr pszPath
