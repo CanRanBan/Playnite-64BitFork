@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using Playnite.Common;
+using Playnite.Native;
 using Playnite.SDK;
 
 namespace Playnite
@@ -62,7 +63,7 @@ namespace Playnite
 
         static PlaynitePaths()
         {
-            UserProgramDataPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Playnite");
+            UserProgramDataPath = Path.Combine(Shell32.GetKnownFolderPathForSavedGames(), "Playnite");
             ProgramPath = Path.GetDirectoryName(AppDomain.CurrentDomain.BaseDirectory);
             IsPortable = PlayniteSettings.GetAppConfigBoolValue("PortableInstallation");
             ConfigRootPath = IsPortable ? ProgramPath : UserProgramDataPath;
