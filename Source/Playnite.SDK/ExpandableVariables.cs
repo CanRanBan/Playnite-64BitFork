@@ -69,5 +69,10 @@
         /// Gets directory path of parent emulator object.
         /// </summary>
         public const string EmulatorDirectory = "{EmulatorDir}";
+
+        /// <summary>
+        /// Gets variable for saved games path.
+        /// </summary>
+        public const string SavedGames = "{SavedGames}";
     }
 }

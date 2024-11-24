@@ -26,6 +26,7 @@ namespace Playnite
         public const string WindowPositionsFileName = "WindowPositions.json";
         public const string LocalizationsDirName = "Localization";
 
+        public static string SavedGamesPath { get; }
         public static string UserProgramDataPath { get; }
         public static string ProgramPath { get; }
         public static string ConfigRootPath { get; }
@@ -63,7 +64,8 @@ namespace Playnite
 
         static PlaynitePaths()
         {
-            UserProgramDataPath = Path.Combine(Shell32.GetKnownFolderPathForSavedGames(), "Playnite");
+            SavedGamesPath = Shell32.GetKnownFolderPathForSavedGames();
+            UserProgramDataPath = Path.Combine(SavedGamesPath, "Playnite");
             ProgramPath = Path.GetDirectoryName(AppDomain.CurrentDomain.BaseDirectory);
             IsPortable = PlayniteSettings.GetAppConfigBoolValue("PortableInstallation");
             ConfigRootPath = IsPortable ? ProgramPath : UserProgramDataPath;

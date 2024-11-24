@@ -477,6 +477,10 @@ namespace Playnite.Database
             {
                 return path?.Replace(ExpandableVariables.PlayniteDirectory, PlaynitePaths.ProgramPath);
             }
+            else if (path.Contains(ExpandableVariables.SavedGames, StringComparison.OrdinalIgnoreCase))
+            {
+                return path?.Replace(ExpandableVariables.SavedGames, PlaynitePaths.SavedGamesPath);
+            }
             else if (path.Contains("%AppData%", StringComparison.OrdinalIgnoreCase))
             {
                 return path?.Replace("%AppData%", Environment.ExpandEnvironmentVariables("%AppData%"), StringComparison.OrdinalIgnoreCase);
