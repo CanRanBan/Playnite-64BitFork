@@ -44,7 +44,6 @@ namespace Playnite
         public static string LocalizationsStatusPath { get; }
         public static string ThemesProgramPath { get; }
         public static string ThemesUserDataPath { get; }
-        public static string UninstallerPath { get; }
         public static string BrowserCachePath { get; }
         public static string TempPath { get; }
         public static string LogPath { get; }
