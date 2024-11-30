@@ -156,6 +156,7 @@ namespace Playnite.DesktopApp
                         MenuActivation = PopupActivationMode.LeftOrRightClick,
                         DoubleClickCommand = MainModel.ShowWindowCommand,
                         Icon = GetTrayIcon(),
+                        ToolTipText = "Playnite",
                         Visibility = Visibility.Visible,
                         ContextMenu = new TrayContextMenu(MainModel)
                     };
