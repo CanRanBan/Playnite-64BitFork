@@ -1234,7 +1234,7 @@
     <Error Condition="$(ErrorCode) > 7" Text="RoboCopy failed during %22Merge Libraries%22 operation of $(ProjectName) project." />
   </Target>
   <Target Name="PostBuildUpgrade" AfterTargets="PostBuildMergeLibraries" Condition="('$(Configuration)' == 'ReleaseUpgrade') AND ('$(RoboCopy_Logs_Dir)' != '') AND ('$(Playnite_Dir)' != '')">
-    <Exec IgnoreExitCode="true" Command="robocopy %22$(TargetDir.TrimEnd('\'))%22 %22$(Playnite_Dir)%22 /mir /copy:DAT /dcopy:DAT /xd %22$(Playnite_Dir)\Emulation\Database%22 %22$(Playnite_Dir)\Extensions%22 %22$(Playnite_Dir)\Templates%22 /xf %22*.log%22 %22Toolbox.*%22 %22Windows.winmd%22 /unilog:%22$(RoboCopy_Logs_Dir)\RoboCopy - Log - Release Upgrade - $(ProjectName).txt%22">
+    <Exec IgnoreExitCode="true" Command="robocopy %22$(TargetDir.TrimEnd('\'))%22 %22$(Playnite_Dir)%22 /mir /copy:DAT /dcopy:DAT /xd %22$(Playnite_Dir)\Emulation\Database%22 %22$(Playnite_Dir)\Extensions%22 %22$(Playnite_Dir)\Templates%22 /xf %22*.log%22 %22Toolbox.*%22 /unilog:%22$(RoboCopy_Logs_Dir)\RoboCopy - Log - Release Upgrade - $(ProjectName).txt%22">
       <Output TaskParameter="ExitCode" PropertyName="ErrorCode" />
     </Exec>
     <Error Condition="$(ErrorCode) > 7" Text="RoboCopy failed during %22Release Upgrade%22 operation of $(ProjectName) project." />
